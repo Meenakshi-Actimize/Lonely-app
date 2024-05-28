@@ -10,13 +10,24 @@ import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
 import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder';
-import { Grid } from '@mui/material';
+import { Avatar, Grid } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
+import { signOut } from '@firebase/auth';
+import { auth } from '../Firebase';
 
 const pages = ['Destinations', 'Planning', 'Inspiration', 'Shop'];
 
 function Navbarcomp() {
     const [anchorElNav, setAnchorElNav] = React.useState(null);
     const [anchorElUser, setAnchorElUser] = React.useState(null);
+    const navigate = useNavigate();
+    const profile =  localStorage.getItem('photo');
+    // const profilefb = localStorage.getItem('photofb')
+    // console.log('fb photo', profilefb);
+    const token = localStorage.getItem('accessToken')
+    // const token = localStorage.getItem('accessToken', token);
+    // console.log('hi token', token);
+
 
     const handleOpenNavMenu = (event) => {
         setAnchorElNav(event.currentTarget);
@@ -33,6 +44,17 @@ function Navbarcomp() {
         setAnchorElUser(null);
     };
 
+    const handleLogOut = () => {
+        signOut(auth).then(() => {
+            localStorage.clear();
+            navigate('/flash');
+            token = '';
+            console.log("no token", token);
+        }).catch((error) => {
+            console.log('error')
+        });
+    }
+
     return (
         <Grid container columns={12} sx={{ display: 'flex', containerType: 'inline-size', justifyContent: 'space-between', alignItems: 'center' }}>
 
@@ -41,7 +63,7 @@ function Navbarcomp() {
                     <Toolbar disableGutters>
 
                         <Grid item xs={2} sx={{ display: 'flex' }}>
-                            <img src="./images/lonely-planet9056.logowik.com.jpg" alt="" width="120%" />
+                            <img  src="./images/lonely-planet9056.logowik.com.jpg" alt="" width="120%" />
                         </Grid>
                         <Grid item xs={7} sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
                             <IconButton
@@ -105,17 +127,29 @@ function Navbarcomp() {
                             <Typography sx={{ display: { xs: 'none', md: 'block' } }}>Search</Typography>
                             <BookmarkBorderIcon />
                             <Typography sx={{ display: { xs: 'none', md: 'block' } }}>Saves</Typography>
-                            <Button
-                                variant="contained"
-                                sx={{
-                                    textTransform: 'none',
-                                    backgroundColor: "#0057D9",
-                                    color: 'white',
-                                    borderRadius: '16px',
-                                }}
-                            >
-                                Sign in
-                            </Button>
+                            {token ? (
+                                <>
+                                 {profile === null ? (
+                                    <img src="https://www.computerhope.com/jargon/g/guest-user.png" alt="User Profile" width="5%"/>
+                                        ) :( <Avatar src={profile} />
+                                        )}
+                                {/* <Avatar src={profile} /> */}
+                                <Button onClick={handleLogOut} sx={{ textTransform: 'none' }}>
+                                 Logout
+                             </Button>
+                                </>
+                                 
+                            ) : (
+                                <>
+                                <Button onClick={() => navigate('/signup')}sx={{textTransform: 'none', backgroundColor: "#0057D9",color: 'white', '&:hover': {
+                                backgroundColor: '#004bb5'},
+                                         borderRadius: '16px',
+                                     }}
+                                 >
+                                     Sign in
+                                 </Button>
+                                </>
+                            )}
                         </Grid>
 
 

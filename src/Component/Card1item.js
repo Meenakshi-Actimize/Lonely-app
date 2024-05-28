@@ -9,62 +9,28 @@ import Sheet from '@mui/joy/Sheet';
 import { Grid, Link, Chip } from '@mui/material';
 
 
+
+
+
+
 function Card1item() {
-    const images = [{img: 'https://lp-cms-production.imgix.net/2024-04/GettyImages-1131907103-cropped.jpg?auto=format&w=140&h=140&fit=crop&q=75', title:'ART', subtitle:'10 times literary bars around the world', date:'Apr 23, 2024  &#x2022; 6 min read', des:'From Paris to Buenos Aires, you&lsquo; ll want to settle in and raise a glass at these famous literary bars, notebook at the ready.'}, {img: 'https://lp-cms-production.imgix.net/2024-04/IMG8707-2.jpeg?auto=format&w=140&h=140&fit=crop&q=75', title:'SOLO TRAVEL', subtitle:'10 times literary bars around the world', date:'Apr 23, 2024  &#x2022; 6 min read', des:'From Paris to Buenos Aires, you&lsquo; ll want to settle in and raise a glass at these famous literary bars, notebook at the ready.'}]
     return (
         <>
+            <Grid sx={{ marginTop: '80px' }}>
+                <Typography sx={{ textAlign: 'left', marginLeft: '35px', fontSize: '12px', color: 'gray' }}>
+                    <strong>PLAN YOUR TRIP</strong>
+                </Typography>
+            </Grid>
+
             <Grid>
-                
+                <Box>
+                <Typography sx={{ textAlign: 'left', marginLeft: '35px', fontSize: '45px', color: 'black' }}>
+                    <strong>Where to next?</strong>
+                    <Button  variant='filled' sx={{border:'1px solid gray',borderRadius:'16px', margin:'20px 35px', float:{xs:'center',sm:'right',md:'right',lg:'right'}}}>View all descriptions</Button>
+
+                </Typography>
+                </Box>
             </Grid>
-            <Grid item xs={3} sx={{ marginTop: '80px' , paddingLeft:'50px',}}>
-                    {images.map((item) => (
-                        <>
-                        <Card
-                    variant="outlined"
-                    orientation="horizontal"
-                    sx={{
-                        width: '55%',
-                        height:'140px',
-                        marginTop:'40px',
-                        
-                        
-                        '&:hover': { boxShadow: 'md', borderColor: 'neutral.outlinedHoverBorder' },
-                    }}
-                >
-                          <img
-                          src={item.img}
-                        
-                          loading="lazy"
-                          alt=""
-                          width="137px" style={{borderRadius:'10px', height:'137px'}}
-                      />
-                  <CardContent>
-                      <Typography sx={{textAlign:'start', color:'gray', fontSize:'12px'}}>
-                          <strong>{item.title}</strong>
-                      </Typography>
-                      <Typography sx={{textAlign:'start', color:'black'}}>
-                          <strong>{item.subtitle}</strong>
-                      </Typography>
-                      <Typography sx={{textAlign:'start', color:'gray'}}>
-                          {item.date}
-                      </Typography>
-                      <Typography sx={{textAlign:'start', color:'gray'}}>
-                           {item.des}
-                      </Typography>
-                         
-                     
-                  </CardContent>
-                  </Card>
-                  </>
-
-                    ))}
-                      
-
-
-            </Grid>
-            {/* <Grid item xs={3}>
-                Hi
-            </Grid> */}
         </>
     );
 }

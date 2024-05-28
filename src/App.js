@@ -1,21 +1,60 @@
 import logo from './logo.svg';
 import './App.css';
-import Alertbox from './Component/Alertbox';
-import Navbarcomp from './Component/Navbarcomp';
-import Carouselcomp from './Component/Carouselcomp';
-import Card1item from './Component/Card1item';
-import Card2items from './Component/Card2items';
+import Flash from './pages/Flash';
+import Signup from './pages/Signup';
+import Home from './pages/Home';
+import { BrowserRouter as Router, Route, Switch, Routes, BrowserRouter } from 'react-router-dom';
+import Dummy from './Component/Dummy';
 
-function App() {
-  return (
-    <div className="App">
-     <Alertbox />
-     <Navbarcomp />
-     <Carouselcomp />
-     <Card1item />
-     <Card2items />
-    </div>
-  );
+
+
+
+
+// function App() {
+//   return (
+
+// //       <BrowserRouter>
+// //         <div className="App">
+// //           <Routes>
+// //         <Route path='/' element={<Home/>} />
+// //         <Route path='/signup' element={<Signup />} />
+// //         </Routes>
+// //         </div>
+
+// //         </BrowserRouter>
+      
+// //   );
+// // }
+
+
+//   )}
+
+// const App = () => {
+//   return(
+//     <>
+//     <Routes>
+//       <Route path='/' element={<Flash />} />
+//       <Route path='/home' element={<Home />} />
+//       <Route path='/signup' element={<Signup />} />
+//     </Routes>
+//     </>
+//   )
+// }
+
+
+
+const App = () =>{
+  return(
+    <>
+      <Routes>
+        <Route path='/flash' element={<Flash />}  />
+        <Route path='/signup' element={<Signup />}  />
+        <Route path='/home' element={<Home />}  />
+
+
+      </Routes>    
+    </>
+  )
 }
 
 export default App;

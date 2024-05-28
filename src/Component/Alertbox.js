@@ -30,7 +30,7 @@ function Alertbox() {
 
                     </IconButton>
 
-                        <Typography sx={{fontSize:'14px', color:'#bdbdbd', justifyContent: 'center', alignItems:'center', paddingTop:'13px'}}>
+                        <Typography sx={{fontSize:'14px', color:'#bdbdbd', textAlign:'center', paddingTop:'13px'}}>
                             <i>Best in Travel is here! <u style={{color:'white'}}>Discover 2024’s destinations</u></i>
                         </Typography>
                     </Grid>
