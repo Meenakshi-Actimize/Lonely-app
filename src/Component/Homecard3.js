@@ -11,15 +11,40 @@ import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import { Pagination, Navigation } from 'swiper/modules';
 import HomeIcon from '@mui/icons-material/Home'; // Import the home icon from MUI icons
+import { Gethomecards2 } from '../redux/api/api';
+import { Gethomecard2act } from '../redux/action/Action4';
+import { useState, useEffect } from 'react';
+import { connect } from 'react-redux'
 
-function Homecard3() {
-    const images = [
-        { img: 'https://lp-cms-production.imgix.net/2019-06/7bd629aa8cc9966caeaa668194731e88-lpl-pura_taman_saraswati_1.jpg?auto=format&fit=crop&ar=1:1&q=75', title: 'Pura Taman Saraswati', subtitle: 'UBUD', des: 'Waters from the temple at the rear of this site feed the pond in the front, which overflows with pretty lotus blossoms…', showIcon: false, showIcon2: false },
-        { img: 'https://lonelyplanetstatic.imgix.net/marketing/placeholders/placeholder-shopping.jpg?auto=format&fit=crop&ar=1:1&q=75&w=640', title: 'Ubud Market', subtitle: 'UBUD', des: 'The large Ubud Market is your one-stop shop for kitschy souvenirs, clothing and presents for back home. Its inside a large…', showIcon: true, showIcon2: false },
-        { img: 'https://lp-cms-production.imgix.net/2019-06/fdbafc5f268ee0991ec4b9d415cd3582-lpl-pura_gunung_lebah_1.jpg?auto=format&fit=crop&ar=1:1&q=75&w=640', title: 'Pura Gunung Lebah', subtitle: 'UBUD', des: 'This old temple, which sits on a jutting rock at the confluence of two tributaries of Sungai Cerik (campuan means two…', showIcon: false, showIcon2: false },
-        { img: 'https://lp-cms-production.imgix.net/2019-06/dddcb82a3f9096504274908218e5c350-petulu.jpg?auto=format&fit=crop&ar=1:1&q=75&w=640', title: 'Petulu', subtitle: 'UBUD', des: 'Every evening beginning after 5pm, up to 20,000 big herons fly in to Petulu, a village about 2.5km north of Jl Raya…', showIcon: false, showIcon2: false },
-        { img: 'https://lonelyplanetstatic.imgix.net/marketing/placeholders/placeholder-restaurants.jpg?auto=format&fit=crop&ar=1:1&q=75&w=640', title: 'Pasar Sindhu Night Market', subtitle: 'SANUR', des: 'This market sells fresh vegetables, dried fish, pungent spices, various household goods and many tempting Balinese…', showIcon: false, showIcon2: true }
-    ];
+
+
+
+function Homecard3({data, Gethomecard2act}) {
+    const [hoveredCard, setHoveredCard] = useState(null);
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+              // Call the async function to fetch data
+              const getcard2data = await Gethomecards2();
+              // Dispatch the fetched data using GetCardData
+              Gethomecard2act(getcard2data);
+              console.log('Hi got homecard data', getcard2data);
+            } catch (error) {
+              console.error('Error fetching data:', error);
+            }
+          };
+      
+          // Call the async function
+          fetchData();
+        }, []);
+    
+    // const images = [
+    //     { img: 'https://lp-cms-production.imgix.net/2019-06/7bd629aa8cc9966caeaa668194731e88-lpl-pura_taman_saraswati_1.jpg?auto=format&fit=crop&ar=1:1&q=75', title: 'Pura Taman Saraswati', subtitle: 'UBUD', des: 'Waters from the temple at the rear of this site feed the pond in the front, which overflows with pretty lotus blossoms…', showIcon: false, showIcon2: false },
+    //     { img: 'https://lonelyplanetstatic.imgix.net/marketing/placeholders/placeholder-shopping.jpg?auto=format&fit=crop&ar=1:1&q=75&w=640', title: 'Ubud Market', subtitle: 'UBUD', des: 'The large Ubud Market is your one-stop shop for kitschy souvenirs, clothing and presents for back home. Its inside a large…', showIcon: true, showIcon2: false },
+    //     { img: 'https://lp-cms-production.imgix.net/2019-06/fdbafc5f268ee0991ec4b9d415cd3582-lpl-pura_gunung_lebah_1.jpg?auto=format&fit=crop&ar=1:1&q=75&w=640', title: 'Pura Gunung Lebah', subtitle: 'UBUD', des: 'This old temple, which sits on a jutting rock at the confluence of two tributaries of Sungai Cerik (campuan means two…', showIcon: false, showIcon2: false },
+    //     { img: 'https://lp-cms-production.imgix.net/2019-06/dddcb82a3f9096504274908218e5c350-petulu.jpg?auto=format&fit=crop&ar=1:1&q=75&w=640', title: 'Petulu', subtitle: 'UBUD', des: 'Every evening beginning after 5pm, up to 20,000 big herons fly in to Petulu, a village about 2.5km north of Jl Raya…', showIcon: false, showIcon2: false },
+    //     { img: 'https://lonelyplanetstatic.imgix.net/marketing/placeholders/placeholder-restaurants.jpg?auto=format&fit=crop&ar=1:1&q=75&w=640', title: 'Pasar Sindhu Night Market', subtitle: 'SANUR', des: 'This market sells fresh vegetables, dried fish, pungent spices, various household goods and many tempting Balinese…', showIcon: false, showIcon2: true }
+    // ];
     const swiperRef = React.useRef(null);
 
     const goNext = () => {
@@ -72,11 +97,11 @@ function Homecard3() {
                     <Container maxWidth="xl">
                         <Grid container>
 
-                        {images.map((image) => (
-                            <SwiperSlide key={image.title}>
+                        {data && data.map((homecard2, index) => (
+                            <SwiperSlide key={homecard2.title}>
                                 <Box position="relative">
-                                    <img src={image.img} alt={image.title} style={{ width: '100%', height: '300px', borderRadius:'16px' }} />
-                                    {image.showIcon && (
+                                    <img src={homecard2.img} alt={homecard2.title} style={{ width: '100%', height: '300px', borderRadius:'16px' }} />
+                                    {homecard2.showIcon && (
                                         <Box
                                             sx={{
                                                 position: 'absolute',
@@ -107,7 +132,7 @@ function Homecard3() {
                                     >
                                         <BookmarkBorderIcon sx={{ fontSize: 20 }} />
                                     </Box>
-                                    {image.showIcon2 && (
+                                    {homecard2.showIcon2 && (
                                         <Box
                                             sx={{
                                                 position: 'absolute',
@@ -123,13 +148,13 @@ function Homecard3() {
                                     )}
 
                                     <Typography sx={{ textAlign: 'left', marginLeft: '36px', fontSize: '23px' }}>
-                                        <strong>{image.title}</strong>
+                                        <strong>{homecard2.title}</strong>
                                     </Typography>
                                     <Typography sx={{ textAlign: 'left', margin: '10px 36px', fontSize: '14px', fontWeight: 500 }}>
-                                        {image.subtitle}
+                                        {homecard2.subtitle}
                                     </Typography>
                                     <Typography sx={{ textAlign: 'left', marginLeft: '36px' }}>
-                                        {image.des}
+                                        {homecard2.des}
                                     </Typography>
                                 </Box>
 
@@ -154,4 +179,14 @@ function Homecard3() {
     );
 }
 
-export default Homecard3;
+const mapStateToProps = (state) => {
+    console.log('State data:', state.reducer4.data); // Add this console.log statement
+    return {
+        data: state.reducer4.data,
+    };
+};
+
+
+const mapDispatchToProps = {Gethomecard2act}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Homecard3);

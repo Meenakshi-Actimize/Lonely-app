@@ -5,6 +5,7 @@ import Signup from './pages/Signup';
 import Home from './pages/Home';
 import { BrowserRouter as Router, Route, Switch, Routes, BrowserRouter } from 'react-router-dom';
 import Dummy from './Component/Dummy';
+import Planning from './pages/Planning';
 
 
 
@@ -50,6 +51,7 @@ const App = () =>{
         <Route path='/flash' element={<Flash />}  />
         <Route path='/signup' element={<Signup />}  />
         <Route path='/home' element={<Home />}  />
+        <Route path='/planning' element={<Planning />} />
 
 
       </Routes>    

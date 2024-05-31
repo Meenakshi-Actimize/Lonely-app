@@ -34,7 +34,7 @@ function Homecard4(){
         <Button sx={{ borderRadius: '22px', border: '1px solid #D3D3D3', textTransform: 'none', color: 'black', width:{lg:'8%', md:'12%', sm:'15%', xs:'40%'} }}>
           <strong>View more</strong>
         </Button>
-      </Box>
+        </Box>
 
     </Grid>
 

@@ -11,7 +11,7 @@ function Card3items() {
     return (
         <>
             <Grid sx={{ backgroundColor: '#0057D9' }}>
-                <Grid sx={{textAlign:'center'}}>
+                <Grid sx={{textAlign:'center '}}>
                     <Typography variant="h3" sx={{ textAlign: 'left', color: 'white', fontWeight: '500' }}><strong>#lonelyplanet</strong></Typography>
                     <Typography sx={{ textAlign: 'right', color: 'white' }}><strong>FOLLOW LONELY PLANET:
                         <FacebookRoundedIcon />

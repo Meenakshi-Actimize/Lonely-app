@@ -9,18 +9,40 @@ import 'swiper/css/navigation';
 import { Pagination, Navigation } from 'swiper/modules';
 import ArrowBackIosNewRoundedIcon from '@mui/icons-material/ArrowBackIosNewRounded';
 import ArrowForwardIosRoundedIcon from '@mui/icons-material/ArrowForwardIosRounded';
+import { useState, useEffect } from 'react';
+import {connect} from 'react-redux';
+import { Gethomecard4act } from '../redux/action/Action6';
+import { Gethomecards4 } from '../redux/api/api';
 
-function Homecardswiper2() {
-    const images = [
-        { img: 'https://lp-cms-production.imgix.net/2019-06/e9ac919055b124c2c1d7e657a26fa7e6-kuta-beach.jpg', title: 'Kuta & Southwest Beaches', showIcon:false}, 
-        { img: 'https://lp-cms-production.imgix.net/2019-06/5775bb6de2bc380fe037f943b092ac14ec339950ddcea45488a9c50c9dc2d182.jpg', title: 'South Bali & the Islands', showIcon:false}, 
-        { img: 'https://lp-cms-production.imgix.net/2019-06/d17e2f08a5c5c438d1b92080d9021b799cee122a102bce1edd87bf110ec6c061.jpg', title: 'Ubud Region', showIcon:false }, 
-        { img: 'https://lp-cms-production.imgix.net/2023-02/shutterstockRF_755737138.jpg', title: 'Ubud', showIcon:false}, 
-        { img: 'https://lonelyplanetstatic.imgix.net/marketing/placeholders/placeholder-destination.jpg', title: 'East Bali', showIcon:true }, 
-        { img: 'https://lp-cms-production.imgix.net/2022-03/iStock-1337343641%20RFC.jpg', title: 'North Bali' ,showIcon:false},
-        { img: 'https://lp-cms-production.imgix.net/2019-06/4ef6922e5b33070362868d21c0dee04b5184006a3b1ff4c1f0c321936205aa71.jpg', title: 'Central Mountains', showIcon:false }, 
-        { img: 'https://lp-cms-production.imgix.net/2019-06/6860faa7c76b29cff3563d3dcff8f9af-pura-tanah-lot.jpg', title: 'West Bali' , showIcon:false}
-    ];
+function Homecardswiper2({data, Gethomecard4act}) {
+    const [hoveredCard, setHoveredCard] = useState(null);
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+              // Call the async function to fetch data
+              const getcard4data = await Gethomecards4();
+              // Dispatch the fetched data using GetCardData
+              Gethomecard4act(getcard4data);
+              console.log('Hi got homecard4 data', getcard4data);
+            } catch (error) {
+              console.error('Error fetching data:', error);
+            }
+          };
+      
+          // Call the async function
+          fetchData();
+        }, []);
+
+    // const images = [
+    //     { img: 'https://lp-cms-production.imgix.net/2019-06/e9ac919055b124c2c1d7e657a26fa7e6-kuta-beach.jpg', title: 'Kuta & Southwest Beaches', showIcon:false}, 
+    //     { img: 'https://lp-cms-production.imgix.net/2019-06/5775bb6de2bc380fe037f943b092ac14ec339950ddcea45488a9c50c9dc2d182.jpg', title: 'South Bali & the Islands', showIcon:false}, 
+    //     { img: 'https://lp-cms-production.imgix.net/2019-06/d17e2f08a5c5c438d1b92080d9021b799cee122a102bce1edd87bf110ec6c061.jpg', title: 'Ubud Region', showIcon:false }, 
+    //     { img: 'https://lp-cms-production.imgix.net/2023-02/shutterstockRF_755737138.jpg', title: 'Ubud', showIcon:false}, 
+    //     { img: 'https://lonelyplanetstatic.imgix.net/marketing/placeholders/placeholder-destination.jpg', title: 'East Bali', showIcon:true }, 
+    //     { img: 'https://lp-cms-production.imgix.net/2022-03/iStock-1337343641%20RFC.jpg', title: 'North Bali' ,showIcon:false},
+    //     { img: 'https://lp-cms-production.imgix.net/2019-06/4ef6922e5b33070362868d21c0dee04b5184006a3b1ff4c1f0c321936205aa71.jpg', title: 'Central Mountains', showIcon:false }, 
+    //     { img: 'https://lp-cms-production.imgix.net/2019-06/6860faa7c76b29cff3563d3dcff8f9af-pura-tanah-lot.jpg', title: 'West Bali' , showIcon:false}
+    // ];
 
     const swiperRef = React.useRef(null);
 
@@ -83,11 +105,11 @@ function Homecardswiper2() {
                         }}
                         ref={swiperRef}
                     >
-                        {images.map((image, index) => (
+                        {data && data.map((homecard5, index) => (
                             <SwiperSlide key={index}>
                                 <Box>
-                                    <img src={image.img} alt="1" style={{ width: '95%', height: '350px', borderRadius: '16px' }} />
-                                    {image.showIcon && (
+                                    <img src={homecard5.img} alt="1" style={{ width: '95%', height: '350px', borderRadius: '16px' }} />
+                                    {homecard5.showIcon && (
                                         <Box
                                             sx={{
                                                 position: 'absolute',
@@ -102,7 +124,7 @@ function Homecardswiper2() {
                                         </Box>
                                     )}
                                     <Typography sx={{ textAlign: 'start', fontSize: '23px' }}>
-                                        <strong>{image.title}</strong>
+                                        <strong>{homecard5.title}</strong>
                                     </Typography>
                                 </Box>
                             </SwiperSlide>
@@ -122,4 +144,14 @@ function Homecardswiper2() {
     );
 }
 
-export default Homecardswiper2;
+const mapStateToProps = (state) => {
+    console.log('State data:', state.reducer6.data); // Add this console.log statement
+    return {
+        data: state.reducer6.data,
+    };
+};
+
+
+const mapDispatchToProps = {Gethomecard4act}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Homecardswiper2);

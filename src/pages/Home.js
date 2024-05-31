@@ -28,7 +28,7 @@ function Home(){
         <Homebanner2 />
         <Homecardswiper2 />
         <Homebanner3 />
-        <Footercomp sx={{border:'1px solid gray'}}/>
+        <Footercomp />
         <Lastcomp />
         </>
        

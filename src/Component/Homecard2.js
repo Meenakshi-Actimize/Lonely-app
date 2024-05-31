@@ -16,7 +16,8 @@ function Homecard2() {
 
                         </Typography>
                         <Typography sx={{ marginLeft: '25px' }}>
-                            Curated by  <span style={{ color: '#0057D9' }}><strong>Mark Eveleigh</strong></span>
+                            Curated by  <span style={{ color: '#0057D9' }}><strong>Mark Eveleigh</strong>
+                            </span>
 
                         </Typography>
                     </Grid>
