@@ -10,7 +10,7 @@ function Planningcard2() {
         <>
             <Container maxWidth="xl">
                 <Grid container sx={{ justifyContent: 'center', alignItems: 'center' }}>
-                    <Grid xs={11.5} sx={{ justifyContent: 'center', alignItems: 'center', backgroundColor: '#F5F0FF', borderRadius: '16px', height: '750px',  marginBottom:'250px' }}>
+                    <Grid xs={11.5} sx={{ justifyContent: 'center', alignItems: 'center', backgroundColor: '#F5F0FF', borderRadius: '16px', height: '750px',  marginBottom:'70px' }}>
                         <Typography sx={{ fontSize: '30px', textAlign: 'center', marginTop: '80px', fontWeight: 'bold' }}>How it works</Typography>
                         <Grid sx={{ marginTop: '25px', display: 'flex', justifyContent: 'center', alignItems: 'center', }}>
                             <Typography sx={{ paddingLeft: '20px' }}><Button sx={{ border: '3px solid #8C46F4', borderRadius: '20px', width: '140px', textTransform: 'none', fontFamily: 'Geomanist web font', color: 'black' }}>Process</Button></Typography>

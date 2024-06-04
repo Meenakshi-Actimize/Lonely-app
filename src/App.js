@@ -6,6 +6,7 @@ import Home from './pages/Home';
 import { BrowserRouter as Router, Route, Switch, Routes, BrowserRouter } from 'react-router-dom';
 import Dummy from './Component/Dummy';
 import Planning from './pages/Planning';
+import FoodandDrink from './pages/FoodandDrink';
 
 
 
@@ -52,6 +53,7 @@ const App = () =>{
         <Route path='/signup' element={<Signup />}  />
         <Route path='/home' element={<Home />}  />
         <Route path='/planning' element={<Planning />} />
+        <Route path='/foodanddrink' element={<FoodandDrink />} />
 
 
       </Routes>    
