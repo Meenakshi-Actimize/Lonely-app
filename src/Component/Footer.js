@@ -23,13 +23,13 @@ function Footercomp() {
                         <Typography variant="h4" sx={{ textAlign: { lg: 'start', md: 'start', sm: 'center', xs: 'center' }, color: '#0057D9'}}><strong>lonely planet</strong></Typography>
                         <Typography sx={{ textAlign: { lg: 'start', md: 'start', sm: 'center', xs: 'center' }, paddingBottom: '20px' }}>For Explorers Everywhere</Typography>
                         <Typography sx={{ textAlign: { lg: 'start', md: 'start', sm: 'center', xs: 'center' }, fontSize: '14px', fontWeight: '500' }}><strong>FOLLOW US</strong></Typography>
-                        <Typography sx={{  textAlign: { lg: 'start', md: 'start', sm: 'center', xs: 'center' },paddingBottom: '20px' }}>
+                        <Grid spacing={2}  sx={{  textAlign: { lg: 'start', md: 'start', sm: 'center', xs: 'center' },paddingBottom: '20px' }}>
                             <FacebookRoundedIcon sx={{ borderRadius: '50%', bgcolor: '#0057D9', color: 'white', width: '36px', height: '36px', fontSize: '12px', marginLeft:'5px' }} />
                             <InstagramIcon sx={{ borderRadius: '50%', bgcolor: '#F00073', color: 'white', width: '36px', height: '36px', fontSize: '12px' }} />
                             <XIcon sx={{ borderRadius: '50%', bgcolor: 'black', color: 'white', width: '36px', height: '36px', fontSize: '12px' }} />
                             <YouTubeIcon sx={{ borderRadius: '50%', bgcolor: '#FF0000', color: 'white', width: '36px', height: '36px', fontSize: '12px' }} />
                             <PinterestIcon sx={{ borderRadius: '50%', bgcolor: '#E60023', color: 'white', width: '36px', height: '36px', fontSize: '12px' }} />
-                        </Typography>
+                        </Grid>
                         <Typography sx={{ textAlign: { lg: 'start', md: 'start', sm: 'center', xs: 'center' }, fontSize: '14px', fontWeight: '500', paddingBottom: '10px' }}><strong>BECOME A MEMBER</strong></Typography>
 
                         <Typography variant="h4" sx={{ textAlign: { lg: 'start', md: 'start', sm: 'center', xs: 'center' }, color: '#0057D9', fontSize: '24px' }}>Join The Lovely Planet</Typography>

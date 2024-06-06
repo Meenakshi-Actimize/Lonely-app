@@ -2,21 +2,47 @@ import * as React from 'react';
 import { Grid, Typography, Box, Button, Container, TextField } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 import { InputAdornment } from '@mui/material';
+import { useEffect } from 'react';
+import { connect } from 'react-redux'
+import { Getplanvideo1act } from '../redux/action/Action7';
+import { Getplanvideo1api } from '../redux/api/api';
 
-function Planvideo(){
+
+
+function Planvideo({data , Getplanvideo1act}){
+    useEffect(() => {
+        // Define an async function inside useEffect
+        const fetchData = async () => {
+            try {
+                // Call the async function to fetch data
+                const gettingplanvideo = await Getplanvideo1act();
+                // Dispatch the fetched data using GetCardData
+                Getplanvideo1api(gettingplanvideo);
+                console.log('Hi success plan', gettingplanvideo);
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+        };
+
+        // Call the async function
+        fetchData();
+    }, []);
+
     return(
         <>
         <Container maxWidth="xl">
             <Grid container sx={{justifyContent:'center', alignItems:'center'}} >
                 <Grid xs={11.5} position="relative">
-              
+                {data && data.map((planvideo, index) => (
+
                     <video autoPlay muted loop
                         style={{ width:'100%', height:'600px', borderRadius:'22px' , objectFit:'cover', top:'-100%', bottom:'-100%'}} >
                         <source
-                            src='https://www.elsewhere.io/webflow/videos/hero-home-transcode.mp4'
+                            src={planvideo.video}
                             type="video/mp4"
                         />
                         </video>
+                ))}
 
                         {/* Text Overlay */}
                         <Typography
@@ -67,4 +93,15 @@ function Planvideo(){
         </>
     )
 }
-export default Planvideo;
+
+const mapStateToProps = (state) => {
+    console.log('State data:', state.reducer7.data); // Add this console.log statement
+    return {
+        data: state.reducer7.data,
+    };
+};
+
+
+const mapDispatchToProps = { Getplanvideo1act }
+
+export default connect(mapStateToProps, mapDispatchToProps)(Planvideo);
