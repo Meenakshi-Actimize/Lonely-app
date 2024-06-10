@@ -8,6 +8,7 @@ import Dummy from './Component/Dummy';
 import Planning from './pages/Planning';
 import FoodandDrink from './pages/FoodandDrink';
 import Shoppage from './pages/Shop';
+import Magnifiershop from './pages/Magnifiershop';
 
 
 
@@ -56,7 +57,7 @@ const App = () =>{
         <Route path='/planning' element={<Planning />} />
         <Route path='/foodanddrink' element={<FoodandDrink />} />
         <Route path='/shop' element={<Shoppage />} />
-
+        <Route path='/magnifier' element={<Magnifiershop />} />
 
       </Routes>    
     </>

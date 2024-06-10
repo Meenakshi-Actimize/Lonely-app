@@ -21,17 +21,13 @@ function Navbarcomp() {
     const [anchorElNav, setAnchorElNav] = React.useState(null);
     const [anchorElUser, setAnchorElUser] = React.useState(null);
     const navigate = useNavigate();
-    const profile =  localStorage.getItem('photo');
-    // const profilefb = localStorage.getItem('photofb')
-    // console.log('fb photo', profilefb);
-    const token = localStorage.getItem('accessToken')
-    // const token = localStorage.getItem('accessToken', token);
-    // console.log('hi token', token);
-
+    const profile = localStorage.getItem('photo');
+    const token = localStorage.getItem('accessToken');
 
     const handleOpenNavMenu = (event) => {
         setAnchorElNav(event.currentTarget);
     };
+
     const handleOpenUserMenu = (event) => {
         setAnchorElUser(event.currentTarget);
     };
@@ -48,12 +44,11 @@ function Navbarcomp() {
         signOut(auth).then(() => {
             localStorage.clear();
             navigate('/flash');
-            token = '';
             console.log("no token", token);
         }).catch((error) => {
-            console.log('error')
+            console.log('error');
         });
-    }
+    };
 
     return (
         <Grid container columns={12} sx={{ display: 'flex', containerType: 'inline-size', justifyContent: 'space-between', alignItems: 'center' }}>
@@ -63,7 +58,7 @@ function Navbarcomp() {
                     <Toolbar disableGutters>
 
                         <Grid item xs={2} sx={{ display: 'flex' }}>
-                            <img  src="./images/lonely-planet9056.logowik.com.jpg" alt="" width="120%" />
+                            <img src="./images/lonely-planet9056.logowik.com.jpg" alt="" width="120%" />
                         </Grid>
                         <Grid item xs={7} sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
                             <IconButton
@@ -72,8 +67,7 @@ function Navbarcomp() {
                                 aria-controls="menu-appbar"
                                 aria-haspopup="true"
                                 onClick={handleOpenNavMenu}
-                                sx={{paddingLeft:{sm:'273px', xs:'60px'}}}
-
+                                sx={{ paddingLeft: { sm: '273px', xs: '60px' } }}
                             >
                                 <MenuIcon />
                             </IconButton>
@@ -112,6 +106,7 @@ function Navbarcomp() {
                                 <strong>{page}</strong>
                             </Button>
                         ))}
+
                         <Grid
                             container
                             item
@@ -129,30 +124,42 @@ function Navbarcomp() {
                             <Typography sx={{ display: { xs: 'none', md: 'block' } }}>Saves</Typography>
                             {token ? (
                                 <>
-                                 {profile === null ? (
-                                    <img src="https://www.computerhope.com/jargon/g/guest-user.png" alt="User Profile" width="5%"/>
-                                        ) :( <Avatar src={profile} />
+                                    <IconButton onClick={handleOpenUserMenu}>
+                                        {profile === null ? (
+                                            <img src="https://www.computerhope.com/jargon/g/guest-user.png" alt="User Profile" width="40px" />
+                                        ) : (
+                                            <Avatar src={profile} />
                                         )}
-                                {/* <Avatar src={profile} /> */}
-                                <Button onClick={handleLogOut} sx={{ textTransform: 'none' }}>
-                                 Logout
-                             </Button>
+                                    </IconButton>
+                                    <Menu
+                                        id="menu-appbar"
+                                        anchorEl={anchorElUser}
+                                        anchorOrigin={{
+                                            vertical: 'top',
+                                            horizontal: 'right',
+                                        }}
+                                        keepMounted
+                                        transformOrigin={{
+                                            vertical: 'top',
+                                            horizontal: 'right',
+                                        }}
+                                        open={Boolean(anchorElUser)}
+                                        onClose={handleCloseUserMenu}
+                                    >
+                                        <MenuItem onClick={handleLogOut}>Logout</MenuItem>
+                                    </Menu>
                                 </>
-                                 
                             ) : (
-                                <>
-                                <Button onClick={() => navigate('/signup')}sx={{textTransform: 'none', backgroundColor: "#0057D9",color: 'white', '&:hover': {
-                                backgroundColor: '#004bb5'},
-                                         borderRadius: '16px',
-                                     }}
-                                 >
-                                     Sign in
-                                 </Button>
-                                </>
+                                <Button onClick={() => navigate('/signup')} sx={{
+                                    textTransform: 'none', backgroundColor: "#0057D9", color: 'white', '&:hover': {
+                                        backgroundColor: '#004bb5'
+                                    },
+                                    borderRadius: '16px',
+                                }}>
+                                    Sign in
+                                </Button>
                             )}
                         </Grid>
-
-
 
                     </Toolbar>
                 </Container>
@@ -160,5 +167,5 @@ function Navbarcomp() {
         </Grid>
     );
 }
-export default Navbarcomp;
 
+export default Navbarcomp;

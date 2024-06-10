@@ -15,9 +15,9 @@ function Planvideo({data , Getplanvideo1act}){
         const fetchData = async () => {
             try {
                 // Call the async function to fetch data
-                const gettingplanvideo = await Getplanvideo1act();
+                const gettingplanvideo = await Getplanvideo1api();
                 // Dispatch the fetched data using GetCardData
-                Getplanvideo1api(gettingplanvideo);
+                Getplanvideo1act(gettingplanvideo);
                 console.log('Hi success plan', gettingplanvideo);
             } catch (error) {
                 console.error('Error fetching data:', error);
