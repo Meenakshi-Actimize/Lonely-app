@@ -9,12 +9,16 @@ import CheckBoxOutlineBlankIcon from '@mui/icons-material/CheckBoxOutlineBlank';
 import TuneIcon from '@mui/icons-material/Tune';
 import { Getshopact } from '../redux/action/Action8';
 import { Getshopapi } from '../redux/api/api';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { connect } from 'react-redux'
+import { useNavigate } from 'react-router-dom';
 
 
 
 function Shoppage3({data, Getshopact}) {
+    const navigate = useNavigate();
+    const [isClicked, setIsClicked] = useState(false);
+
 
     useEffect(() => {
         // Define an async function inside useEffect
@@ -33,6 +37,14 @@ function Shoppage3({data, Getshopact}) {
         // Call the async function
         fetchData();
     }, []);
+    const handleButtonClick = async (e) => {
+
+    setIsClicked(true)
+    e.preventDefault();
+    navigate('/magnifier');
+    };
+
+    
 
    
    
@@ -167,7 +179,7 @@ function Shoppage3({data, Getshopact}) {
                                                 }
                                             }}
                                         >
-                                            <img src={shopdata.img} alt="" style={{ width: shopdata.width === 'true' ? "76%" : "60%" }} />
+                                            <img src={shopdata.img} alt="" style={{ width: shopdata.width === 'true' ? "76%" : "60%" }} onClick={handleButtonClick}  />
 
                                             <Grid container className="hover-buttons" sx={{
                                                 position: 'absolute',

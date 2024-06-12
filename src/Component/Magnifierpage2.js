@@ -8,33 +8,59 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import LocalShippingOutlinedIcon from '@mui/icons-material/LocalShippingOutlined';
 import AssignmentReturnedOutlinedIcon from '@mui/icons-material/AssignmentReturnedOutlined';
 import EngineeringOutlinedIcon from '@mui/icons-material/EngineeringOutlined';
+import Magnifierpage3 from './Magnifierpage3';
+import { Getmagnifieract } from '../redux/action/Action10';
+import { Getmagnifierapi } from '../redux/api/api';
+import { useEffect } from 'react';
+import { connect } from 'react-redux'
 
 
-function Magnifierpage2() {
+
+function Magnifierpage2({data, Getmagnifieract}) {
+
+    useEffect(() => {
+        // Define an async function inside useEffect
+        const fetchData = async () => {
+            try {
+                // Call the async function to fetch data
+                const gettingmag = await Getmagnifierapi();
+                // Dispatch the fetched data using GetCardData
+                Getmagnifieract(gettingmag);
+                console.log('Hi success plan', gettingmag);
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+        };
+
+        // Call the async function
+        fetchData();
+    }, []);
     
     return (
         <>
+                {data && data.map((item) => (
+
             <Grid container sx={{ display: 'flex', justifyContent: 'center' }}>
                 <Grid item xs={12} sm={12} md={2} lg={2} sx={{ alignItems: 'center' }}>
-                    <img src='https://shop.lonelyplanet.com/cdn/shop/files/9781787011472_216x.jpg' alt='' width="40%" style={{border:'2px solid blue'}}/>
+                    <img src={item.img} alt='' width="40%" style={{border:'2px solid blue',justifyContent: {sm:'center', xs:'center'}}}/>
                     <Typography sx={{fontSize:'10px', marginTop:'20px', color:'#2D6ADE', textDecoration:'underline', fontWeight:'bold'}}>SEE MORE IMAGES</Typography>
                 </Grid>
                 <Grid item xs={12} sm={12} md={3} lg={3}>
-                    <img src='https://shop.lonelyplanet.com/cdn/shop/files/9781787011472_216x.jpg' alt='' width="85%" />
+                    <img src={item.img2} alt='' width="85%" />
 
 
                 </Grid>
                 <Grid item xs={12} sm={12} md={5} lg={5}>
-                    <Typography sx={{ fontSize: '35px', color: '#2670DF', fontWeight: 'bold' }}>Africa</Typography>
-                    <Typography sx={{ fontSize: '25px', fontWeight: 'bold' }}>Rs. 3,000.00</Typography>
+                    <Typography sx={{ fontSize: '35px', color: '#2670DF', fontWeight: 'bold' }}>{item.title}</Typography>
+                    <Typography sx={{ fontSize: '25px', fontWeight: 'bold' }}>{item.cost}</Typography>
                     <Grid sx={{ marginTop: '20px' , display:'flex', justifyContent:'center'}}>
                         <Button sx={{ border: '1px solid gray', textTransform: 'none', width:'30%', height: '65px', borderRadius: '13px', color: 'black', fontWeight: 'bold', fontSize: '13px', backgroundColor: '#EBF4FF', display:{lg:'block', md:'block', sm:'none', xs:'none'} }}>Book<br />Rs. 3,000.00</Button>
-                        <Button sx={{ border: '1px solid gray', textTransform: 'none', marginLeft: '20px', width: '30%', height: '65px', borderRadius: '13px', color: 'black', fontSize: '13px', display:{lg:'block', md:'block', sm:'none', xs:'none'} }}>eBook <br />Rs. 1,600.00</Button>
-                        <Button sx={{ border: '1px solid gray', textTransform: 'none', marginLeft: '20px', width: '30%', height: '65px', borderRadius: '13px', color: 'black', fontSize: '13px', display:{lg:'block', md:'block', sm:'none', xs:'none'} }}>Book + eBook <br />Rs. 3,400.00</Button>
+                        <Button sx={{ border: '1px solid gray', textTransform: 'none', marginLeft: 'auto', width: '30%', height: '65px', borderRadius: '13px', color: 'black', fontSize: '13px', display:{lg:'block', md:'block', sm:'none', xs:'none'} }}>eBook <br />Rs. 1,600.00</Button>
+                        <Button sx={{ border: '1px solid gray', textTransform: 'none', marginLeft: 'auto', width: '30%', height: '65px', borderRadius: '13px', color: 'black', fontSize: '13px', display:{lg:'block', md:'block', sm:'none', xs:'none'} }}>Book + eBook <br />Rs. 3,400.00</Button>
                     </Grid>
-                    <Grid>
-                        <Button sx={{ width: '97%', border: '1px solid gray', marginTop: '25px', height: '60px', borderRadius: '13px', backgroundColor: 'white', marginLeft:'10px' }}>
-                            <Grid container sx={{ margin: '10px' }}>
+                    <Grid   sx={{marginTop:'20px', display:'flex', justifyContent:'center'}}>
+                        <Button sx={{ width: {lg:'100%', md:'100%', sm:'100%'}, border: '1px solid gray', height: '60px', borderRadius: '13px', backgroundColor: 'white' }}>
+                            <Grid container >
                                 <Grid item xs={6} >
                                     <Typography sx={{ fontSize: '13px', textTransform: 'none', color: 'black', textAlign: 'left' }}>Book<br />Rs. 0.00</Typography>
                                 </Grid>
@@ -47,9 +73,9 @@ function Magnifierpage2() {
                     </Grid>
 
 
-                    <Grid sx={{ marginTop: '30px' }}>
-                        <Button sx={{ border: '1px solid gray', borderRadius: '22px', width: '46%', height: '45px', backgroundColor: '#0057D9', color: 'white', fontWeight: 'bold' }}>Add to Cart</Button>
-                        <Button sx={{ border: '1px solid gray', borderRadius: '22px', width: '46%', height: '45px', marginLeft: '30px', backgroundColor: '#AC98F9', color: 'white', textTransform: 'none' }}>Buy with Shop</Button>
+                    <Grid container sx={{ marginTop: '30px', display:'flex', justifyContent:'center' }}>
+                        <Button sx={{ border: '1px solid gray', borderRadius: '22px', width: {lg:'46%', md:'46%', sm:'46%', xs:'100%'}, height: '45px', backgroundColor: '#0057D9', color: 'white', fontWeight: 'bold' }}>Add to Cart</Button>
+                        <Button sx={{ border: '1px solid gray', borderRadius: '22px', width:{lg:'46%', md:'46%', sm:'46%', xs:'100%'}, height: '45px', marginLeft:'auto', backgroundColor: '#AC98F9', color: 'white', textTransform: 'none' }}>Buy with Shop</Button>
                     </Grid>
 
 
@@ -60,7 +86,7 @@ function Magnifierpage2() {
                             aria-controls="panel1-content"
                             id="panel1-header"
                         >
-                            WHAT'S INSIDE
+                            {item.title1}
                         </AccordionSummary>
                         <AccordionDetails>
                             <ul style={{color:'black', textDecoration:'none'}}>
@@ -80,7 +106,7 @@ function Magnifierpage2() {
                             aria-controls="panel2-content"
                             id="panel2-header"
                         >
-                            COVERS
+                            {item.title2}
                         </AccordionSummary>
                         <AccordionDetails sx={{color:'black'}}>
                         Coverage Includes: Egypt, Tanzania, Morocco, Botswana, Mozambique, South Africa, Madagascar, Kenya, Ethiopia, Ghana, Nigeria, Cabo Verde and more
@@ -92,7 +118,7 @@ function Magnifierpage2() {
                             aria-controls="panel3-content"
                             id="panel3-header"
                         >
-                            BOOK DETAILS
+                            {item.title3}
                         </AccordionSummary>
                         <AccordionDetails sx={{color:'black'}}>
                             <Typography>eBook is available in ePub, MOBI and PDF.</Typography>
@@ -130,10 +156,22 @@ function Magnifierpage2() {
                         </Grid>
 
                     </Grid>
+
+
                 </Grid>
             </Grid>
-
+                ))}
         </>
     )
 }
-export default Magnifierpage2;
+const mapStateToProps = (state) => {
+    console.log('State data:', state.reducer10.data); // Add this console.log statement
+    return {
+        data: state.reducer10.data,
+    };
+};
+
+
+const mapDispatchToProps = { Getmagnifieract }
+
+export default connect(mapStateToProps, mapDispatchToProps)(Magnifierpage2);
