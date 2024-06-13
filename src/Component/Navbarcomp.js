@@ -15,8 +15,12 @@ import { useNavigate } from 'react-router-dom';
 import { signOut } from '@firebase/auth';
 import { auth } from '../Firebase';
 
-const pages = ['Destinations', 'Planning', 'Inspiration', 'Shop'];
-
+const pages = [
+    { label: 'Destinations', path: '/signup' },
+    { label: 'Planning', path: '/planning' },
+    { label: 'Inspiration', path: '/foodanddrink' },
+    { label: 'Shop', path: '/shop' },
+];
 function Navbarcomp() {
     const [anchorElNav, setAnchorElNav] = React.useState(null);
     const [anchorElUser, setAnchorElUser] = React.useState(null);
@@ -32,8 +36,9 @@ function Navbarcomp() {
         setAnchorElUser(event.currentTarget);
     };
 
-    const handleCloseNavMenu = () => {
+    const handleCloseNavMenu = (path) => {
         setAnchorElNav(null);
+        if (path) navigate(path);
     };
 
     const handleCloseUserMenu = () => {
@@ -58,7 +63,7 @@ function Navbarcomp() {
                     <Toolbar disableGutters>
 
                         <Grid item xs={2} sx={{ display: 'flex' }}>
-                            <img src="./images/lonely-planet9056.logowik.com.jpg" alt="" width="120%" />
+                            <img src="./images/lonely-planet9056.logowik.com.jpg" alt="" width="120%" onClick={()=> navigate('/flash')}/>
                         </Grid>
                         <Grid item xs={7} sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
                             <IconButton
@@ -84,14 +89,14 @@ function Navbarcomp() {
                                     horizontal: 'left',
                                 }}
                                 open={Boolean(anchorElNav)}
-                                onClose={handleCloseNavMenu}
+                                onClose={() => handleCloseNavMenu()}
                                 sx={{
                                     display: { xs: 'block', md: 'none' },
                                 }}
                             >
                                 {pages.map((page) => (
-                                    <MenuItem key={page} onClick={handleCloseNavMenu}>
-                                        <Typography textAlign="center">{page}</Typography>
+                                    <MenuItem key={page.label} onClick={() => handleCloseNavMenu(page.path)}>
+                                        <Typography textAlign="center">{page.label}</Typography>
                                     </MenuItem>
                                 ))}
                             </Menu>
@@ -99,11 +104,11 @@ function Navbarcomp() {
 
                         {pages.map((page) => (
                             <Button
-                                key={page}
-                                onClick={handleCloseNavMenu}
+                                key={page.label}
+                                onClick={() => handleCloseNavMenu(page.path)}
                                 sx={{ display: { xs: 'none', md: 'block' }, color: 'black', paddingLeft: '35px', marginLeft: '30px', textTransform: 'none', fontSize: '16px' }}
                             >
-                                <strong>{page}</strong>
+                                <strong>{page.label}</strong>
                             </Button>
                         ))}
 

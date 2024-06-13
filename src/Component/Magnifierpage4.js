@@ -2,9 +2,16 @@ import { Grid, Typography } from '@mui/material';
 import * as React from 'react';
 import { Card, Button } from '@mui/material';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import { useNavigate } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 
 
 function Magnifierpage4(){
+    const navigate = useNavigate();
+    const location = useLocation();
+    const { state } = location;
+    const { images, img } = state || {};
+
     return(
         <>
         <Grid  sx={{display:'flex', justifyContent:'center', marginTop:'30px'}}>
@@ -28,7 +35,7 @@ function Magnifierpage4(){
                                                 }
                                             }}
                                         >
-                                            <img src="https://cdn.shopify.com/s/files/1/0650/8521/0875/products/9781787011472_300x.jpg?v=1695403023" alt=""  width="100%" style={{height:'350px'}}/>
+                                            <img src={img} alt=""  width="100%" style={{height:'350px'}}/>
 
                                             <Grid container className="hover-buttons" sx={{
                                                 position: 'absolute',

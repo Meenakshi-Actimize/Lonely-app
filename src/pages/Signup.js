@@ -263,7 +263,7 @@ const Signup = () => {
     return (
         <>
 
-            <Container maxWidth="xl" sx={{ backgroundColor: { lg: '#E0EEFA', md: '#E0EEFA', sm: '#E0EEFA', xs: 'white' }, height: { lg: '300vh', md: '300vh', sm: '150vh' }, width: '100%' }}>
+            <Container maxWidth="xl" sx={{ backgroundColor: { lg: '#E0EEFA', md: '#E0EEFA', sm: '#E0EEFA', xs: 'white' }, height: { lg: '350vh', md: '330vh', sm: '160vh' }, width: '100%' }}>
                 <Grid container >
                     <Grid item xs={12} sm={12} md={8} lg={8} sx={{ textAlign: 'left', paddingTop: '40px', paddingLeft: '100px', width: "100%", display: { lg: 'block', md: 'block', sm: 'block', xs: 'none' } }}>
                         <Grid >
@@ -287,8 +287,8 @@ const Signup = () => {
                                     <Typography sx={{ border: '1px solid gray', borderRadius: '22px', height: '43px', marginTop: '10px', fontSize: '14px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                                         <img src="https://i.pinimg.com/736x/bb/90/24/bb902442d0880e99732aa1aada0c08de.jpg" alt="" width="6%" /> &nbsp;&nbsp;&nbsp;<Link href="#" underline="none" onClick={signInWithFacebook}>Continue with Facebook</Link>
                                     </Typography>
-                                    <Typography sx={{ color: '#bdbdbd', margin: '20px 0px 20px 0px' }}>
-                                        ----------------------- <span style={{ fontSize: '10px' }}> OR </span>----------------------
+                                    <Typography sx={{ color: '#bdbdbd', textAlign:'center', marginTop:'20px',  fontSize: '10px' }}>
+                                        -------------------- OR --------------------
                                     </Typography>
                                     {isSignIn ? <TextField id="outlined-basic" label="First Name*" variant="outlined" onChange={changeHandleName} error={!!errors.name} helperText={errors.name} sx={{ width: '100%', marginTop: '10px', marginBottom: '8px', height: '30px' }} />:<></>}
                                     <TextField id="outlined-basic" label="Email address*" variant="outlined" onChange={changeHandleEmail} error={!!errors.email} helperText={errors.email} sx={{ width: '100%', marginTop: '40px', marginBottom: '8px' }} />

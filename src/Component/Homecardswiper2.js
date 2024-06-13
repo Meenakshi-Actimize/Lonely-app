@@ -108,7 +108,7 @@ function Homecardswiper2({data, Gethomecard4act}) {
                         {data && data.map((homecard5, index) => (
                             <SwiperSlide key={index}>
                                 <Box>
-                                    <img src={homecard5.img} alt="1" style={{ width: '95%', height: '350px', borderRadius: '16px' }} />
+                                    <img src={homecard5.img} alt="1" style={{ width: '100%',  height: '350px', borderRadius: '16px' }} />
                                     {homecard5.showIcon && (
                                         <Box
                                             sx={{

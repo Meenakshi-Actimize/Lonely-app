@@ -4,29 +4,25 @@ import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
+
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import CheckBoxOutlineBlankIcon from '@mui/icons-material/CheckBoxOutlineBlank';
 import TuneIcon from '@mui/icons-material/Tune';
 import { Getshopact } from '../redux/action/Action8';
 import { Getshopapi } from '../redux/api/api';
 import { useEffect, useState } from 'react';
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { Title } from '@mui/icons-material';
 
-
-
-function Shoppage3({data, Getshopact}) {
+function Shoppage3({ data, Getshopact }) {
     const navigate = useNavigate();
     const [isClicked, setIsClicked] = useState(false);
 
-
     useEffect(() => {
-        // Define an async function inside useEffect
         const fetchData = async () => {
             try {
-                // Call the async function to fetch data
                 const gettingshop = await Getshopapi();
-                // Dispatch the fetched data using GetCardData
                 Getshopact(gettingshop);
                 console.log('Hi success plan', gettingshop);
             } catch (error) {
@@ -34,33 +30,26 @@ function Shoppage3({data, Getshopact}) {
             }
         };
 
-        // Call the async function
         fetchData();
     }, []);
-    const handleButtonClick = async (e) => {
 
-    setIsClicked(true)
-    e.preventDefault();
-    navigate('/magnifier');
+    const handleButtonClick = (shop) => {
+        setIsClicked(true);
+        navigate('/magnifier', { state: {  img: shop.img , title: shop.title } });
     };
 
-    
-
-   
-   
     return (
         <>
             <Container maxWidth="xl" sx={{ marginTop: '40px' }}>
                 <Grid container>
-                    {/* filter component */}
-                    <Grid item xs={12} sm={12} md={3} lg={3} sx={{display:{lg:'block', md:'block', sm:'none', xs:'none'}}}>
+                    {/* Filter component */}
+                    <Grid item xs={12} sm={12} md={3} lg={3} sx={{ display: { lg: 'block', md: 'block', sm: 'none', xs: 'none' } }}>
                         <Typography sx={{ fontSize: '23px', color: '#0057D9', fontWeight: 'bold', paddingBottom: '16px' }}>Filters</Typography>
-                        <Accordion sx={{ paddingBottom: '16px'  }}>
+                        <Accordion sx={{ paddingBottom: '16px' }}>
                             <AccordionSummary
                                 expandIcon={<ExpandMoreIcon />}
                                 aria-controls="panel1-content"
                                 id="panel1-header"
-                                
                             >
                                 <Typography sx={{ color: 'black', fontWeight: 'bold' }}>Regions</Typography>
                             </AccordionSummary>
@@ -148,18 +137,17 @@ function Shoppage3({data, Getshopact}) {
 
                     {/* Card component */}
                     <Grid item xs={12} sm={12} md={9} lg={9}>
-                    <Grid>
-                            <Grid sx={{ display: 'flex', alignItems: 'center', marginBottom: '20px', }}>
-                                <Typography sx={{display:{lg:'block', md:'block', sm:'none', xs:'none'}}}>327 products</Typography>
-                                <Typography sx={{display:{lg:'none', md:'none', sm:'block', xs:'block'}}}>Filters&nbsp;<TuneIcon sx={{marginBottom:'-6px'}}/></Typography>
+                        <Grid>
+                            <Grid sx={{ display: 'flex', alignItems: 'center', marginBottom: '20px' }}>
+                                <Typography sx={{ display: { lg: 'block', md: 'block', sm: 'none', xs: 'none' } }}>327 products</Typography>
+                                <Typography sx={{ display: { lg: 'none', md: 'none', sm: 'block', xs: 'block' } }}>Filters&nbsp;<TuneIcon sx={{ marginBottom: '-6px' }} /></Typography>
                                 <Typography sx={{ marginLeft: 'auto', display: 'flex', justifyContent: 'center' }}>
-                                    Sort by 
+                                    Sort by
                                     <KeyboardArrowDownIcon />
                                 </Typography>
                             </Grid>
                             <Grid container>
-                            {data && data.map((shopdata, index) => (
-
+                                {data && data.map((shop, index) => (
                                     <Grid item xs={12} sm={6} md={6} lg={2.4} key={index} sx={{ marginBottom: '40px' }}>
                                         <Card
                                             sx={{
@@ -179,7 +167,12 @@ function Shoppage3({data, Getshopact}) {
                                                 }
                                             }}
                                         >
-                                            <img src={shopdata.img} alt="" style={{ width: shopdata.width === 'true' ? "76%" : "60%" }} onClick={handleButtonClick}  />
+                                            <img
+                                                src={shop.img}
+                                                alt=""
+                                                style={{ width: shop.width === 'true' ? "76%" : "60%" }}
+                                                onClick={() => handleButtonClick(shop)}
+                                            />
 
                                             <Grid container className="hover-buttons" sx={{
                                                 position: 'absolute',
@@ -206,20 +199,19 @@ function Shoppage3({data, Getshopact}) {
                             </Grid>
                         </Grid>
                     </Grid>
-                    </Grid>
+                </Grid>
             </Container>
         </>
     );
 }
 
 const mapStateToProps = (state) => {
-    console.log('State data:', state.reducer8.data); // Add this console.log statement
+    console.log('State data:', state.reducer8.data);
     return {
         data: state.reducer8.data,
     };
 };
 
-
-const mapDispatchToProps = { Getshopact }
+const mapDispatchToProps = { Getshopact };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Shoppage3);

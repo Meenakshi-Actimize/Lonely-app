@@ -5,6 +5,7 @@ import Shoppage2 from '../Component/Shoppage2';
 import Shoppage3 from '../Component/Shoppage3';
 import Footercomp from '../Component/Footer';
 import Shoppage4 from '../Component/Shoppage4';
+import Lastcomp from '../Component/Lastcomp';
 
 function Shoppage(){
     return(
@@ -15,6 +16,7 @@ function Shoppage(){
         <Shoppage3 />
         <Shoppage4 />
         <Footercomp />
+        <Lastcomp />
         </>
     )
 }

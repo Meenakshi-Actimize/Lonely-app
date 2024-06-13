@@ -146,14 +146,14 @@ function Homecard3({data, Gethomecard2act}) {
                                             <img src="./images/spoon.png" width="80%" />
                                         </Box>
                                     )}
-
-                                    <Typography sx={{ textAlign: 'left', marginLeft: '36px', fontSize: '23px' }}>
+                                    <Typography sx={{ textAlign:'left', fontSize: '23px' }}>
                                         <strong>{homecard2.title}</strong>
                                     </Typography>
-                                    <Typography sx={{ textAlign: 'left', margin: '10px 36px', fontSize: '14px', fontWeight: 500 }}>
+                                    
+                                    <Typography sx={{ textAlign:'left', fontSize: '14px', fontWeight: 500 }}>
                                         {homecard2.subtitle}
                                     </Typography>
-                                    <Typography sx={{ textAlign: 'left', marginLeft: '36px' }}>
+                                    <Typography sx={{ textAlign:'left' }}>
                                         {homecard2.des}
                                     </Typography>
                                 </Box>

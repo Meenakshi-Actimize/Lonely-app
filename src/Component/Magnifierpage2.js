@@ -13,10 +13,20 @@ import { Getmagnifieract } from '../redux/action/Action10';
 import { Getmagnifierapi } from '../redux/api/api';
 import { useEffect } from 'react';
 import { connect } from 'react-redux'
-
+import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
+import { useLocation } from 'react-router-dom';
+import { Shop } from '@mui/icons-material';
 
 
 function Magnifierpage2({data, Getmagnifieract}) {
+    const navigate = useNavigate();
+    const location = useLocation();
+    const { state } = location;
+    const { images, img , title} = state || {};
+
+
+   
 
     useEffect(() => {
         // Define an async function inside useEffect
@@ -38,20 +48,24 @@ function Magnifierpage2({data, Getmagnifieract}) {
     
     return (
         <>
-                {data && data.map((item) => (
+                {data && data.map((item, key) => (
 
             <Grid container sx={{ display: 'flex', justifyContent: 'center' }}>
                 <Grid item xs={12} sm={12} md={2} lg={2} sx={{ alignItems: 'center' }}>
-                    <img src={item.img} alt='' width="40%" style={{border:'2px solid blue',justifyContent: {sm:'center', xs:'center'}}}/>
+
+                    <img src={img} alt='' width="40%" style={{border:'2px solid blue',justifyContent: {sm:'center', xs:'center'}}}/>             
+
                     <Typography sx={{fontSize:'10px', marginTop:'20px', color:'#2D6ADE', textDecoration:'underline', fontWeight:'bold'}}>SEE MORE IMAGES</Typography>
                 </Grid>
                 <Grid item xs={12} sm={12} md={3} lg={3}>
-                    <img src={item.img2} alt='' width="85%" />
+
+                    <img src={img} alt='' width="85%" />  
 
 
                 </Grid>
+                
                 <Grid item xs={12} sm={12} md={5} lg={5}>
-                    <Typography sx={{ fontSize: '35px', color: '#2670DF', fontWeight: 'bold' }}>{item.title}</Typography>
+                    <Typography sx={{ fontSize: '35px', color: '#2670DF', fontWeight: 'bold' }}>{title}</Typography>
                     <Typography sx={{ fontSize: '25px', fontWeight: 'bold' }}>{item.cost}</Typography>
                     <Grid sx={{ marginTop: '20px' , display:'flex', justifyContent:'center'}}>
                         <Button sx={{ border: '1px solid gray', textTransform: 'none', width:'30%', height: '65px', borderRadius: '13px', color: 'black', fontWeight: 'bold', fontSize: '13px', backgroundColor: '#EBF4FF', display:{lg:'block', md:'block', sm:'none', xs:'none'} }}>Book<br />Rs. 3,000.00</Button>
