@@ -1,18 +1,13 @@
-import { Grid, Typography } from '@mui/material';
-import * as React from 'react';
-import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
-import { Getfood1act } from '../redux/action/Action9';
-import { Getfood1api } from '../redux/api/api';
-import { useEffect } from 'react';
-import { connect } from 'react-redux'
+import Imports from "../Import/Import";
+import { Getfood1act } from "../redux/action/Action9";
 
 function Foodcarousel({data, Getfood1act}) {
-    useEffect(() => {
+    Imports.useEffect(() => {
         // Define an async function inside useEffect
         const fetchData = async () => {
             try {
                 // Call the async function to fetch data
-                const gettingfood = await Getfood1api();
+                const gettingfood = await Imports.Getfood1api();
                 // Dispatch the fetched data using GetCardData
                 Getfood1act(gettingfood);
                 console.log('Hi success plan', gettingfood);
@@ -27,29 +22,29 @@ function Foodcarousel({data, Getfood1act}) {
 
     return (
         <>
-            <Grid container>
-                <Typography sx={{position:'absolute', top:300, left:480, fontSize:'80px', zIndex:4, textTransform:'none', color:'white', fontWeight:'bold'}}>Food and Drink</Typography>
+            <Imports.Grid container>
+                <Imports.Typography sx={{position:'absolute', top:{lg:300, md:200, sm:180, xs:110}, left:{lg:440, md:280, sm:190,xs:80}, fontSize:{lg:'80px', md:'80px', sm:'50px', xs:'25px'}, zIndex:4, textTransform:'none', color:'white', fontWeight:'bold'}}>Food and Drink</Imports.Typography>
                 {data && data.map((fooddata, index) => (
-                <Grid 
+                <Imports.Grid 
                     item 
                     xs={4} 
                     sx={{ position: 'relative', '&:hover img': { filter: 'brightness(1.2)' }, '& img': { filter: 'brightness(0.8)', transition: 'filter 0.3s' } }}
                 >
                     <img src={fooddata.img} alt="" width="100%" />
-                    <Typography sx={{ position: 'absolute', top: '455px', left: 20, color: 'white', fontSize: '33px' }}>
-                        <Grid>{fooddata.text1}</Grid>
-                        <Grid>{fooddata.text2}</Grid>
-                        <Grid>{fooddata.text3}</Grid>
-                        <Grid sx={{ display: 'flex' }}>
-                            <Grid>{fooddata.text4}</Grid>
-                            <Grid sx={{ marginLeft: 'auto', textAlign: 'end' }}>
-                                <ArrowForwardIcon sx={{ color: 'white' }} />
-                            </Grid>
-                        </Grid>
-                    </Typography>
-                </Grid>
+                    <Imports.Typography sx={{ position: 'absolute', top: {lg:'440px', md:'290px', sm:'200px', xs:'20px'}, left: {lg:20, md:18, sm:15, xs:8}, color: 'white', fontSize: {lg:'33px', md:'28px', sm:'20px', xs:'15px'}, display:{lg:'block', md:'block', sm:'block', xs:'none'} }}>
+                        <Imports.Grid>{fooddata.text1}</Imports.Grid>
+                        <Imports.Grid>{fooddata.text2}</Imports.Grid>
+                        <Imports.Grid>{fooddata.text3}</Imports.Grid>
+                        <Imports.Grid sx={{ display: 'flex' }}>
+                            <Imports.Grid>{fooddata.text4}</Imports.Grid>
+                            <Imports.Grid sx={{ marginLeft: 'auto', textAlign: 'end' }}>
+                                <Imports.ArrowForwardIcon sx={{ color: 'white' }} />
+                            </Imports.Grid>
+                        </Imports.Grid>
+                    </Imports.Typography>
+                </Imports.Grid>
                 ))}
-            </Grid>
+            </Imports.Grid>
         </>
     );
 }
@@ -64,4 +59,4 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = { Getfood1act }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Foodcarousel);
+export default Imports.connect(mapStateToProps, mapDispatchToProps)(Foodcarousel);

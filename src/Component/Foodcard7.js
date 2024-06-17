@@ -1,5 +1,4 @@
-import * as React from 'react';
-import { Grid, Typography, Box, Container, Card } from '@mui/material';
+import Imports from "../Import/Import";
 
 function Foodcard7(){
     const food3data = [
@@ -11,11 +10,11 @@ function Foodcard7(){
           ];
     return(
         <>
-         <Container maxWidth="xl" sx={{ marginTop: '80px' }}>
-                <Grid container spacing={2}>
+         <Imports.Container maxWidth="xl" sx={{ marginTop: '80px' }}>
+                <Imports.Grid container spacing={2}>
                     {food3data.map((item, index) => (
-                        <Grid item xs={8} key={index} sx={{ height: 'auto', display: 'flex' }}>
-                            <Card
+                        <Imports.Grid item xs={8} key={index} sx={{ height: 'auto', display: 'flex' }}>
+                            <Imports.Card
                                 sx={{
                                     display: 'flex',
                                     width: '90%',
@@ -26,36 +25,36 @@ function Foodcard7(){
                                     '&:hover': { boxShadow: '0 4px 20px rgba(0, 0, 0, 0.1)' },
                                 }}
                             >
-                                <Box sx={{ display: 'block', justifyContent: 'center', flex: '0 0 auto' }}>
+                                <Imports.Box sx={{ display: 'block', justifyContent: 'center', flex: '0 0 auto' }}>
                                     <img
                                         src={item.img}
                                         alt=""
                                         width="80%"
                                         style={{ borderRadius: '14px', margin: '20px', height: '170px' }}
                                     />
-                                </Box>
-                                <Box sx={{ marginY: '20px' }}>
-                                    <Typography sx={{ fontSize: '14px', color: '#B1B1B1', fontWeight: 'bold', paddingBottom: '5px' }}>
+                                </Imports.Box>
+                                <Imports.Box sx={{ marginY: '20px' }}>
+                                    <Imports.Typography sx={{ fontSize: '14px', color: '#B1B1B1', fontWeight: 'bold', paddingBottom: '5px' }}>
                                         {item.title}
-                                    </Typography>
-                                    <Typography sx={{ fontSize: '18px', color: '#121212', fontWeight: 'bold', paddingBottom: '5px' }}>
+                                    </Imports.Typography>
+                                    <Imports.Typography sx={{ fontSize: '18px', color: '#121212', fontWeight: 'bold', paddingBottom: '5px' }}>
                                         {item.subtitle}
-                                    </Typography>
-                                    <Typography sx={{ fontSize: '14px', color: '#514B4B', paddingBottom: '5px' }}>
+                                    </Imports.Typography>
+                                    <Imports.Typography sx={{ fontSize: '14px', color: '#514B4B', paddingBottom: '5px' }}>
                                         {item.time}
-                                    </Typography>
-                                    <Typography sx={{ color: '#4B4B4B', fontSize: '14px' }}>
+                                    </Imports.Typography>
+                                    <Imports.Typography sx={{ color: '#4B4B4B', fontSize: '14px' }}>
                                         {item.des}
-                                    </Typography>
-                                </Box>
-                            </Card>
-                        </Grid>
+                                    </Imports.Typography>
+                                </Imports.Box>
+                            </Imports.Card>
+                        </Imports.Grid>
                       
                     ))}
-                      <Grid item xs={4}>
-                        </Grid>
-                </Grid>
-            </Container>
+                      <Imports.Grid item xs={4}>
+                        </Imports.Grid>
+                </Imports.Grid>
+            </Imports.Container>
         
         </>
     )

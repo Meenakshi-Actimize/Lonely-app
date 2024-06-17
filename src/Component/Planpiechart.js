@@ -39,14 +39,14 @@ function PieCenterLabel({ children }: { children: React.ReactNode }) {
 
 function Planpiechart() {
     const [value, setValue] = React.useState(2);
-
-    const handleChange = (event: React.SyntheticEvent, newValue: number) => {
-        setValue(newValue);
-    };
+    const handleChange = (event, newValue) => { 
+        setValue(newValue); 
+    }; 
+  
     return (
         <>
             <Container maxWidth="lg" sx={{ marginTop: '100px' }}>
-                <Grid sx={{ marginLeft: '-90px' }}>
+                <Grid sx={{ }}>
                     <Typography>Radical transparency</Typography>
                     <Typography sx={{ fontSize: '25px', fontWeight: 'bold' }}>Where your money goes</Typography>
                 </Grid>
@@ -66,7 +66,7 @@ function Planpiechart() {
 
                 <Card sx={{ marginBottom: '25px', height: '400px' }}>
                     <Grid container>
-                        <Grid item xs={8}>
+                        <Grid item xs={12} sm={12} md={8} lg={8}> 
                             <Grid sx={{ display: 'flex' }}>
                                 <Grid sx={{margin:'25px'}}>
                                     <Typography variant="h4" sx={{color:'#4695FF', fontWeight:'bold'}}>87%</Typography>
@@ -81,12 +81,12 @@ function Planpiechart() {
                             <Typography variant="h4" sx={{color:'#D1B9AC', fontWeight:'bold'}}>2%</Typography>
                             <Typography>Carbon offset, reforestation, ocean plastic removal,<br /> and trying to make the world a better place</Typography>
                         </Grid>
-                        <Button sx={{border:'1px solid #9409EE', borderRadius:'20px', margin:'25px', textTransform:'none', width:'25%', color:'black', fontWeight:'bold'}}>Our commitments <ArrowForwardIosSharpIcon sx={{fontSize:'18px', marginLeft:'16px', color:'black', fontWeight:'bold'}}/></Button>
+                        <Button sx={{border:'1px solid #9409EE', borderRadius:'20px', margin:'25px', textTransform:'none', width:{lg:'25%', md:'30%', sm:'30%', xs:'30%'}, color:'black', fontWeight:'bold'}}>Our commitments <ArrowForwardIosSharpIcon sx={{fontSize:'18px', marginLeft:'16px', color:'black', fontWeight:'bold'}}/></Button>
 
                         </Grid>
                         
 
-                        <Grid item xs={4} >
+                        <Grid item xs={12} sm={12} md={4} lg={4} >
                             <PieChart series={[{ data, innerRadius: 140 }]} {...{ ...size, width: 450, height: 450 }} >
                                 <PieCenterLabel>Our model</PieCenterLabel>
                             </PieChart>

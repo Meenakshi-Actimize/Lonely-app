@@ -1,39 +1,21 @@
-import { Box, Button, Card, Container, Grid, Typography } from '@mui/material';
-import * as React from 'react';
-import Accordion from '@mui/material/Accordion';
-import AccordionActions from '@mui/material/AccordionActions';
-import AccordionSummary from '@mui/material/AccordionSummary';
-import AccordionDetails from '@mui/material/AccordionDetails';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import LocalShippingOutlinedIcon from '@mui/icons-material/LocalShippingOutlined';
-import AssignmentReturnedOutlinedIcon from '@mui/icons-material/AssignmentReturnedOutlined';
-import EngineeringOutlinedIcon from '@mui/icons-material/EngineeringOutlined';
-import Magnifierpage3 from './Magnifierpage3';
-import { Getmagnifieract } from '../redux/action/Action10';
-import { Getmagnifierapi } from '../redux/api/api';
-import { useEffect } from 'react';
-import { connect } from 'react-redux'
-import { useNavigate } from 'react-router-dom';
-import { useState } from 'react';
-import { useLocation } from 'react-router-dom';
-import { Shop } from '@mui/icons-material';
+import Imports from "../Import/Import";
 
 
 function Magnifierpage2({data, Getmagnifieract}) {
-    const navigate = useNavigate();
-    const location = useLocation();
+    const navigate = Imports.useNavigate();
+    const location = Imports.useLocation();
     const { state } = location;
     const { images, img , title} = state || {};
 
 
    
 
-    useEffect(() => {
+    Imports.useEffect(() => {
         // Define an async function inside useEffect
         const fetchData = async () => {
             try {
                 // Call the async function to fetch data
-                const gettingmag = await Getmagnifierapi();
+                const gettingmag = await Imports.Getmagnifierapi();
                 // Dispatch the fetched data using GetCardData
                 Getmagnifieract(gettingmag);
                 console.log('Hi success plan', gettingmag);

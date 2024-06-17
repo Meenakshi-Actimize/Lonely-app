@@ -1,29 +1,17 @@
-import * as React from 'react';
-import { Grid, Typography, Container, Box, Button } from '@mui/material';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder';
+import Imports from '../Import/Import';
+import { Gethomecard } from '../redux/action/Action3';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
-import { Pagination, Navigation } from 'swiper/modules';
-import HomeIcon from '@mui/icons-material/Home';
-import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
-import ArrowBackIosNewRoundedIcon from '@mui/icons-material/ArrowBackIosNewRounded';
-import ArrowForwardIosRoundedIcon from '@mui/icons-material/ArrowForwardIosRounded';
-import { useState } from 'react';
-import { useEffect } from 'react';
-import { Gethomecards } from '../redux/api/api';
-import { Gethomecard } from '../redux/action/Action3';
-import { connect } from 'react-redux'
 
 
 function Homecard1({data, Gethomecard}) {
-    const [hoveredCard, setHoveredCard] = useState(null);
-    useEffect(() => {
+    const [hoveredCard, setHoveredCard] = Imports.useState(null);
+    Imports.useEffect(() => {
         const fetchData = async () => {
             try {
               // Call the async function to fetch data
-              const getcarddata = await Gethomecards();
+              const getcarddata = await Imports.Gethomecards();
               // Dispatch the fetched data using GetCardData
               Gethomecard(getcarddata);
               console.log('Hi got homecard data', getcarddata);
@@ -95,7 +83,7 @@ function Homecard1({data, Gethomecard}) {
     //     },
     // ];
 
-    const swiperRef = React.useRef(null);
+    const swiperRef = Imports.React.useRef(null);
 
     const goNext = () => {
         if (swiperRef.current && swiperRef.current.swiper) {
@@ -110,20 +98,20 @@ function Homecard1({data, Gethomecard}) {
     };
 
     return (
-        <Container maxWidth="xl">
-            <Grid container sx={{ backgroundColor: '#E0EEFA', height: '1000px', borderRadius: '14px' }}>
-                <Box sx={{ margin: '30px' }}>
-                    <Typography>
+        <Imports.Container maxWidth="xl">
+            <Imports.Grid container sx={{ backgroundColor: '#E0EEFA', height: '1000px', borderRadius: '14px' }}>
+                <Imports.Box sx={{ margin: '30px' }}>
+                    <Imports.Typography>
                         <span style={{ color: '#758090' }}>01 / A</span>
                         <span style={{ color: '#C9C2CC' }}>TT</span>
                         <span style={{ color: '#D7989A' }}>RACTIONS</span>
-                    </Typography>
-                    <Typography sx={{ marginTop: '15px', fontSize:{lg:'65px', md:'55px', sm:'40px', xs:'24px'} }}>Must-see attractions</Typography>
-                </Box>
-                <Swiper
+                    </Imports.Typography>
+                    <Imports.Typography sx={{ marginTop: '15px', fontSize:{lg:'65px', md:'55px', sm:'40px', xs:'24px'} }}>Must-see attractions</Imports.Typography>
+                </Imports.Box>
+                <Imports.Swiper
                     spaceBetween={20}
                     navigation={false}
-                    modules={[Pagination, Navigation]}
+                    modules={[Imports.Pagination, Imports.Navigation]}
                     breakpoints={{
                         1440: {
                             slidesPerView: 3,
@@ -144,12 +132,12 @@ function Homecard1({data, Gethomecard}) {
                     ref={swiperRef}
                 >
                     {data && data.map((homedata, index) => (
-                        <SwiperSlide key={homedata.title}>
-                            <Container maxWidth="xl">
-                            <Grid container  sx={{ position: 'relative', justifyContent:'center', alignItems:'center' }}>
+                        <Imports.SwiperSlide key={homedata.title}>
+                            <Imports.Container maxWidth="xl">
+                            <Imports.Grid container  sx={{ position: 'relative', justifyContent:'center', alignItems:'center' }}>
                                 <img src={homedata.img} alt={homedata.title} style={{ width: '90%', height: '400px', borderRadius:'16px' }} />
                                 {homedata.showIcon && (
-                                    <Box
+                                    <Imports.Box
                                         sx={{
                                             position: 'absolute',
                                             top: '35%',
@@ -160,9 +148,9 @@ function Homecard1({data, Gethomecard}) {
                                         }}
                                     >
                                         <img src="./images/home.png" width="80%" alt="Home Icon" />
-                                    </Box>
+                                    </Imports.Box>
                                 )}
-                                <Box
+                                <Imports.Box
                                     sx={{
                                         position: 'absolute',
                                         top: 0,
@@ -177,9 +165,9 @@ function Homecard1({data, Gethomecard}) {
                                         marginTop: '18px',
                                     }}
                                 >
-                                    <BookmarkBorderIcon sx={{ fontSize: 20 }} />
-                                </Box>
-                                <Box
+                                    <Imports.BookmarkBorderIcon sx={{ fontSize: 20 }} />
+                                </Imports.Box>
+                                <Imports.Box
                                     sx={{
                                         position: 'absolute',
                                         top: 0,
@@ -191,24 +179,26 @@ function Homecard1({data, Gethomecard}) {
                                     }}
                                 >
                                     <img src="./images/topchoice.png" width="75%" alt="Top Choice" />
-                                </Box>
-                                <Typography sx={{ textAlign: 'start', marginLeft: '15px', fontSize: '23px' }}>
-                                    <strong>{homedata.title}</strong>
-                                </Typography>
-                                <Typography sx={{ textAlign: 'start', margin: '10px 36px', fontSize: '14px', fontWeight: 500 }}>
+                                </Imports.Box>
+                                <Imports.Grid>
+                                <Imports.Typography sx={{  marginLeft:'25px', fontSize: '23px', fontWeight:'bold' }}>
+                                    {homedata.title}
+                                </Imports.Typography>
+                                <Imports.Typography sx={{ marginLeft: '25px', fontSize: '14px', fontWeight: 500 }}>
                                     {homedata.subtitle}
-                                </Typography>
-                                <Typography sx={{ textAlign: 'start', marginLeft: '36px' }}>
+                                </Imports.Typography>
+                                <Imports.Typography sx={{ marginLeft: '25px' }}>
                                     {homedata.des}
-                                </Typography>
-                            </Grid>
-                            </Container>
-                        </SwiperSlide>
+                                </Imports.Typography>
+                                </Imports.Grid>
+                            </Imports.Grid>
+                            </Imports.Container>
+                        </Imports.SwiperSlide>
 
                     ))}
-                </Swiper>
+                </Imports.Swiper>
 
-                <Box
+                <Imports.Box
                     sx={{
                         display: 'flex',
                         justifyContent: 'flex-end',
@@ -217,20 +207,20 @@ function Homecard1({data, Gethomecard}) {
                         marginTop: '10px',
                     }}
                 >
-                    <Button sx={{ border: '1px solid gray', borderRadius: '16px', textTransform: 'none', color: 'black', width: {lg:'14%', md:'20%', sm:'25%', xs:'0%'}, height: '35px', marginRight:'150px', marginTop:'13px', display:{lg:'block', md:'block', sm:'block', xs:'none'} }}>
+                    <Imports.Button sx={{ border: '1px solid gray', borderRadius: '16px', textTransform: 'none', color: 'black', width: {lg:'14%', md:'20%', sm:'25%', xs:'0%'}, height: '35px', marginRight:'150px', marginTop:'13px', display:{lg:'block', md:'block', sm:'block', xs:'none'} }}>
                         <strong>View more attractions</strong>
-                    </Button>
-                    <Box sx={{ position: 'absolute', right: 45, display: 'flex', flexDirection: 'row', marginTop: '10px' }}>
-                        <Button onClick={goPrev} sx={{ minWidth: 'auto', border:'2px solid gray', borderRadius:'22px', color:'gray', marginRight: '10px' }}>
-                            <ArrowBackIosNewRoundedIcon />
-                        </Button>
-                        <Button onClick={goNext} sx={{ minWidth: 'auto', border:'2px solid gray', borderRadius:'22px', color:'gray' }}>
-                            <ArrowForwardIosRoundedIcon />
-                        </Button>
-                    </Box>
-                </Box>
-            </Grid>
-        </Container>
+                    </Imports.Button>
+                    <Imports.Box sx={{ position: 'absolute', right: 45, display: 'flex', flexDirection: 'row', marginTop: '10px' }}>
+                        <Imports.Button onClick={goPrev} sx={{ minWidth: 'auto', border:'2px solid gray', borderRadius:'22px', color:'gray', marginRight: '10px' }}>
+                            <Imports.ArrowBackIosNewRoundedIcon />
+                        </Imports.Button>
+                        <Imports.Button onClick={goNext} sx={{ minWidth: 'auto', border:'2px solid gray', borderRadius:'22px', color:'gray' }}>
+                            <Imports.ArrowForwardIosRoundedIcon />
+                        </Imports.Button>
+                    </Imports.Box>
+                </Imports.Box>
+            </Imports.Grid>
+        </Imports.Container>
     );
 }
 
@@ -244,4 +234,4 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = {Gethomecard}
 
-export default connect(mapStateToProps, mapDispatchToProps)(Homecard1);
+export default Imports.connect(mapStateToProps, mapDispatchToProps)(Homecard1);

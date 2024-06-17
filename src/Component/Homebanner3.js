@@ -1,22 +1,20 @@
-import * as React from 'react';
-import { Grid, Box, Typography } from '@mui/material';
- 
+import Imports from "../Import/Import";
 function Homebanner3(){
     return(
         <>
-        <Grid  sx={{
+        <Imports.Grid  sx={{
             marginTop:'150px',
             textAlign:'center', 
             borderBottom:'1px solid gray'
         
         }}>
-            <Typography sx={{ fontSize: { xs: '10px', md: '12px', lg: '13px' } }}>
+            <Imports.Typography sx={{ fontSize: { xs: '10px', md: '12px', lg: '13px' } }}>
                 ADVERTISEMENT
-            </Typography>
-            <Box sx={{marginBottom:'40px'}}>
+            </Imports.Typography>
+            <Imports.Box sx={{marginBottom:'40px'}}>
             <img src="https://tpc.googlesyndication.com/simgad/3510117500144793346" alt=""  width="50%" style={{ height:{lg:'90px', md:'40px', sm:'30px', xs:'28px'}}}/>
-            </Box>
-        </Grid>
+            </Imports.Box>
+        </Imports.Grid>
         </>
     )
 }

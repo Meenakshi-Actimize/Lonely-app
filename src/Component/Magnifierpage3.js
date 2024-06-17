@@ -1,7 +1,11 @@
 import { Container, Grid, List, ListItem, Typography } from '@mui/material';
 import React from 'react';
 
+
 function Magnifierpage3() {
+
+
+
     return (
         <Container maxWidth="xl">
             <Grid container sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>

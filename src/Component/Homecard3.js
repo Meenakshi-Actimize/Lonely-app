@@ -1,31 +1,16 @@
-import { Typography, Grid, Container, Box, Button } from '@mui/material';
-import * as React from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder';
-import ArrowBackIosNewRoundedIcon from '@mui/icons-material/ArrowBackIosNewRounded';
-import ArrowForwardIosRoundedIcon from '@mui/icons-material/ArrowForwardIosRounded';
-
-// Import Swiper styles
-import 'swiper/css';
-import 'swiper/css/pagination';
-import 'swiper/css/navigation';
-import { Pagination, Navigation } from 'swiper/modules';
-import HomeIcon from '@mui/icons-material/Home'; // Import the home icon from MUI icons
-import { Gethomecards2 } from '../redux/api/api';
+import Imports from '../Import/Import';
 import { Gethomecard2act } from '../redux/action/Action4';
-import { useState, useEffect } from 'react';
-import { connect } from 'react-redux'
 
 
 
 
 function Homecard3({data, Gethomecard2act}) {
-    const [hoveredCard, setHoveredCard] = useState(null);
-    useEffect(() => {
+    const [hoveredCard, setHoveredCard] = Imports.useState(null);
+    Imports.useEffect(() => {
         const fetchData = async () => {
             try {
               // Call the async function to fetch data
-              const getcard2data = await Gethomecards2();
+              const getcard2data = await Imports.Gethomecards2();
               // Dispatch the fetched data using GetCardData
               Gethomecard2act(getcard2data);
               console.log('Hi got homecard data', getcard2data);
@@ -45,7 +30,7 @@ function Homecard3({data, Gethomecard2act}) {
     //     { img: 'https://lp-cms-production.imgix.net/2019-06/dddcb82a3f9096504274908218e5c350-petulu.jpg?auto=format&fit=crop&ar=1:1&q=75&w=640', title: 'Petulu', subtitle: 'UBUD', des: 'Every evening beginning after 5pm, up to 20,000 big herons fly in to Petulu, a village about 2.5km north of Jl Raya…', showIcon: false, showIcon2: false },
     //     { img: 'https://lonelyplanetstatic.imgix.net/marketing/placeholders/placeholder-restaurants.jpg?auto=format&fit=crop&ar=1:1&q=75&w=640', title: 'Pasar Sindhu Night Market', subtitle: 'SANUR', des: 'This market sells fresh vegetables, dried fish, pungent spices, various household goods and many tempting Balinese…', showIcon: false, showIcon2: true }
     // ];
-    const swiperRef = React.useRef(null);
+    const swiperRef = Imports.React.useRef(null);
 
     const goNext = () => {
         if (swiperRef.current && swiperRef.current.swiper) {
@@ -61,21 +46,21 @@ function Homecard3({data, Gethomecard2act}) {
 
     return (
         <>
-            <Container maxWidth="xl">
-                <Grid>
-                    <Typography sx={{ fontSize: { lg: '35px', md: '32px', sm: '23px', xs: '17px' }, marginLeft: '25px', textDecoration: 'underline', textDecorationColor: '#0057D9' }}>
+            <Imports.Container maxWidth="xl">
+                <Imports.Grid>
+                    <Imports.Typography sx={{ fontSize: { lg: '35px', md: '32px', sm: '23px', xs: '17px' }, marginLeft: '25px', textDecoration: 'underline', textDecorationColor: '#0057D9' }}>
                         <strong>14 free things to do in Bali for paradise without the price tag</strong>
-                    </Typography>
-                    <Typography sx={{ marginLeft: '25px' }}>
+                    </Imports.Typography>
+                    <Imports.Typography sx={{ marginLeft: '25px' }}>
                         Curated by  <span style={{ color: '#0057D9' }}>Anita Surewicz, Mark Eveleigh</span>
-                    </Typography>
-                </Grid>
-                <Grid sx={{ marginTop: '30px' }}>
-                    <Swiper
+                    </Imports.Typography>
+                </Imports.Grid>
+                <Imports.Grid sx={{ marginTop: '30px' }}>
+                    <Imports.Swiper
                         ref={swiperRef}
                         spaceBetween={20}
                         navigation={false}
-                        modules={[Pagination, Navigation]}
+                        modules={[Imports.Pagination, Imports.Navigation]}
                         breakpoints={{
                             1440: {
                                 slidesPerView: 4,
@@ -94,15 +79,15 @@ function Homecard3({data, Gethomecard2act}) {
                             },
                         }}
                     >
-                    <Container maxWidth="xl">
-                        <Grid container>
+                    <Imports.Container maxWidth="xl">
+                        <Imports.Grid container>
 
                         {data && data.map((homecard2, index) => (
-                            <SwiperSlide key={homecard2.title}>
-                                <Box position="relative">
+                            <Imports.SwiperSlide key={homecard2.title}>
+                                <Imports.Box position="relative">
                                     <img src={homecard2.img} alt={homecard2.title} style={{ width: '100%', height: '300px', borderRadius:'16px' }} />
                                     {homecard2.showIcon && (
-                                        <Box
+                                        <Imports.Box
                                             sx={{
                                                 position: 'absolute',
                                                 top: '30%',
@@ -113,9 +98,9 @@ function Homecard3({data, Gethomecard2act}) {
                                             }}
                                         >
                                             <img src="./images/bag.png" width="80%" />
-                                        </Box>
+                                        </Imports.Box>
                                     )}
-                                    <Box
+                                    <Imports.Box
                                         sx={{
                                             position: 'absolute',
                                             top: 0,
@@ -130,10 +115,10 @@ function Homecard3({data, Gethomecard2act}) {
                                             marginTop: '18px'
                                         }}
                                     >
-                                        <BookmarkBorderIcon sx={{ fontSize: 20 }} />
-                                    </Box>
+                                        <Imports.BookmarkBorderIcon sx={{ fontSize: 20 }} />
+                                    </Imports.Box>
                                     {homecard2.showIcon2 && (
-                                        <Box
+                                        <Imports.Box
                                             sx={{
                                                 position: 'absolute',
                                                 top: '35%',
@@ -144,37 +129,37 @@ function Homecard3({data, Gethomecard2act}) {
                                             }}
                                         >
                                             <img src="./images/spoon.png" width="80%" />
-                                        </Box>
+                                        </Imports.Box>
                                     )}
-                                    <Typography sx={{ textAlign:'left', fontSize: '23px' }}>
+                                    <Imports.Typography sx={{ textAlign:'left', fontSize: '23px' }}>
                                         <strong>{homecard2.title}</strong>
-                                    </Typography>
+                                    </Imports.Typography>
                                     
-                                    <Typography sx={{ textAlign:'left', fontSize: '14px', fontWeight: 500 }}>
+                                    <Imports.Typography sx={{ textAlign:'left', fontSize: '14px', fontWeight: 500 }}>
                                         {homecard2.subtitle}
-                                    </Typography>
-                                    <Typography sx={{ textAlign:'left' }}>
+                                    </Imports.Typography>
+                                    <Imports.Typography sx={{ textAlign:'left' }}>
                                         {homecard2.des}
-                                    </Typography>
-                                </Box>
+                                    </Imports.Typography>
+                                </Imports.Box>
 
-                            </SwiperSlide>
+                            </Imports.SwiperSlide>
 
                         ))}
-                        </Grid>
-                    </Container>
+                        </Imports.Grid>
+                    </Imports.Container>
 
-                    </Swiper>
-                    <Box sx={{ display: 'flex', justifyContent: 'flex-end', marginTop: '20px', marginRight: '25px' }}>
-                        <Button onClick={goPrev} sx={{ minWidth: 'auto', border: '1px solid gray', borderRadius: '22px', color: 'gray', marginRight: '10px' }}>
-                            <ArrowBackIosNewRoundedIcon />
-                        </Button>
-                        <Button onClick={goNext} sx={{ minWidth: 'auto', border: '1px solid gray', borderRadius: '22px', color: 'gray' }}>
-                            <ArrowForwardIosRoundedIcon />
-                        </Button>
-                    </Box>
-                </Grid>
-            </Container>
+                    </Imports.Swiper>
+                    <Imports.Box sx={{ display: 'flex', justifyContent: 'flex-end', marginTop: '20px', marginRight: '25px' }}>
+                        <Imports.Button onClick={goPrev} sx={{ minWidth: 'auto', border: '1px solid gray', borderRadius: '22px', color: 'gray', marginRight: '10px' }}>
+                            <Imports.ArrowBackIosNewRoundedIcon />
+                        </Imports.Button>
+                        <Imports.Button onClick={goNext} sx={{ minWidth: 'auto', border: '1px solid gray', borderRadius: '22px', color: 'gray' }}>
+                            <Imports.ArrowForwardIosRoundedIcon />
+                        </Imports.Button>
+                    </Imports.Box>
+                </Imports.Grid>
+            </Imports.Container>
         </>
     );
 }
@@ -189,4 +174,4 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = {Gethomecard2act}
 
-export default connect(mapStateToProps, mapDispatchToProps)(Homecard3);
+export default Imports.connect(mapStateToProps, mapDispatchToProps)(Homecard3);

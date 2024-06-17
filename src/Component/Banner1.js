@@ -1,19 +1,18 @@
-import * as React from 'react';
-import { Grid, Typography } from '@mui/material';
+import Imports from "../Import/Import";
 
 function Banner1comp(){
 
     return(
         <>
-        <Grid  sx={{
+        <Imports.Grid  sx={{
             marginTop:'120px' ,
             textAlign:'center'
         }}>
-            <Typography sx={{ fontSize: { xs: '10px', md: '12px', lg: '13px' } }}>
+            <Imports.Typography sx={{ fontSize: { xs: '10px', md: '12px', lg: '13px' } }}>
                 ADVERTISEMENT
-            </Typography>
+            </Imports.Typography>
             <img src="https://tpc.googlesyndication.com/simgad/6861019118589770948" alt="" width="50%" />
-        </Grid>
+        </Imports.Grid>
         </>
     )
 }

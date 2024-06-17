@@ -104,4 +104,5 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = { Getplanvideo1act }
 
+// export default connect(mapStateToProps, mapDispatchToProps)(Planvideo);
 export default connect(mapStateToProps, mapDispatchToProps)(Planvideo);

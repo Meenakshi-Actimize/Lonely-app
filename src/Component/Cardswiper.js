@@ -1,23 +1,14 @@
-import * as React from 'react';
-import { Grid, Box, Typography, Container } from '@mui/material';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/css/bundle'; // Import Swiper bundle CSS
-import { Button } from '@mui/material';
-import SwiperCore from 'swiper';
-import { Navigation } from 'swiper/modules';
-import ArrowBackIosNewRoundedIcon from '@mui/icons-material/ArrowBackIosNewRounded';
-import ArrowForwardIosRoundedIcon from '@mui/icons-material/ArrowForwardIosRounded';
-import BookmarkBorderRoundedIcon from '@mui/icons-material/BookmarkBorderRounded';
+import Imports from "../Import/Import";
 
 
-SwiperCore.use([Navigation]);
+Imports.SwiperCore.use([Imports.Navigation]);
 
 function Cardswiper() {
 
-    const photo = [{ img: 'https://lp-cms-production.imgix.net/2024-04/copenhagen-iStock-1327471226-rfc.jpeg?auto=format&w=140&h=140&fit=crop&q=75', title: 'PUBLIC TRANSPORT', subtitle: '15 tips for travelling to Copenhangen on a budget', des: 'Apr 30, 2024 • 6 min read', icon: BookmarkBorderRoundedIcon }, { img: 'https://lp-cms-production.imgix.net/2024-04/copenhagen-iStock-1327471226-rfc.jpeg?auto=format&w=140&h=140&fit=crop&q=75', title: 'PUBLIC TRANSPORT', subtitle: '15 tips for travelling to Copenhangen on a budget', des: 'Apr 30, 2024 • 6 min read', icon: BookmarkBorderRoundedIcon }, { img: 'https://lp-cms-production.imgix.net/2024-04/copenhagen-iStock-1327471226-rfc.jpeg?auto=format&w=140&h=140&fit=crop&q=75', title: 'PUBLIC TRANSPORT', subtitle: '15 tips for travelling to Copenhangen on a budget', des: 'Apr 30, 2024 • 6 min read', icon: BookmarkBorderRoundedIcon }, { img: 'https://lp-cms-production.imgix.net/2024-04/copenhagen-iStock-1327471226-rfc.jpeg?auto=format&w=140&h=140&fit=crop&q=75', title: 'PUBLIC TRANSPORT', subtitle: '15 tips for travelling to Copenhangen on a budget', des: 'Apr 30, 2024 • 6 min read', icon: BookmarkBorderRoundedIcon }]
+    const photo = [{ img: 'https://lp-cms-production.imgix.net/2024-04/copenhagen-iStock-1327471226-rfc.jpeg?auto=format&w=140&h=140&fit=crop&q=75', title: 'PUBLIC TRANSPORT', subtitle: '15 tips for travelling to Copenhangen on a budget', des: 'Apr 30, 2024 • 6 min read', icon: Imports.BookmarkBorderRoundedIcon }, { img: 'https://lp-cms-production.imgix.net/2024-04/copenhagen-iStock-1327471226-rfc.jpeg?auto=format&w=140&h=140&fit=crop&q=75', title: 'PUBLIC TRANSPORT', subtitle: '15 tips for travelling to Copenhangen on a budget', des: 'Apr 30, 2024 • 6 min read', icon: Imports.BookmarkBorderRoundedIcon }, { img: 'https://lp-cms-production.imgix.net/2024-04/copenhagen-iStock-1327471226-rfc.jpeg?auto=format&w=140&h=140&fit=crop&q=75', title: 'PUBLIC TRANSPORT', subtitle: '15 tips for travelling to Copenhangen on a budget', des: 'Apr 30, 2024 • 6 min read', icon: Imports.BookmarkBorderRoundedIcon}, { img: 'https://lp-cms-production.imgix.net/2024-04/copenhagen-iStock-1327471226-rfc.jpeg?auto=format&w=140&h=140&fit=crop&q=75', title: 'PUBLIC TRANSPORT', subtitle: '15 tips for travelling to Copenhangen on a budget', des: 'Apr 30, 2024 • 6 min read', icon: Imports.BookmarkBorderRoundedIcon }]
 
 
-    const swiperRef = React.useRef(null);
+    const swiperRef = Imports.React.useRef(null);
 
     const goNext = () => {
         if (swiperRef.current && swiperRef.current.swiper) {
@@ -34,13 +25,13 @@ function Cardswiper() {
 
     return (
         <>
-            <Container maxWidth="xl" sx={{textAlign:'center'}}>
-                <Grid container sx={{textAlign:'center'}}>
-                    <Grid item xs={12} md={7} >
-                        <Box position="relative">
+            <Imports.Container maxWidth="xl" sx={{textAlign:'center'}}>
+                <Imports.Grid container sx={{textAlign:'center'}}>
+                    <Imports.Grid item xs={12} md={7} >
+                        <Imports.Box position="relative">
 
                             <img src="https://lp-cms-production.imgix.net/2024-04/GettyImages-949207386.jpeg?auto=format&w=780&h=425&fit=crop&q=75" alt="" width="100%" style={{ borderRadius: '16px', height: '670px' }} />
-                            <BookmarkBorderRoundedIcon sx={{
+                            <Imports.BookmarkBorderRoundedIcon sx={{
                                 position: 'absolute',
                                 top: '15px', // Adjust top position
                                 right: '20px', // Adjust right position
@@ -58,7 +49,7 @@ function Cardswiper() {
 
                             }} />
 
-                            <Typography
+                            <Imports.Typography
                                 sx={{
                                     position: 'absolute',
                                     bottom: '-8%',
@@ -83,28 +74,28 @@ function Cardswiper() {
 
 
 
-                            </Typography>
-                        </Box>
-                    </Grid>
+                            </Imports.Typography>
+                        </Imports.Box>
+                    </Imports.Grid>
 
-                    <Grid item xs={12} md={5}  >
-                        <Container maxWidth="xl">
+                    <Imports.Grid item xs={12} md={5}  >
+                        <Imports.Container maxWidth="xl">
                             <>
 
                             </>
-                            <Swiper ref={swiperRef}>
-                                <SwiperSlide>
+                            <Imports.Swiper ref={swiperRef}>
+                                <Imports.SwiperSlide>
                                     {photo.map((item, index) => (
 
 
-                                        <Grid container maxWidth="xl" sx={{ backgroundColor: '#F0F7FC', borderRadius: '16px', marginBottom: '17px' }}>
+                                        <Imports.Grid container maxWidth="xl" sx={{ backgroundColor: '#F0F7FC', borderRadius: '16px', marginBottom: '17px' }}>
 
 
-                                            <Grid item xs={4} sx={{ marginBottom: '20px' }}>
+                                            <Imports.Grid item xs={4} sx={{ marginBottom: '20px' }}>
 
                                                 <img src={item.img} alt="" width="60%" style={{ borderRadius: '16px', paddingTop: '20px' }} />
 
-                                            </Grid>
+                                            </Imports.Grid>
 
                                                 <item.icon
                                                     sx={{
@@ -127,28 +118,28 @@ function Cardswiper() {
                                                 />
 
 
-                                            <Grid item xs={8} sx={{ marginTop: '20px' }}>
-                                                <Typography sx={{ textAlign: 'left' }}>
+                                            <Imports.Grid item xs={8} sx={{ marginTop: '20px' }}>
+                                                <Imports.Typography sx={{ textAlign: 'left' }}>
                                                     {item.title}
-                                                </Typography>
-                                                <Typography sx={{ textAlign: 'left' }}>
+                                                </Imports.Typography>
+                                                <Imports.Typography sx={{ textAlign: 'left' }}>
                                                     {item.subtitle}
-                                                </Typography>
-                                                <Typography sx={{ textAlign: 'left' }}>
+                                                </Imports.Typography>
+                                                <Imports.Typography sx={{ textAlign: 'left' }}>
                                                     {item.des}
-                                                </Typography>
-                                            </Grid>
-                                        </Grid>
+                                                </Imports.Typography>
+                                            </Imports.Grid>
+                                        </Imports.Grid>
 
                                     ))}
-                                </SwiperSlide>
-                                <SwiperSlide>
+                                </Imports.SwiperSlide>
+                                <Imports.SwiperSlide>
                                     {photo.map((item, index) => (
 
-                                        <Grid container maxWidth="sm" sx={{ backgroundColor: '#F0F7FC', borderRadius: '16px', marginBottom: '17px' }}>
-                                            <Grid item xs={4} sx={{ marginBottom: '20px', alignItems: 'center', justifyContent: 'center' }}>
+                                        <Imports.Grid container maxWidth="sm" sx={{ backgroundColor: '#F0F7FC', borderRadius: '16px', marginBottom: '17px' }}>
+                                            <Imports.Grid item xs={4} sx={{ marginBottom: '20px', alignItems: 'center', justifyContent: 'center' }}>
                                                 <img src={item.img} alt="" width="60%" style={{ borderRadius: '16px', paddingTop: '20px' }} />
-                                            </Grid>
+                                            </Imports.Grid>
                                             <item.icon
                                                 sx={{
                                                     position: 'absolute',
@@ -169,28 +160,28 @@ function Cardswiper() {
                                                 }}
 
                                             />
-                                            <Grid item xs={8} sx={{ marginTop: '20px' }}>
-                                                <Typography sx={{ textAlign: 'left' }}>
+                                            <Imports.Grid item xs={8} sx={{ marginTop: '20px' }}>
+                                                <Imports.Typography sx={{ textAlign: 'left' }}>
                                                     {item.title}
-                                                </Typography>
-                                                <Typography sx={{ textAlign: 'left' }}>
+                                                </Imports.Typography>
+                                                <Imports.Typography sx={{ textAlign: 'left' }}>
                                                     {item.subtitle}
-                                                </Typography>
-                                                <Typography sx={{ textAlign: 'left' }}>
+                                                </Imports.Typography>
+                                                <Imports.Typography sx={{ textAlign: 'left' }}>
                                                     {item.des}
-                                                </Typography>
-                                            </Grid>
-                                        </Grid>
+                                                </Imports.Typography>
+                                            </Imports.Grid>
+                                        </Imports.Grid>
 
                                     ))}
-                                </SwiperSlide>
-                                <SwiperSlide>
+                                </Imports.SwiperSlide>
+                                <Imports.SwiperSlide>
                                     {photo.map((item, index) => (
 
-                                        <Grid container maxWidth="sm" sx={{ backgroundColor: '#F0F7FC', borderRadius: '16px', marginBottom: '17px' }}>
-                                            <Grid item xs={4} sx={{ marginBottom: '20px' }}>
+                                        <Imports.Grid container maxWidth="sm" sx={{ backgroundColor: '#F0F7FC', borderRadius: '16px', marginBottom: '17px' }}>
+                                            <Imports.Grid item xs={4} sx={{ marginBottom: '20px' }}>
                                                 <img src={item.img} alt="" width="60%" style={{ borderRadius: '16px', paddingTop: '20px' }} />
-                                            </Grid>
+                                            </Imports.Grid>
                                             <item.icon
                                                 sx={{
                                                     position: 'absolute',
@@ -211,28 +202,28 @@ function Cardswiper() {
                                                 }}
 
                                             />
-                                            <Grid item xs={8} sx={{ marginTop: '20px' }}>
-                                                <Typography sx={{ textAlign: 'left' }}>
+                                            <Imports.Grid item xs={8} sx={{ marginTop: '20px' }}>
+                                                <Imports.Typography sx={{ textAlign: 'left' }}>
                                                     {item.title}
-                                                </Typography>
-                                                <Typography sx={{ textAlign: 'left' }}>
+                                                </Imports.Typography>
+                                                <Imports.Typography sx={{ textAlign: 'left' }}>
                                                     {item.subtitle}
-                                                </Typography>
-                                                <Typography sx={{ textAlign: 'left' }}>
+                                                </Imports.Typography>
+                                                <Imports.Typography sx={{ textAlign: 'left' }}>
                                                     {item.des}
-                                                </Typography>
-                                            </Grid>
-                                        </Grid>
+                                                </Imports.Typography>
+                                            </Imports.Grid>
+                                        </Imports.Grid>
 
                                     ))}
-                                </SwiperSlide>
-                                <Button sx={{ position: 'relative', left: 0, borderRadius: '18px', marginLeft: '8px', border: '1px solid gray' }}><ArrowBackIosNewRoundedIcon onClick={goPrev} /></Button>
-                                <Button sx={{ position: 'relative', right: 0, borderRadius: '18px', border: '1px solid gray' }}><ArrowForwardIosRoundedIcon onClick={goNext} /></Button>
-                            </Swiper>
-                        </Container>
-                    </Grid>
-                </Grid>
-            </Container>
+                                </Imports.SwiperSlide>
+                                <Imports.Button sx={{ position: 'relative', left: 0, borderRadius: '18px', marginLeft: '8px', border: '1px solid gray' }}><Imports.ArrowBackIosNewRoundedIcon onClick={goPrev} /></Imports.Button>
+                                <Imports.Button sx={{ position: 'relative', right: 0, borderRadius: '18px', border: '1px solid gray' }}><Imports.ArrowForwardIosRoundedIcon onClick={goNext} /></Imports.Button>
+                            </Imports.Swiper>
+                        </Imports.Container>
+                    </Imports.Grid>
+                </Imports.Grid>
+            </Imports.Container>
 
 
         </>
