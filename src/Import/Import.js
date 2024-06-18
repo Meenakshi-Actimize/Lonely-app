@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Box,Button, Typography, Grid, Hidden, Menu, MenuItem, Card, CardContent,CardMedia, Collapse, Container, Stack, Pagination } from "@mui/material";
+import { Box,Button, Typography, Grid, Hidden, Menu, MenuItem, Card, CardContent,CardMedia, Collapse, Container, Stack} from "@mui/material";
 import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
@@ -19,7 +19,6 @@ import IconButton from '@mui/material/IconButton';
 import InputBase from '@mui/material/InputBase';
 import SearchIcon from '@mui/icons-material/Search';
 import { signOut } from 'firebase/auth';
-import { auth } from "../Firebase";
 import CloseIcon from "@mui/icons-material/Close";
 import { Getflash } from "../redux/action/Action";
 import FacebookRoundedIcon from '@mui/icons-material/FacebookRounded';
@@ -29,7 +28,7 @@ import ArrowBackIosNewRoundedIcon from '@mui/icons-material/ArrowBackIosNewRound
 import ArrowForwardIosRoundedIcon from '@mui/icons-material/ArrowForwardIosRounded';
 import BookmarkBorderRoundedIcon from '@mui/icons-material/BookmarkBorderRounded';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation } from "swiper/modules";
+import { EffectFade } from "swiper/modules";
 import { Autoplay } from 'swiper/modules';
 import { Getfood1act } from '../redux/action/Action9';
 import { Getfood1api } from '../redux/api/api';
@@ -45,7 +44,41 @@ import { Gethomecards4 } from '../redux/api/api';
 import LocalShippingOutlinedIcon from '@mui/icons-material/LocalShippingOutlined';
 import AssignmentReturnedOutlinedIcon from '@mui/icons-material/AssignmentReturnedOutlined';
 import EngineeringOutlinedIcon from '@mui/icons-material/EngineeringOutlined';
-import { Getmagnifieract } from '../redux/action/Action10';
+import { Getmagnifierapi } from '../redux/api/api';
+import { useLocation } from 'react-router-dom';
+import { Shop } from '@mui/icons-material';
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import MenuIcon from '@mui/icons-material/Menu';
+import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
+import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder';
+import { Avatar } from '@mui/material';
+import CheckSharpIcon from '@mui/icons-material/CheckSharp';
+import ArrowForwardIosSharpIcon from '@mui/icons-material/ArrowForwardIosSharp';
+import { Tabs, Tab } from '@mui/material';
+import { PieChart } from '@mui/x-charts/PieChart';
+import { useDrawingArea } from '@mui/x-charts/hooks';
+import { InputAdornment } from '@mui/material';
+import { Getplanvideo1api } from '../redux/api/api';
+import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
+import { Getshopapi } from '../redux/api/api';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import PaginationItem from '@mui/material/PaginationItem';
+import { Get1video } from '../redux/api/api';
+import { TextField } from '@mui/material';
+import { Checkbox } from '@mui/material';
+import { ToastContainer, toast, Bounce } from 'react-toastify';
+import { Pagination } from 'swiper/modules';
+import { Navigation } from 'swiper/modules';
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -89,7 +122,6 @@ SearchIcon,
 Hidden,
 Menu,
 MenuItem,
-auth,
 signOut,
 Card,
 CardContent,
@@ -103,10 +135,8 @@ BookmarkBorderRoundedIcon,
 Swiper,
 SwiperSlide,
 SwiperCore,
-Navigation, 
 Autoplay, 
 Stack,
-Pagination,
 Getfood1act,
 Getfood1api,
 ArrowForwardIcon,
@@ -121,7 +151,37 @@ Gethomecards4,
 AssignmentReturnedOutlinedIcon,
 LocalShippingOutlinedIcon,
 EngineeringOutlinedIcon,
-Getmagnifieract
+Getmagnifierapi,
+useLocation,
+Shop,
+KeyboardArrowDownIcon,
+MenuIcon,
+SearchOutlinedIcon,
+BookmarkBorderIcon,
+Avatar,
+EffectFade,
+CheckSharpIcon,
+ArrowForwardIosSharpIcon,
+Tabs,
+Tab,
+PieChart,
+useDrawingArea,
+InputAdornment,
+Getplanvideo1api,
+CheckCircleOutlineIcon,
+Getshopapi,
+ArrowBackIcon,
+PaginationItem,
+Get1video,
+TextField,
+Checkbox,
+ToastContainer,
+toast,
+Bounce,
+Pagination,
+Navigation
+
+
 
 
 

@@ -1,21 +1,15 @@
-import * as React from 'react';
-import { Grid, Typography, Box, Button, Container, TextField } from '@mui/material';
-import SearchIcon from '@mui/icons-material/Search';
-import { InputAdornment } from '@mui/material';
-import { useEffect } from 'react';
-import { connect } from 'react-redux'
+import Imports from '../Import/Import';
 import { Getplanvideo1act } from '../redux/action/Action7';
-import { Getplanvideo1api } from '../redux/api/api';
 
 
 
 function Planvideo({data , Getplanvideo1act}){
-    useEffect(() => {
+    Imports.useEffect(() => {
         // Define an async function inside useEffect
         const fetchData = async () => {
             try {
                 // Call the async function to fetch data
-                const gettingplanvideo = await Getplanvideo1api();
+                const gettingplanvideo = await Imports.Getplanvideo1api();
                 // Dispatch the fetched data using GetCardData
                 Getplanvideo1act(gettingplanvideo);
                 console.log('Hi success plan', gettingplanvideo);
@@ -30,9 +24,9 @@ function Planvideo({data , Getplanvideo1act}){
 
     return(
         <>
-        <Container maxWidth="xl">
-            <Grid container sx={{justifyContent:'center', alignItems:'center'}} >
-                <Grid xs={11.5} position="relative">
+        <Imports.Container maxWidth="xl">
+            <Imports.Grid container sx={{justifyContent:'center', alignItems:'center'}} >
+                <Imports.Grid xs={11.5} position="relative">
                 {data && data.map((planvideo, index) => (
 
                     <video autoPlay muted loop
@@ -45,7 +39,7 @@ function Planvideo({data , Getplanvideo1act}){
                 ))}
 
                         {/* Text Overlay */}
-                        <Typography
+                        <Imports.Typography
                             variant="h1"
                             component="div"
                             sx={{
@@ -62,8 +56,8 @@ function Planvideo({data , Getplanvideo1act}){
                             }}
                         >
                             <strong>Travel like you mean it.</strong> <br />
-                            <Typography sx={{fontSize:{lg:'19px', md:'19px', sm:'15px', xs:'10px'}}}><strong >Trips you couldn't plan, even if you wanted to</strong></Typography>
-                            <TextField 
+                            <Imports.Typography sx={{fontSize:{lg:'19px', md:'19px', sm:'15px', xs:'10px'}}}><strong >Trips you couldn't plan, even if you wanted to</strong></Imports.Typography>
+                            <Imports.TextField 
                                 placeholder="Where do you want to go ?"
                                 sx={{backgroundColor:'white',
                                 color:'black',
@@ -77,18 +71,18 @@ function Planvideo({data , Getplanvideo1act}){
                                 }}  
                                 InputProps={{
                                     endAdornment: (
-                                      <InputAdornment position="end">
-                                        <SearchIcon sx={{backgroundColor:'#7A1BF2', color:'white', borderRadius:'22px', fontSize:'42px'}}/>
-                                      </InputAdornment>
+                                      <Imports.InputAdornment position="end">
+                                        <Imports.SearchIcon sx={{backgroundColor:'#7A1BF2', color:'white', borderRadius:'22px', fontSize:'42px'}}/>
+                                      </Imports.InputAdornment>
                                      
                                      )
                                     }} />
                                   
-                        </Typography>
+                        </Imports.Typography>
 
-                </Grid>
-            </Grid>
-        </Container>
+                </Imports.Grid>
+            </Imports.Grid>
+        </Imports.Container>
         
         </>
     )
@@ -105,4 +99,4 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = { Getplanvideo1act }
 
 // export default connect(mapStateToProps, mapDispatchToProps)(Planvideo);
-export default connect(mapStateToProps, mapDispatchToProps)(Planvideo);
+export default Imports.connect(mapStateToProps, mapDispatchToProps)(Planvideo);

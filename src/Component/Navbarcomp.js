@@ -1,30 +1,17 @@
-import * as React from 'react';
-import AppBar from '@mui/material/AppBar';
-import Toolbar from '@mui/material/Toolbar';
-import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
-import Menu from '@mui/material/Menu';
-import MenuIcon from '@mui/icons-material/Menu';
-import Container from '@mui/material/Container';
-import Button from '@mui/material/Button';
-import MenuItem from '@mui/material/MenuItem';
-import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
-import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder';
-import { Avatar, Grid } from '@mui/material';
-import { useNavigate } from 'react-router-dom';
-import { signOut } from '@firebase/auth';
+import Imports from '../Import/Import';
 import { auth } from '../Firebase';
 
-const pages = [
-    { label: 'Destinations', path: '/signup' },
-    { label: 'Planning', path: '/planning' },
-    { label: 'Inspiration', path: '/foodanddrink' },
-    { label: 'Shop', path: '/shop' },
-];
 function Navbarcomp() {
-    const [anchorElNav, setAnchorElNav] = React.useState(null);
-    const [anchorElUser, setAnchorElUser] = React.useState(null);
-    const navigate = useNavigate();
+    const pages = [
+        { label: 'Destinations', path: '/signup' },
+        { label: 'Planning', path: '/planning' },
+        { label: 'Inspiration', path: '/foodanddrink' },
+        { label: 'Shop', path: '/shop' },
+    ];
+
+    const [anchorElNav, setAnchorElNav] = Imports.React.useState(null);
+    const [anchorElUser, setAnchorElUser] = Imports.React.useState(null);
+    const navigate = Imports.useNavigate();
     const profile = localStorage.getItem('photo');
     const token = localStorage.getItem('accessToken');
 
@@ -46,7 +33,7 @@ function Navbarcomp() {
     };
 
     const handleLogOut = () => {
-        signOut(auth).then(() => {
+        Imports.signOut(auth).then(() => {
             localStorage.clear();
             navigate('/flash');
             console.log("no token", token);
@@ -56,17 +43,15 @@ function Navbarcomp() {
     };
 
     return (
-        <Grid container columns={12} sx={{ display: 'flex', containerType: 'inline-size', justifyContent: 'space-between', alignItems: 'center' }}>
-
-            <AppBar position="static" sx={{ backgroundColor: 'white', height: '65px', color: '#212121' }}>
-                <Container maxWidth="xl">
-                    <Toolbar disableGutters>
-
-                        <Grid item xs={2} sx={{ display: 'flex' }}>
-                            <img src="./images/lonely-planet9056.logowik.com.jpg" alt="" width="120%" onClick={()=> navigate('/flash')}/>
-                        </Grid>
-                        <Grid item xs={7} sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
-                            <IconButton
+        <Imports.Grid container columns={12} sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+            <Imports.AppBar position="static" sx={{ backgroundColor: 'white', height: '65px', color: '#212121' }}>
+                <Imports.Container maxWidth="xl">
+                    <Imports.Toolbar disableGutters>
+                        <Imports.Grid item xs={2} sx={{ display: 'flex' }}>
+                            <img src="./images/lonely-planet9056.logowik.com.jpg" alt="" width="120%" onClick={() => navigate('/flash')} />
+                        </Imports.Grid>
+                        <Imports.Grid item xs={7} sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+                            <Imports.IconButton
                                 size="large"
                                 aria-label="account of current user"
                                 aria-controls="menu-appbar"
@@ -74,9 +59,9 @@ function Navbarcomp() {
                                 onClick={handleOpenNavMenu}
                                 sx={{ paddingLeft: { sm: '273px', xs: '60px' } }}
                             >
-                                <MenuIcon />
-                            </IconButton>
-                            <Menu
+                                <Imports.MenuIcon />
+                            </Imports.IconButton>
+                            <Imports.Menu
                                 id="menu-appbar"
                                 anchorEl={anchorElNav}
                                 anchorOrigin={{
@@ -95,48 +80,46 @@ function Navbarcomp() {
                                 }}
                             >
                                 {pages.map((page) => (
-                                    <MenuItem key={page.label} onClick={() => handleCloseNavMenu(page.path)}>
-                                        <Typography textAlign="center">{page.label}</Typography>
-                                    </MenuItem>
+                                    <Imports.MenuItem key={page.label} onClick={() => handleCloseNavMenu(page.path)}>
+                                        <Imports.Typography textAlign="center">{page.label}</Imports.Typography>
+                                    </Imports.MenuItem>
                                 ))}
-                            </Menu>
-                        </Grid>
-
+                            </Imports.Menu>
+                        </Imports.Grid>
                         {pages.map((page) => (
-                            <Button
+                            <Imports.Button
                                 key={page.label}
                                 onClick={() => handleCloseNavMenu(page.path)}
                                 sx={{ display: { xs: 'none', md: 'block' }, color: 'black', paddingLeft: '35px', marginLeft: '30px', textTransform: 'none', fontSize: '16px' }}
                             >
                                 <strong>{page.label}</strong>
-                            </Button>
+                            </Imports.Button>
                         ))}
-
-                        <Grid
+                        <Imports.Grid
                             container
                             item
-                            xs={12} // Full width on all screen sizes
+                            xs={12}
                             sx={{
                                 display: 'flex',
-                                justifyContent: 'flex-end', // Align items to the right
-                                alignItems: 'center', // Align items vertically centered
-                                gap: '10px', // Spacing between items
+                                justifyContent: 'flex-end',
+                                alignItems: 'center',
+                                gap: '10px',
                             }}
                         >
-                            <SearchOutlinedIcon />
-                            <Typography sx={{ display: { xs: 'none', md: 'block' } }}>Search</Typography>
-                            <BookmarkBorderIcon />
-                            <Typography sx={{ display: { xs: 'none', md: 'block' } }}>Saves</Typography>
+                            <Imports.SearchOutlinedIcon />
+                            <Imports.Typography sx={{ display: { xs: 'none', md: 'block' } }}>Search</Imports.Typography>
+                            <Imports.BookmarkBorderIcon />
+                            <Imports.Typography sx={{ display: { xs: 'none', md: 'block' } }}>Saves</Imports.Typography>
                             {token ? (
                                 <>
-                                    <IconButton onClick={handleOpenUserMenu}>
+                                    <Imports.IconButton onClick={handleOpenUserMenu}>
                                         {profile === null ? (
                                             <img src="https://www.computerhope.com/jargon/g/guest-user.png" alt="User Profile" width="40px" />
                                         ) : (
-                                            <Avatar src={profile} />
+                                            <Imports.Avatar src={profile} />
                                         )}
-                                    </IconButton>
-                                    <Menu
+                                    </Imports.IconButton>
+                                    <Imports.Menu
                                         id="menu-appbar"
                                         anchorEl={anchorElUser}
                                         anchorOrigin={{
@@ -151,25 +134,30 @@ function Navbarcomp() {
                                         open={Boolean(anchorElUser)}
                                         onClose={handleCloseUserMenu}
                                     >
-                                        <MenuItem onClick={handleLogOut}>Logout</MenuItem>
-                                    </Menu>
+                                        <Imports.MenuItem onClick={handleLogOut}>Logout</Imports.MenuItem>
+                                    </Imports.Menu>
                                 </>
                             ) : (
-                                <Button onClick={() => navigate('/signup')} sx={{
-                                    textTransform: 'none', backgroundColor: "#0057D9", color: 'white', '&:hover': {
-                                        backgroundColor: '#004bb5'
-                                    },
-                                    borderRadius: '16px',
-                                }}>
+                                <Imports.Button
+                                    onClick={() => navigate('/signup')}
+                                    sx={{
+                                        textTransform: 'none',
+                                        backgroundColor: "#0057D9",
+                                        color: 'white',
+                                        '&:hover': {
+                                            backgroundColor: '#004bb5'
+                                        },
+                                        borderRadius: '16px',
+                                    }}
+                                >
                                     Sign in
-                                </Button>
+                                </Imports.Button>
                             )}
-                        </Grid>
-
-                    </Toolbar>
-                </Container>
-            </AppBar>
-        </Grid>
+                        </Imports.Grid>
+                    </Imports.Toolbar>
+                </Imports.Container>
+            </Imports.AppBar>
+        </Imports.Grid>
     );
 }
 

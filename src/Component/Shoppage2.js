@@ -1,17 +1,16 @@
-import { Container, Grid, Typography } from '@mui/material';
-import * as React from 'react';
+import Imports from "../Import/Import";
 
 function Shoppage2(){
     return(
         <>
-        <Container maxWidth="xl" sx={{marginTop:'20px'}}>
-            <Grid >
-            <Typography sx={{fontSize:'12px'}}>Home / Guidebooks</Typography>
+        <Imports.Container maxWidth="xl" sx={{marginTop:'20px'}}>
+            <Imports.Grid >
+            <Imports.Typography sx={{fontSize:'12px'}}>Home / Guidebooks</Imports.Typography>
             
-            <Typography sx={{fontSize:'36px', fontWeight:'bold', marginTop:'15px'}}>Guidebooks</Typography>
-            </Grid>
+            <Imports.Typography sx={{fontSize:'36px', fontWeight:'bold', marginTop:'15px'}}>Guidebooks</Imports.Typography>
+            </Imports.Grid>
 
-        </Container>
+        </Imports.Container>
         
         </>
     )

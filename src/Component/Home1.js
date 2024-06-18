@@ -2,6 +2,8 @@ import Imports from '../Import/Import';
 import Navbarcomp from '../Component/Navbarcomp';
 import Alertbox from '../Component/Alertbox';
 
+
+
 function Home1(){
     return(
 

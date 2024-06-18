@@ -1,10 +1,5 @@
-import { Container, Typography, Grid, Box, Card, Button } from '@mui/material';
-import * as React from 'react';
-import { Tabs, Tab } from '@mui/material';
-import { PieChart } from '@mui/x-charts/PieChart';
-import { useDrawingArea } from '@mui/x-charts/hooks';
-import { styled } from '@mui/material/styles';
-import ArrowForwardIosSharpIcon from '@mui/icons-material/ArrowForwardIosSharp';
+import Imports from "../Import/Import";
+
 
 
 
@@ -20,7 +15,7 @@ const size = {
     height: 200,
 };
 
-const StyledText = styled('text')(({ theme }) => ({
+const StyledText = Imports.styled('text')(({ theme }) => ({
     fill: theme.palette.text.secondary,
     textAnchor: 'middle',
     dominantBaseline: 'central',
@@ -28,7 +23,7 @@ const StyledText = styled('text')(({ theme }) => ({
 }));
 
 function PieCenterLabel({ children }: { children: React.ReactNode }) {
-    const { width, height, left, top } = useDrawingArea();
+    const { width, height, left, top } = Imports.useDrawingArea();
     return (
         <StyledText x={left + width / 2} y={top + height / 2}>
             {children}
@@ -38,20 +33,20 @@ function PieCenterLabel({ children }: { children: React.ReactNode }) {
 
 
 function Planpiechart() {
-    const [value, setValue] = React.useState(2);
+    const [value, setValue] = Imports.React.useState(2);
     const handleChange = (event, newValue) => { 
         setValue(newValue); 
     }; 
   
     return (
         <>
-            <Container maxWidth="lg" sx={{ marginTop: '100px' }}>
-                <Grid sx={{ }}>
-                    <Typography>Radical transparency</Typography>
-                    <Typography sx={{ fontSize: '25px', fontWeight: 'bold' }}>Where your money goes</Typography>
-                </Grid>
+            <Imports.Container maxWidth="lg" sx={{ marginTop: '100px' }}>
+                <Imports.Grid sx={{ }}>
+                    <Imports.Typography>Radical transparency</Imports.Typography>
+                    <Imports.Typography sx={{ fontSize: '25px', fontWeight: 'bold' }}>Where your money goes</Imports.Typography>
+                </Imports.Grid>
 
-                <Tabs
+                <Imports.Tabs
                     value={value}
                     onChange={handleChange}
                     textColor="black"
@@ -59,45 +54,45 @@ function Planpiechart() {
                     aria-label="secondary tabs example"
                     sx={{ marginTop: '25px' }}
                 >
-                    <Tab value="one" label="our model" sx={{ color: 'black', textTransform: 'none', fontSize: '14px', fontWeight: 'bold' }} />
+                    <Imports.Tab value="one" label="our model" sx={{ color: 'black', textTransform: 'none', fontSize: '14px', fontWeight: 'bold' }} />
 
-                    <Tab value="two" label="Industry model" sx={{ color: 'black', textTransform: 'none', fontSize: '14px', fontWeight: 'bold' }} />
-                </Tabs>
+                    <Imports.Tab value="two" label="Industry model" sx={{ color: 'black', textTransform: 'none', fontSize: '14px', fontWeight: 'bold' }} />
+                </Imports.Tabs>
 
-                <Card sx={{ marginBottom: '25px', height: '400px' }}>
-                    <Grid container>
-                        <Grid item xs={12} sm={12} md={8} lg={8}> 
-                            <Grid sx={{ display: 'flex' }}>
-                                <Grid sx={{margin:'25px'}}>
-                                    <Typography variant="h4" sx={{color:'#4695FF', fontWeight:'bold'}}>87%</Typography>
-                                    <Typography sx={{fontSize:'16px'}}>Investment in quality suppliers<br /> and projects that support the destination</Typography>
-                                </Grid>
-                                <Grid sx={{margin:'25px'}}>
-                                    <Typography variant="h4" sx={{color:'#A200ED', fontWeight:'bold'}}>11%</Typography>
-                                    <Typography>Keeps our website running and<br /> our super lean staff fed</Typography>
-                                </Grid>
-                            </Grid>
-                        <Grid sx={{margin:'25px'}}>
-                            <Typography variant="h4" sx={{color:'#D1B9AC', fontWeight:'bold'}}>2%</Typography>
-                            <Typography>Carbon offset, reforestation, ocean plastic removal,<br /> and trying to make the world a better place</Typography>
-                        </Grid>
-                        <Button sx={{border:'1px solid #9409EE', borderRadius:'20px', margin:'25px', textTransform:'none', width:{lg:'25%', md:'30%', sm:'30%', xs:'30%'}, color:'black', fontWeight:'bold'}}>Our commitments <ArrowForwardIosSharpIcon sx={{fontSize:'18px', marginLeft:'16px', color:'black', fontWeight:'bold'}}/></Button>
+                <Imports.Card sx={{ marginBottom: '25px', height: '400px' }}>
+                    <Imports.Grid container>
+                        <Imports.Grid item xs={12} sm={12} md={8} lg={8}> 
+                            <Imports.Grid sx={{ display: 'flex' }}>
+                                <Imports.Grid sx={{margin:'25px'}}>
+                                    <Imports.Typography variant="h4" sx={{color:'#4695FF', fontWeight:'bold'}}>87%</Imports.Typography>
+                                    <Imports.Typography sx={{fontSize:'16px'}}>Investment in quality suppliers<br /> and projects that support the destination</Imports.Typography>
+                                </Imports.Grid>
+                                <Imports.Grid sx={{margin:'25px'}}>
+                                    <Imports.Typography variant="h4" sx={{color:'#A200ED', fontWeight:'bold'}}>11%</Imports.Typography>
+                                    <Imports.Typography>Keeps our website running and<br /> our super lean staff fed</Imports.Typography>
+                                </Imports.Grid>
+                            </Imports.Grid>
+                        <Imports.Grid sx={{margin:'25px'}}>
+                            <Imports.Typography variant="h4" sx={{color:'#D1B9AC', fontWeight:'bold'}}>2%</Imports.Typography>
+                            <Imports.Typography>Carbon offset, reforestation, ocean plastic removal,<br /> and trying to make the world a better place</Imports.Typography>
+                        </Imports.Grid>
+                        <Imports.Button sx={{border:'1px solid #9409EE', borderRadius:'20px', margin:'25px', textTransform:'none', width:{lg:'25%', md:'30%', sm:'30%', xs:'30%'}, color:'black', fontWeight:'bold'}}>Our commitments <Imports.ArrowForwardIosSharpIcon sx={{fontSize:'18px', marginLeft:'16px', color:'black', fontWeight:'bold'}}/></Imports.Button>
 
-                        </Grid>
+                        </Imports.Grid>
                         
 
-                        <Grid item xs={12} sm={12} md={4} lg={4} >
-                            <PieChart series={[{ data, innerRadius: 140 }]} {...{ ...size, width: 450, height: 450 }} >
+                        <Imports.Grid item xs={12} sm={12} md={4} lg={4} >
+                            <Imports.PieChart series={[{ data, innerRadius: 140 }]} {...{ ...size, width: 450, height: 450 }} >
                                 <PieCenterLabel>Our model</PieCenterLabel>
-                            </PieChart>
+                            </Imports.PieChart>
 
-                        </Grid>
+                        </Imports.Grid>
                         
-                    </Grid>
+                    </Imports.Grid>
                     
 
-                </Card>
-            </Container>
+                </Imports.Card>
+            </Imports.Container>
 
         </>
     )

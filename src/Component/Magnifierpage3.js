@@ -1,5 +1,4 @@
-import { Container, Grid, List, ListItem, Typography } from '@mui/material';
-import React from 'react';
+import Imports from "../Import/Import";
 
 
 function Magnifierpage3() {
@@ -7,9 +6,9 @@ function Magnifierpage3() {
 
 
     return (
-        <Container maxWidth="xl">
-            <Grid container sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                <Grid item xs={12} sm={12} md={6} lg={6}>
+        <Imports.Container maxWidth="xl">
+            <Imports.Grid container sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                <Imports.Grid item xs={12} sm={12} md={6} lg={6}>
                     <img
                         src="./images/bac.png"
                         alt=""
@@ -19,28 +18,28 @@ function Magnifierpage3() {
                             height: '450px'
                         }}
                     />
-                </Grid>
-                <Grid item xs={12} sm={12} md={4.5} lg={4.5}>
-                    <Grid sx={{ margin: '30px' }}>
-                        <Typography sx={{ fontSize: { lg: '13px', md: '12px', sm: '12px', xs: '11px' } }}>
+                </Imports.Grid>
+                <Imports.Grid item xs={12} sm={12} md={4.5} lg={4.5}>
+                    <Imports.Grid sx={{ margin: '30px' }}>
+                        <Imports.Typography sx={{ fontSize: { lg: '13px', md: '12px', sm: '12px', xs: '11px' } }}>
                             WHAT IS A MULTI COUNTRY GUIDE?
-                        </Typography>
-                        <Typography sx={{ fontSize: { lg: '38px', md: '31px', sm: '38px', xs: '22px' }, fontWeight: 'bold' }}>
+                        </Imports.Typography>
+                        <Imports.Typography sx={{ fontSize: { lg: '38px', md: '31px', sm: '38px', xs: '22px' }, fontWeight: 'bold' }}>
                             You are viewing a Multi Country Guide
-                        </Typography>
-                        <Typography>
+                        </Imports.Typography>
+                        <Imports.Typography>
                             Similar in style and format to our Country and Regional guidebooks, this series helps you focus on two or three neighbouring countries. Extensive pre-planning sections and in-depth coverage are combined with information and listings on history, culture, food, drink, shopping, nightlife and more.
-                        </Typography>
-                        <List>
-                            <ListItem>• Packed with amazing experiences, author recommendations and local knowledge</ListItem>
-                            <ListItem>• Planning features and itineraries give you the freedom to create your perfect trip</ListItem>
-                            <ListItem>• Our expert authors reveal the local secrets that will make your trip unique</ListItem>
-                            <ListItem>• Full of cultural insights for a richer, more rewarding travel experience</ListItem>
-                        </List>
-                    </Grid>
-                </Grid>
-            </Grid>
-        </Container>
+                        </Imports.Typography>
+                        <Imports.List>
+                            <Imports.ListItem>• Packed with amazing experiences, author recommendations and local knowledge</Imports.ListItem>
+                            <Imports.ListItem>• Planning features and itineraries give you the freedom to create your perfect trip</Imports.ListItem>
+                            <Imports.ListItem>• Our expert authors reveal the local secrets that will make your trip unique</Imports.ListItem>
+                            <Imports.ListItem>• Full of cultural insights for a richer, more rewarding travel experience</Imports.ListItem>
+                        </Imports.List>
+                    </Imports.Grid>
+                </Imports.Grid>
+            </Imports.Grid>
+        </Imports.Container>
     );
 }
 

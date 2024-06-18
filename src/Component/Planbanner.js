@@ -1,12 +1,11 @@
-import { Grid } from '@mui/material';
-import * as React from 'react';
+import Imports from "../Import/Import";
 
 function Planbanner(){
     return(
         <>
-            <Grid container >
+            <Imports.Grid container >
                 <img src='./images/thrives.png' alt="" width="100%" />
-            </Grid>
+            </Imports.Grid>
         
         </>
     )

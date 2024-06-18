@@ -1,18 +1,15 @@
-import * as React from 'react';
-import { Grid, Box, Typography, Button } from '@mui/material';
+import Imports from '../Import/Import';
 import { Getvideo } from '../redux/action/Action2';
-import { Get1video } from '../redux/api/api';
-import { connect } from 'react-redux'
-import { useEffect } from 'react';
+
 
 
 function Videocomp({ data, Getvideo }) {
-    useEffect(() => {
+    Imports.useEffect(() => {
         // Define an async function inside useEffect
         const fetchData = async () => {
             try {
                 // Call the async function to fetch data
-                const gettingvideodata = await Get1video();
+                const gettingvideodata = await Imports.Get1video();
                 // Dispatch the fetched data using GetCardData
                 Getvideo(gettingvideodata);
                 console.log('Hi success', gettingvideodata);
@@ -27,8 +24,8 @@ function Videocomp({ data, Getvideo }) {
 
     return (
         <>
-            <Grid container>
-                <Box position="relative" sx={{ marginTop: '60px', width: '100%' }}>
+            <Imports.Grid container>
+                <Imports.Box position="relative" sx={{ marginTop: '60px', width: '100%' }}>
                 {data && data.map((vdeo, index) => (
                     <video autoPlay muted loop
                         style={{ width: '100%', maxWidth: '100%', height: 'auto' }} >
@@ -40,7 +37,7 @@ function Videocomp({ data, Getvideo }) {
                 ))}
 
                         {/* Text Overlay */}
-                        <Typography
+                        <Imports.Typography
                             variant="h1"
                             component="div"
                             sx={{
@@ -56,12 +53,12 @@ function Videocomp({ data, Getvideo }) {
                             }}
                         >
                             <strong>BEST IN TRAVEL 2024</strong> <br />
-                            <Button variant="contained" sx={{ border: '1px solid white', borderRadius: '18px', backgroundColor: 'white', color: 'black', textTransform: 'none' }}>Discover the winners</Button>
+                            <Imports.Button variant="contained" sx={{ border: '1px solid white', borderRadius: '18px', backgroundColor: 'white', color: 'black', textTransform: 'none' }}>Discover the winners</Imports.Button>
 
-                        </Typography>
+                        </Imports.Typography>
 
-                </Box>
-            </Grid>
+                </Imports.Box>
+            </Imports.Grid>
         </>
     )
 }
@@ -78,4 +75,4 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = { Getvideo }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Videocomp);
+export default Imports.connect(mapStateToProps, mapDispatchToProps)(Videocomp);

@@ -1,13 +1,6 @@
-import * as React from 'react';
-import Pagination from '@mui/material/Pagination';
-import { styled } from '@mui/material/styles';
-import PaginationItem from '@mui/material/PaginationItem';
-import Stack from '@mui/material/Stack';
-import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
-import { Grid } from '@mui/material';
+import Imports from "../Import/Import";
 
-const CustomPagination = styled(Pagination)(({ theme }) => ({
+const CustomPagination = Imports.styled(Imports.Pagination)(({ theme }) => ({
   '& .MuiPaginationItem-root': {
     borderRadius: '0px', // Removes the border-radius to create a square shape
   },
@@ -15,14 +8,14 @@ const CustomPagination = styled(Pagination)(({ theme }) => ({
 
 function Shoppage4() {
   return (
-    <Stack spacing={2} sx={{ display:'flex', justifyContent:'center', alignItems:'center' }}>
-      <Pagination
+    <Imports.Stack spacing={2} sx={{ display:'flex', justifyContent:'center', alignItems:'center' }}>
+      <Imports.Pagination
         count={5}
         shape='rounded'
         sx={{ border:'1px solid gray', borderRadius:'22px' }}
         renderItem={(item) => (
-          <PaginationItem
-            slots={{ previous: ArrowBackIcon, next: ArrowForwardIcon }}
+          <Imports.PaginationItem
+            slots={{ previous: Imports.ArrowBackIcon, next: Imports.ArrowForwardIcon }}
             {...item}
             sx={{
               width: { lg: '30%', md: '30%', sm: '50%', xs: '100%' },
@@ -35,7 +28,7 @@ function Shoppage4() {
           />
         )}
       />
-    </Stack>
+    </Imports.Stack>
   );
 }
 

@@ -1,28 +1,14 @@
-import { Container, Grid, List, ListItem, Typography, Box, Card, Button } from '@mui/material';
-import * as React from 'react';
-import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
-import Accordion from '@mui/material/Accordion';
-import AccordionSummary from '@mui/material/AccordionSummary';
-import AccordionDetails from '@mui/material/AccordionDetails';
-
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import CheckBoxOutlineBlankIcon from '@mui/icons-material/CheckBoxOutlineBlank';
-import TuneIcon from '@mui/icons-material/Tune';
-import { Getshopact } from '../redux/action/Action8';
-import { Getshopapi } from '../redux/api/api';
-import { useEffect, useState } from 'react';
-import { connect } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
-import { Title } from '@mui/icons-material';
+import Imports from "../Import/Import";
+import { Getshopact } from "../redux/action/Action8";
 
 function Shoppage3({ data, Getshopact }) {
-    const navigate = useNavigate();
-    const [isClicked, setIsClicked] = useState(false);
+    const navigate = Imports.useNavigate();
+    const [isClicked, setIsClicked] = Imports.useState(false);
 
-    useEffect(() => {
+    Imports.useEffect(() => {
         const fetchData = async () => {
             try {
-                const gettingshop = await Getshopapi();
+                const gettingshop = await Imports.Getshopapi();
                 Getshopact(gettingshop);
                 console.log('Hi success plan', gettingshop);
             } catch (error) {
@@ -40,116 +26,116 @@ function Shoppage3({ data, Getshopact }) {
 
     return (
         <>
-            <Container maxWidth="xl" sx={{ marginTop: '40px' }}>
-                <Grid container>
+            <Imports.Container maxWidth="xl" sx={{ marginTop: '40px' }}>
+                <Imports.Grid container>
                     {/* Filter component */}
-                    <Grid item xs={12} sm={12} md={3} lg={3} sx={{ display: { lg: 'block', md: 'block', sm: 'none', xs: 'none' } }}>
-                        <Typography sx={{ fontSize: '23px', color: '#0057D9', fontWeight: 'bold', paddingBottom: '16px' }}>Filters</Typography>
-                        <Accordion sx={{ paddingBottom: '16px' }}>
-                            <AccordionSummary
-                                expandIcon={<ExpandMoreIcon />}
+                    <Imports.Grid item xs={12} sm={12} md={3} lg={3} sx={{ display: { lg: 'block', md: 'block', sm: 'none', xs: 'none' } }}>
+                        <Imports.Typography sx={{ fontSize: '23px', color: '#0057D9', fontWeight: 'bold', paddingBottom: '16px' }}>Filters</Imports.Typography>
+                        <Imports.Accordion sx={{ paddingBottom: '16px' }}>
+                            <Imports.AccordionSummary
+                                expandIcon={<Imports.ExpandMoreIcon />}
                                 aria-controls="panel1-content"
                                 id="panel1-header"
                             >
-                                <Typography sx={{ color: 'black', fontWeight: 'bold' }}>Regions</Typography>
-                            </AccordionSummary>
-                            <AccordionDetails>
-                                <List sx={{ fontSize: '13px' }}>
-                                    <ListItem><CheckBoxOutlineBlankIcon />&nbsp;Africa (11)</ListItem>
-                                    <ListItem><CheckBoxOutlineBlankIcon />&nbsp;Asia (38)</ListItem>
-                                    <ListItem><CheckBoxOutlineBlankIcon />&nbsp;Australia and Pacific (31)</ListItem>
-                                    <ListItem><CheckBoxOutlineBlankIcon />&nbsp;Caribbean (2)</ListItem>
-                                    <ListItem><CheckBoxOutlineBlankIcon />&nbsp;Central America (7)</ListItem>
-                                    <ListItem><CheckBoxOutlineBlankIcon />&nbsp;Europe (134)</ListItem>
-                                    <ListItem><CheckBoxOutlineBlankIcon />&nbsp;Middle East (7)</ListItem>
-                                    <ListItem><CheckBoxOutlineBlankIcon />&nbsp;North America (86)</ListItem>
-                                    <ListItem><CheckBoxOutlineBlankIcon />&nbsp;South America (13)</ListItem>
-                                </List>
-                            </AccordionDetails>
-                        </Accordion>
-                        <Accordion sx={{ paddingBottom: '16px' }}>
-                            <AccordionSummary
-                                expandIcon={<ExpandMoreIcon />}
+                                <Imports.Typography sx={{ color: 'black', fontWeight: 'bold' }}>Regions</Imports.Typography>
+                            </Imports.AccordionSummary>
+                            <Imports.AccordionDetails>
+                                <Imports.List sx={{ fontSize: '13px' }}>
+                                    <Imports.ListItem><Imports.CheckBoxOutlineBlankIcon />&nbsp;Africa (11)</Imports.ListItem>
+                                    <Imports.ListItem><Imports.CheckBoxOutlineBlankIcon />&nbsp;Asia (38)</Imports.ListItem>
+                                    <Imports.ListItem><Imports.CheckBoxOutlineBlankIcon />&nbsp;Australia and Pacific (31)</Imports.ListItem>
+                                    <Imports.ListItem><Imports.CheckBoxOutlineBlankIcon />&nbsp;Caribbean (2)</Imports.ListItem>
+                                    <Imports.ListItem><Imports.CheckBoxOutlineBlankIcon />&nbsp;Central America (7)</Imports.ListItem>
+                                    <Imports.ListItem><Imports.CheckBoxOutlineBlankIcon />&nbsp;Europe (134)</Imports.ListItem>
+                                    <Imports.ListItem><Imports.CheckBoxOutlineBlankIcon />&nbsp;Middle East (7)</Imports.ListItem>
+                                    <Imports.ListItem><Imports.CheckBoxOutlineBlankIcon />&nbsp;North America (86)</Imports.ListItem>
+                                    <Imports.ListItem><Imports.CheckBoxOutlineBlankIcon />&nbsp;South America (13)</Imports.ListItem>
+                                </Imports.List>
+                            </Imports.AccordionDetails>
+                        </Imports.Accordion>
+                        <Imports.Accordion sx={{ paddingBottom: '16px' }}>
+                            <Imports.AccordionSummary
+                                expandIcon={<Imports.ExpandMoreIcon />}
                                 aria-controls="panel2-content"
                                 id="panel2-header"
                             >
-                                <Typography sx={{ color: 'black', fontWeight: 'bold' }}>Countries</Typography>
-                            </AccordionSummary>
-                            <AccordionDetails>
-                                <List sx={{ fontSize: '13px' }}>
-                                    <ListItem><CheckBoxOutlineBlankIcon />&nbsp;Argentina (2)</ListItem>
-                                    <ListItem><CheckBoxOutlineBlankIcon />&nbsp;Australia (24)</ListItem>
-                                    <ListItem><CheckBoxOutlineBlankIcon />&nbsp;Austria (4)</ListItem>
-                                    <ListItem><CheckBoxOutlineBlankIcon />&nbsp;Brazil (2)</ListItem>
-                                    <ListItem><CheckBoxOutlineBlankIcon />&nbsp;Canada (14)</ListItem>
-                                    <ListItem><CheckBoxOutlineBlankIcon />&nbsp;Chile (2)</ListItem>
-                                    <ListItem><CheckBoxOutlineBlankIcon />&nbsp;Croatia (3)</ListItem>
-                                    <ListItem><CheckBoxOutlineBlankIcon />&nbsp;Czech Republic (2)</ListItem>
-                                    <ListItem><CheckBoxOutlineBlankIcon />&nbsp;Denmark (2)</ListItem>
-                                    <ListItem><CheckBoxOutlineBlankIcon />&nbsp;Ecuador (2)</ListItem>
-                                    <ListItem><CheckBoxOutlineBlankIcon />&nbsp;England (4)</ListItem>
-                                    <ListItem><CheckBoxOutlineBlankIcon />&nbsp;France (12)</ListItem>
-                                    <ListItem><CheckBoxOutlineBlankIcon />&nbsp;Germany (7)</ListItem>
-                                    <ListItem><CheckBoxOutlineBlankIcon />&nbsp;Greece (4)</ListItem>
-                                    <ListItem><CheckBoxOutlineBlankIcon />&nbsp;Iceland (3)</ListItem>
-                                    <ListItem><CheckBoxOutlineBlankIcon />&nbsp;India (3)</ListItem>
-                                    <ListItem><CheckBoxOutlineBlankIcon />&nbsp;Ireland (6)</ListItem>
-                                    <ListItem><CheckBoxOutlineBlankIcon />&nbsp;Italy (21)</ListItem>
-                                    <ListItem><CheckBoxOutlineBlankIcon />&nbsp;Japan (7)</ListItem>
-                                    <ListItem><CheckBoxOutlineBlankIcon />&nbsp;New Zealand (12)</ListItem>
-                                    <ListItem><CheckBoxOutlineBlankIcon />&nbsp;Portugal (6)</ListItem>
-                                    <ListItem><CheckBoxOutlineBlankIcon />&nbsp;Russia (3)</ListItem>
-                                    <ListItem><CheckBoxOutlineBlankIcon />&nbsp;Scotland (7)</ListItem>
-                                    <ListItem><CheckBoxOutlineBlankIcon />&nbsp;Spain (16)</ListItem>
-                                    <ListItem><CheckBoxOutlineBlankIcon />&nbsp;Thailand (4)</ListItem>
-                                    <ListItem><CheckBoxOutlineBlankIcon />&nbsp;The Netherlands (3)</ListItem>
-                                    <ListItem><CheckBoxOutlineBlankIcon />&nbsp;USA (64)</ListItem>
-                                </List>
-                            </AccordionDetails>
-                        </Accordion>
-                        <Accordion sx={{ paddingBottom: '16px' }}>
-                            <AccordionSummary
-                                expandIcon={<ExpandMoreIcon />}
+                                <Imports.Typography sx={{ color: 'black', fontWeight: 'bold' }}>Countries</Imports.Typography>
+                            </Imports.AccordionSummary>
+                            <Imports.AccordionDetails>
+                                <Imports.List sx={{ fontSize: '13px' }}>
+                                    <Imports.ListItem><Imports.CheckBoxOutlineBlankIcon />&nbsp;Argentina (2)</Imports.ListItem>
+                                    <Imports.ListItem><Imports.CheckBoxOutlineBlankIcon />&nbsp;Australia (24)</Imports.ListItem>
+                                    <Imports.ListItem><Imports.CheckBoxOutlineBlankIcon />&nbsp;Austria (4)</Imports.ListItem>
+                                    <Imports.ListItem><Imports.CheckBoxOutlineBlankIcon />&nbsp;Brazil (2)</Imports.ListItem>
+                                    <Imports.ListItem><Imports.CheckBoxOutlineBlankIcon />&nbsp;Canada (14)</Imports.ListItem>
+                                    <Imports.ListItem><Imports.CheckBoxOutlineBlankIcon />&nbsp;Chile (2)</Imports.ListItem>
+                                    <Imports.ListItem><Imports.CheckBoxOutlineBlankIcon />&nbsp;Croatia (3)</Imports.ListItem>
+                                    <Imports.ListItem><Imports.CheckBoxOutlineBlankIcon />&nbsp;Czech Republic (2)</Imports.ListItem>
+                                    <Imports.ListItem><Imports.CheckBoxOutlineBlankIcon />&nbsp;Denmark (2)</Imports.ListItem>
+                                    <Imports.ListItem><Imports.CheckBoxOutlineBlankIcon />&nbsp;Ecuador (2)</Imports.ListItem>
+                                    <Imports.ListItem><Imports.CheckBoxOutlineBlankIcon />&nbsp;England (4)</Imports.ListItem>
+                                    <Imports.ListItem><Imports.CheckBoxOutlineBlankIcon />&nbsp;France (12)</Imports.ListItem>
+                                    <Imports.ListItem><Imports.CheckBoxOutlineBlankIcon />&nbsp;Germany (7)</Imports.ListItem>
+                                    <Imports.ListItem><Imports.CheckBoxOutlineBlankIcon />&nbsp;Greece (4)</Imports.ListItem>
+                                    <Imports.ListItem><Imports.CheckBoxOutlineBlankIcon />&nbsp;Iceland (3)</Imports.ListItem>
+                                    <Imports.ListItem><Imports.CheckBoxOutlineBlankIcon />&nbsp;India (3)</Imports.ListItem>
+                                    <Imports.ListItem><Imports.CheckBoxOutlineBlankIcon />&nbsp;Ireland (6)</Imports.ListItem>
+                                    <Imports.ListItem><Imports.CheckBoxOutlineBlankIcon />&nbsp;Italy (21)</Imports.ListItem>
+                                    <Imports.ListItem><Imports.CheckBoxOutlineBlankIcon />&nbsp;Japan (7)</Imports.ListItem>
+                                    <Imports.ListItem><Imports.CheckBoxOutlineBlankIcon />&nbsp;New Zealand (12)</Imports.ListItem>
+                                    <Imports.ListItem><Imports.CheckBoxOutlineBlankIcon />&nbsp;Portugal (6)</Imports.ListItem>
+                                    <Imports.ListItem><Imports.CheckBoxOutlineBlankIcon />&nbsp;Russia (3)</Imports.ListItem>
+                                    <Imports.ListItem><Imports.CheckBoxOutlineBlankIcon />&nbsp;Scotland (7)</Imports.ListItem>
+                                    <Imports.ListItem><Imports.CheckBoxOutlineBlankIcon />&nbsp;Spain (16)</Imports.ListItem>
+                                    <Imports.ListItem><Imports.CheckBoxOutlineBlankIcon />&nbsp;Thailand (4)</Imports.ListItem>
+                                    <Imports.ListItem><Imports.CheckBoxOutlineBlankIcon />&nbsp;The Netherlands (3)</Imports.ListItem>
+                                    <Imports.ListItem><Imports.CheckBoxOutlineBlankIcon />&nbsp;USA (64)</Imports.ListItem>
+                                </Imports.List>
+                            </Imports.AccordionDetails>
+                        </Imports.Accordion>
+                        <Imports.Accordion sx={{ paddingBottom: '16px' }}>
+                            <Imports.AccordionSummary
+                                expandIcon={<Imports.ExpandMoreIcon />}
                                 aria-controls="panel3-content"
                                 id="panel3-header"
                             >
-                                <Typography sx={{ color: 'black', fontWeight: 'bold' }}>Categories</Typography>
-                            </AccordionSummary>
-                            <List sx={{ fontSize: '13px' }}>
-                                <ListItem><CheckBoxOutlineBlankIcon />&nbsp;Accessible (7)</ListItem>
-                                <ListItem><CheckBoxOutlineBlankIcon />&nbsp;Best Walks/Hikes (17)</ListItem>
-                                <ListItem><CheckBoxOutlineBlankIcon />&nbsp;Bike Rides (11)</ListItem>
-                                <ListItem><CheckBoxOutlineBlankIcon />&nbsp;City (47)</ListItem>
-                                <ListItem><CheckBoxOutlineBlankIcon />&nbsp;City Map (7)</ListItem>
-                                <ListItem><CheckBoxOutlineBlankIcon />&nbsp;Country Guide (20)</ListItem>
-                                <ListItem><CheckBoxOutlineBlankIcon />&nbsp;Epic (18)</ListItem>
-                                <ListItem><CheckBoxOutlineBlankIcon />&nbsp;Experience (33)</ListItem>
-                                <ListItem><CheckBoxOutlineBlankIcon />&nbsp;General Reference (2)</ListItem>
-                                <ListItem><CheckBoxOutlineBlankIcon />&nbsp;Maps (7)</ListItem>
-                                <ListItem><CheckBoxOutlineBlankIcon />&nbsp;Multi Country Guide (26)</ListItem>
-                                <ListItem><CheckBoxOutlineBlankIcon />&nbsp;National Parks (14)</ListItem>
-                                <ListItem><CheckBoxOutlineBlankIcon />&nbsp;Pocket (83)</ListItem>
-                                <ListItem><CheckBoxOutlineBlankIcon />&nbsp;Regional Guide (75)</ListItem>
-                                <ListItem><CheckBoxOutlineBlankIcon />&nbsp;Road Trips (34)</ListItem>
-                            </List>
-                        </Accordion>
-                    </Grid>
+                                <Imports.Typography sx={{ color: 'black', fontWeight: 'bold' }}>Categories</Imports.Typography>
+                            </Imports.AccordionSummary>
+                            <Imports.List sx={{ fontSize: '13px' }}>
+                                <Imports.ListItem><Imports.CheckBoxOutlineBlankIcon />&nbsp;Accessible (7)</Imports.ListItem>
+                                <Imports.ListItem><Imports.CheckBoxOutlineBlankIcon />&nbsp;Best Walks/Hikes (17)</Imports.ListItem>
+                                <Imports.ListItem><Imports.CheckBoxOutlineBlankIcon />&nbsp;Bike Rides (11)</Imports.ListItem>
+                                <Imports.ListItem><Imports.CheckBoxOutlineBlankIcon />&nbsp;City (47)</Imports.ListItem>
+                                <Imports.ListItem><Imports.CheckBoxOutlineBlankIcon />&nbsp;City Map (7)</Imports.ListItem>
+                                <Imports.ListItem><Imports.CheckBoxOutlineBlankIcon />&nbsp;Country Guide (20)</Imports.ListItem>
+                                <Imports.ListItem><Imports.CheckBoxOutlineBlankIcon />&nbsp;Epic (18)</Imports.ListItem>
+                                <Imports.ListItem><Imports.CheckBoxOutlineBlankIcon />&nbsp;Experience (33)</Imports.ListItem>
+                                <Imports.ListItem><Imports.CheckBoxOutlineBlankIcon />&nbsp;General Reference (2)</Imports.ListItem>
+                                <Imports.ListItem><Imports.CheckBoxOutlineBlankIcon />&nbsp;Maps (7)</Imports.ListItem>
+                                <Imports.ListItem><Imports.CheckBoxOutlineBlankIcon />&nbsp;Multi Country Guide (26)</Imports.ListItem>
+                                <Imports.ListItem><Imports.CheckBoxOutlineBlankIcon />&nbsp;National Parks (14)</Imports.ListItem>
+                                <Imports.ListItem><Imports.CheckBoxOutlineBlankIcon />&nbsp;Pocket (83)</Imports.ListItem>
+                                <Imports.ListItem><Imports.CheckBoxOutlineBlankIcon />&nbsp;Regional Guide (75)</Imports.ListItem>
+                                <Imports.ListItem><Imports.CheckBoxOutlineBlankIcon />&nbsp;Road Trips (34)</Imports.ListItem>
+                            </Imports.List>
+                        </Imports.Accordion>
+                    </Imports.Grid>
 
                     {/* Card component */}
-                    <Grid item xs={12} sm={12} md={9} lg={9}>
-                        <Grid>
-                            <Grid sx={{ display: 'flex', alignItems: 'center', marginBottom: '20px' }}>
-                                <Typography sx={{ display: { lg: 'block', md: 'block', sm: 'none', xs: 'none' } }}>327 products</Typography>
-                                <Typography sx={{ display: { lg: 'none', md: 'none', sm: 'block', xs: 'block' } }}>Filters&nbsp;<TuneIcon sx={{ marginBottom: '-6px' }} /></Typography>
-                                <Typography sx={{ marginLeft: 'auto', display: 'flex', justifyContent: 'center' }}>
+                    <Imports.Grid item xs={12} sm={12} md={9} lg={9}>
+                        <Imports.Grid>
+                            <Imports.Grid sx={{ display: 'flex', alignItems: 'center', marginBottom: '20px' }}>
+                                <Imports.Typography sx={{ display: { lg: 'block', md: 'block', sm: 'none', xs: 'none' } }}>327 products</Imports.Typography>
+                                <Imports.Typography sx={{ display: { lg: 'none', md: 'none', sm: 'block', xs: 'block' } }}>Filters&nbsp;<Imports.TuneIcon sx={{ marginBottom: '-6px' }} /></Imports.Typography>
+                                <Imports.Typography sx={{ marginLeft: 'auto', display: 'flex', justifyContent: 'center' }}>
                                     Sort by
-                                    <KeyboardArrowDownIcon />
-                                </Typography>
-                            </Grid>
-                            <Grid container>
+                                    <Imports.KeyboardArrowDownIcon />
+                                </Imports.Typography>
+                            </Imports.Grid>
+                            <Imports.Grid container>
                                 {data && data.map((shop, index) => (
-                                    <Grid item xs={12} sm={6} md={6} lg={2.4} key={index} sx={{ marginBottom: '40px' }}>
-                                        <Card
+                                    <Imports.Grid item xs={12} sm={6} md={6} lg={2.4} key={index} sx={{ marginBottom: '40px' }}>
+                                        <Imports.Card
                                             sx={{
                                                 display: 'flex',
                                                 justifyContent: 'center',
@@ -174,7 +160,7 @@ function Shoppage3({ data, Getshopact }) {
                                                 onClick={() => handleButtonClick(shop)}
                                             />
 
-                                            <Grid container className="hover-buttons" sx={{
+                                            <Imports.Grid container className="hover-buttons" sx={{
                                                 position: 'absolute',
                                                 top: 0,
                                                 left: 0,
@@ -189,18 +175,18 @@ function Shoppage3({ data, Getshopact }) {
                                                 visibility: 'hidden',
                                                 boxShadow: 'none', border: 'none'
                                             }}>
-                                                <Button sx={{ border: '1px solid gray', borderRadius: '22px', width: '80%', textTransform: 'none', color: 'black', fontSize: '17px', backgroundColor: 'white' }}>Select option <KeyboardArrowDownIcon /></Button>
-                                                <Button sx={{ border: '1px solid gray', borderRadius: '22px', width: '80%', backgroundColor: '#0057D9', textTransform: 'none', color: 'white', fontSize: '17px' }}>Add to cart</Button>
-                                                <Button sx={{ border: '1px solid gray', borderRadius: '22px', width: '80%', backgroundColor: '#AC98F9', textTransform: 'none', color: 'white', fontSize: '17px' }}>Buy with Shop</Button>
-                                            </Grid>
-                                        </Card>
-                                    </Grid>
+                                                <Imports.Button sx={{ border: '1px solid gray', borderRadius: '22px', width: '80%', textTransform: 'none', color: 'black', fontSize: '17px', backgroundColor: 'white' }}>Select option <Imports.KeyboardArrowDownIcon /></Imports.Button>
+                                                <Imports.Button sx={{ border: '1px solid gray', borderRadius: '22px', width: '80%', backgroundColor: '#0057D9', textTransform: 'none', color: 'white', fontSize: '17px' }}>Add to cart</Imports.Button>
+                                                <Imports.Button sx={{ border: '1px solid gray', borderRadius: '22px', width: '80%', backgroundColor: '#AC98F9', textTransform: 'none', color: 'white', fontSize: '17px' }}>Buy with Shop</Imports.Button>
+                                            </Imports.Grid>
+                                        </Imports.Card>
+                                    </Imports.Grid>
                                 ))}
-                            </Grid>
-                        </Grid>
-                    </Grid>
-                </Grid>
-            </Container>
+                            </Imports.Grid>
+                        </Imports.Grid>
+                    </Imports.Grid>
+                </Imports.Grid>
+            </Imports.Container>
         </>
     );
 }
@@ -214,4 +200,4 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = { Getshopact };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Shoppage3);
+export default Imports.connect(mapStateToProps, mapDispatchToProps)(Shoppage3);
