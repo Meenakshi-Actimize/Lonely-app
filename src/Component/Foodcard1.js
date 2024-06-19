@@ -22,7 +22,7 @@ function Foodcard1() {
                                     src="https://lp-cms-production.imgix.net/2024-06/Title.jpg?auto=format&w=140&h=140&fit=crop&q=75"
                                     alt=""
                                     width="100%"
-                                    style={{ borderRadius: '14px', margin: '20px', height:'170px' }}
+                                    style={{ borderRadius: '14px', margin: '20px', height: '170px' }}
                                 />
                             </Imports.Box>
                             <Imports.Box sx={{ marginY: '20px' }}>
@@ -42,7 +42,7 @@ function Foodcard1() {
                             </Imports.Box>
                         </Imports.Card>
                     </Imports.Grid>
-                 
+
                 </Imports.Grid>
 
 
@@ -85,7 +85,7 @@ function Foodcard1() {
                             </Imports.Box>
                         </Imports.Card>
                     </Imports.Grid>
-                  
+
                 </Imports.Grid>
             </Imports.Container>
         </>

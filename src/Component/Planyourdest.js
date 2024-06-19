@@ -1,7 +1,7 @@
 import Imports from "../Import/Import";
 
 function Planyourdest() {
-    const [value, setValue] = Imports.React.useState(2);
+    const [value, setValue] = Imports.React.useState();
 
     const handleChange = (event, newValue) => { 
         setValue(newValue); 

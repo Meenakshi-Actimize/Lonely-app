@@ -52,10 +52,10 @@ function Foodcard3() {
                                 </Imports.Box>
                             </Imports.Card>
                         </Imports.Grid>
-                      
+
                     ))}
-                      <Imports.Grid item xs={4}>
-                        </Imports.Grid>
+                    <Imports.Grid item xs={4}>
+                    </Imports.Grid>
                 </Imports.Grid>
             </Imports.Container>
         </>

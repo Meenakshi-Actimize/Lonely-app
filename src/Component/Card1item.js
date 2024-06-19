@@ -1,10 +1,5 @@
 import Imports from "../Import/Import";
 
-
-
-
-
-
 function Card1item() {
     return (
         <>
