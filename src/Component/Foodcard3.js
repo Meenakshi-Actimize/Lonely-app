@@ -16,11 +16,11 @@ function Foodcard3() {
             <Imports.Container maxWidth="xl" sx={{ marginTop: '80px' }}>
                 <Imports.Grid container spacing={2}>
                     {fooddata.map((item, index) => (
-                        <Imports.Grid item xs={8} key={index} sx={{ height: 'auto', display: 'flex' }}>
+                        <Imports.Grid item xs={10} key={index} sx={{ height: 'auto', display: 'flex' }}>
                             <Imports.Card
                                 sx={{
                                     display: 'flex',
-                                    width: '90%',
+                                    width: '70%',
                                     boxShadow: 'none',
                                     border: 'none',
                                     backgroundColor: 'transparent',
@@ -28,6 +28,9 @@ function Foodcard3() {
                                     '&:hover': { boxShadow: '0 4px 20px rgba(0, 0, 0, 0.1)' },
                                 }}
                             >
+                                <Imports.Grid container>
+                                <Imports.Grid xs={12} sm={6} lg={3} md={4} >
+
                                 <Imports.Box sx={{ display: 'block', justifyContent: 'center', flex: '0 0 auto' }}>
                                     <img
                                         src={item.img}
@@ -36,6 +39,9 @@ function Foodcard3() {
                                         style={{ borderRadius: '14px', margin: '20px', height: '170px' }}
                                     />
                                 </Imports.Box>
+                                </Imports.Grid>
+                                <Imports.Grid xs={12} sm={12} lg={8} md={8} >
+
                                 <Imports.Box sx={{ marginY: '20px' }}>
                                     <Imports.Typography sx={{ fontSize: '14px', color: '#B1B1B1', fontWeight: 'bold', paddingBottom: '5px' }}>
                                         {item.title}
@@ -50,8 +56,10 @@ function Foodcard3() {
                                         {item.des}
                                     </Imports.Typography>
                                 </Imports.Box>
+                                </Imports.Grid>
+                                </Imports.Grid>
                             </Imports.Card>
-                        </Imports.Grid>
+                            </Imports.Grid>
 
                     ))}
                     <Imports.Grid item xs={4}>

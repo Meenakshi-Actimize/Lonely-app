@@ -1,23 +1,38 @@
 import Imports from "../Import/Import";
+import { Getfoodcard1act } from "../redux/action/Action11";
 
-function Foodcard7() {
-    const food3data = [
-        { img: 'https://lp-cms-production.imgix.net/2022-03/Indonesia%20Gili%20Meno%20%C2%A9%20Wonderful%20Nature%20shutterstock_1475734397.jpg?auto=format&w=140&h=140&fit=crop&q=75', title: 'ACTIVITIES', subtitle: 'Which Gili island is best for you? Heres how to choose', time: 'May 16, 2024 • 5 min read', des: 'The three Gili Islands have developed their own individual character and atmosphere. Our guide can help you choose the right island for you.' },
-        { img: 'https://lp-cms-production.imgix.net/2024-05/GettyImages-1749105154-cropped.jpg?auto=format&w=140&h=140&fit=crop&q=75', title: 'FOOD AND DRINK', subtitle: 'I’ve been to nearly every rooftop bar in NYC. These are the best for summer 2024', time: 'May 16, 2024 • 8 min read', des: 'What makes a cold cocktail taste even better? Superb view of the Big Apple. These are the 14 best rooftop bars in New York City.' },
-        { img: 'https://lp-cms-production.imgix.net/2024-05/NHNewportHarbor-scaled.jpg?auto=format&w=140&h=140&fit=crop&q=75', title: 'ACTIVITIES', subtitle: 'Copy My Trip: Whale-watching, relaxation and sweet treats in Newport Beach, California', time: 'May 15, 2024 • 5 min read', des: 'Plan your sunny coastal getaway to Newport Beach, California, with these tips and insight from a Lonely Planet editor.' },
-        { img: 'https://lp-cms-production.imgix.net/2024-05/IndigenousVideoPhotography-Edmonton.jpeg?auto=format&w=140&h=140&fit=crop&q=75', title: 'ACTIVITIES', subtitle: 'Get to know the Indigenous side of Edmonton, Albertas capital city', time: 'May 15, 2024 • 8 min read', des: 'Edmonton offers tons of experiences that lend insight into the citys Indigenous culture, heritage and traditions – get to know the citys Indigenous side.' },
-        { img: 'https://lp-cms-production.imgix.net/2024-05/barbados-de-thirsty-lizard-kyle-babb-KB21193.jpg?auto=format&w=140&h=140&fit=crop&q=75', title: 'SHOPPING', subtitle: 'You’ll see this everywhere: rum shops in Barbados', time: 'May 13, 2024 • 7 min read', des: 'Discover Barbados’ rich history as the birthplace of rum and how it became home to almost 1500 rum shops across the island.' },
-    ];
+function Foodcard7({data, Getfoodcard1act}) {
+    Imports.useEffect(() => {
+        // Define an async function inside useEffect
+        const fetchData = async () => {
+            try {
+                // Call the async function to fetch data
+                const gettingfood1 = await Imports.Getfoodcard1api();
+                // Dispatch the fetched data using GetCardData
+                Getfoodcard1act(gettingfood1);
+                console.log('Hi success plan', gettingfood1);
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+        };
+
+        // Call the async function
+        fetchData();
+    }, []);
+
+
+  
     return (
         <>
             <Imports.Container maxWidth="xl" sx={{ marginTop: '80px' }}>
                 <Imports.Grid container spacing={2}>
-                    {food3data.map((item, index) => (
-                        <Imports.Grid item xs={8} key={index} sx={{ height: 'auto', display: 'flex' }}>
+                {data && data.map((foodcard1, index) => (
+
+                        <Imports.Grid item xs={10} key={index} sx={{ height: 'auto', display: 'flex' }}>
                             <Imports.Card
                                 sx={{
                                     display: 'flex',
-                                    width: '90%',
+                                    width: '70%',
                                     boxShadow: 'none',
                                     border: 'none',
                                     backgroundColor: 'transparent',
@@ -25,38 +40,54 @@ function Foodcard7() {
                                     '&:hover': { boxShadow: '0 4px 20px rgba(0, 0, 0, 0.1)' },
                                 }}
                             >
+                                 <Imports.Grid container>
+                                <Imports.Grid xs={12} sm={6} lg={3} md={4} >
                                 <Imports.Box sx={{ display: 'block', justifyContent: 'center', flex: '0 0 auto' }}>
                                     <img
-                                        src={item.img}
+                                        src={foodcard1.img}
                                         alt=""
                                         width="80%"
                                         style={{ borderRadius: '14px', margin: '20px', height: '170px' }}
                                     />
                                 </Imports.Box>
+                                </Imports.Grid>
+                                <Imports.Grid xs={12} sm={12} lg={8} md={8} >
+
                                 <Imports.Box sx={{ marginY: '20px' }}>
                                     <Imports.Typography sx={{ fontSize: '14px', color: '#B1B1B1', fontWeight: 'bold', paddingBottom: '5px' }}>
-                                        {item.title}
+                                        {foodcard1.title}
                                     </Imports.Typography>
                                     <Imports.Typography sx={{ fontSize: '18px', color: '#121212', fontWeight: 'bold', paddingBottom: '5px' }}>
-                                        {item.subtitle}
+                                        {foodcard1.subtitle}
                                     </Imports.Typography>
                                     <Imports.Typography sx={{ fontSize: '14px', color: '#514B4B', paddingBottom: '5px' }}>
-                                        {item.time}
+                                        {foodcard1.time}
                                     </Imports.Typography>
                                     <Imports.Typography sx={{ color: '#4B4B4B', fontSize: '14px' }}>
-                                        {item.des}
+                                        {foodcard1.des}
                                     </Imports.Typography>
                                 </Imports.Box>
+                                </Imports.Grid>
+                                </Imports.Grid>
                             </Imports.Card>
                         </Imports.Grid>
 
                     ))}
-                    <Imports.Grid item xs={4}>
-                    </Imports.Grid>
+                  
                 </Imports.Grid>
             </Imports.Container>
 
         </>
     )
 }
-export default Foodcard7;
+const mapStateToProps = (state) => {
+    console.log('State data:', state.reducer11.data); // Add this console.log statement
+    return {
+        data: state.reducer11.data,
+    };
+};
+
+
+const mapDispatchToProps = { Getfoodcard1act }
+
+export default Imports.connect(mapStateToProps, mapDispatchToProps)(Foodcard7);

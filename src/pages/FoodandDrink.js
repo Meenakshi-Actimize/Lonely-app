@@ -12,6 +12,7 @@ import Foodcard9 from '../Component/Foodcard9';
 import Footercomp from '../Component/Footer';
 import { BorderBottom } from '@mui/icons-material';
 import Foodcard8 from '../Component/Foodcard8';
+import Lastcomp from '../Component/Lastcomp';
 
 function FoodandDrink(){
     return(
@@ -28,6 +29,7 @@ function FoodandDrink(){
         <Foodcard8 />
         <Foodcard9 />
         <Footercomp />
+        <Lastcomp />
 
         </>
     )

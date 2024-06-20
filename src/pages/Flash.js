@@ -8,11 +8,11 @@ import Banner1comp from '../Component/Banner1';
 import Videocomp from '../Component/Videocomp';
 import Cardswiper from '../Component/Cardswiper';
 import Swipertext from '../Component/Swipertext';
-import Dummy from '../Component/Dummy';
 import Banner2comp from '../Component/Banner2';
 import Card3items from '../Component/Carditem3';
 import Footercomp from '../Component/Footer';
 import Lastcomp from '../Component/Lastcomp';
+
 
 
 const Flash = () => {
@@ -32,7 +32,6 @@ const Flash = () => {
             <Card3items />
             <Footercomp />
             <Lastcomp />
-            {/* <Dummy /> */}
         </>
 
     )

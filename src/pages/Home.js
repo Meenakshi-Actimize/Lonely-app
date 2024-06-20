@@ -13,9 +13,13 @@ import Homebanner3 from '../Component/Homebanner3';
 import Footercomp from '../Component/Footer';
 import Lastcomp from '../Component/Lastcomp';
 import Homecardswiper2 from '../Component/Homecardswiper2';
+import Alertbox from '../Component/Alertbox';
+import Navbarcomp from '../Component/Navbarcomp';
 function Home(){
     return(
         <>
+        <Alertbox />
+        <Navbarcomp />
         <Home1 />
         <Home2 />
         <Homecard1 />

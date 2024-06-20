@@ -1,35 +1,38 @@
-import * as React from 'react';
-import Navbarcomp from '../Component/Navbarcomp';
-import Planvideo from '../Component/Planvideo';
-import ContinueSwiper from '../Component/ContinueSwiper';
-import Plansidetext from '../Component/Plansidetext';
-import Planningcard from '../Component/Planningcard';
-import Planningcard2 from '../Component/Planningcard2';
-import Planbanner from '../Component/Planbanner';
-import Planyourdest from '../Component/Planyourdest';
-import Planpiechart from '../Component/Planpiechart';
-import Plantextoverlay from '../Component/Plantextoverlay';
-import Plansignup from '../Component/Plansignup';
-import Footercomp from '../Component/Footer';
+import React, { lazy, Suspense } from 'react';
 
-function Planning(){
-    return(
-        <>
-        <Navbarcomp />
-        <Planvideo />
-        <ContinueSwiper />
-        <Plansidetext />
-        <Planningcard />
-        <Planningcard2 />
-        <Planbanner />
-        <Planyourdest />
-        <Planpiechart />
-        <Plantextoverlay />
-        <Plansignup />
-        <Footercomp />
-        
-        
-        </>
-    )
+// Lazy load components
+const Navbarcomp = React.lazy(() => import('../Component/Navbarcomp'));
+const Planvideo = React.lazy(() => import('../Component/Planvideo'));
+const ContinueSwiper = React.lazy(() => import('../Component/ContinueSwiper'));
+const Plansidetext = React.lazy(() => import('../Component/Plansidetext'));
+const Planningcard = React.lazy(() => import('../Component/Planningcard'));
+const Planningcard2 = React.lazy(() => import('../Component/Planningcard2'));
+const Planbanner = React.lazy(() => import('../Component/Planbanner'));
+const Planyourdest = React.lazy(() => import('../Component/Planyourdest'));
+const Planpiechart = React.lazy(() => import('../Component/Planpiechart'));
+const Plantextoverlay = React.lazy(() => import('../Component/Plantextoverlay'));
+const Plansignup = React.lazy(() => import('../Component/Plansignup'));
+const Footercomp = React.lazy(() => import('../Component/Footer'));
+const Lastcomp = React.lazy(() => import('../Component/Lastcomp'));
+
+const Planning = () => {
+    return (
+        <Suspense fallback={<div>Loading...</div>}>
+            <Navbarcomp />
+            <Planvideo />
+            <ContinueSwiper />
+            <Plansidetext />
+            <Planningcard />
+            <Planningcard2 />
+            <Planbanner />
+            <Planyourdest />
+            <Planpiechart />
+            <Plantextoverlay />
+            <Plansignup />
+            <Footercomp />
+            <Lastcomp />
+        </Suspense>
+    );
 }
+
 export default Planning;
