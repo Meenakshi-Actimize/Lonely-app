@@ -1,5 +1,7 @@
 import Imports from "../Import/Import";
 
+// Banner in magnifier page
+
 
 function Magnifierpage3() {
 

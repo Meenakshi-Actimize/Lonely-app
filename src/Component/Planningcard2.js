@@ -1,5 +1,7 @@
 import Imports from "../Import/Import";
 
+// How it works card component in Planning page
+
 function Planningcard2() {
     return (
         <>

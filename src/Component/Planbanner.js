@@ -1,12 +1,14 @@
 import Imports from "../Import/Import";
 
-function Planbanner(){
-    return(
+// first banner in planning page
+
+function Planbanner() {
+    return (
         <>
             <Imports.Grid container >
                 <img src='./images/thrives.png' alt="" width="100%" />
             </Imports.Grid>
-        
+
         </>
     )
 }

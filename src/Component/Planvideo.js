@@ -1,6 +1,7 @@
 import Imports from '../Import/Import';
 import { Getplanvideo1act } from '../redux/action/Action7';
 
+// video component in planning page
 
 function Planvideo({ data, Getplanvideo1act }) {
     Imports.useEffect(() => {

@@ -1,6 +1,8 @@
 import Imports from "../Import/Import";
 import { Getshopact } from "../redux/action/Action8";
 
+// Filter of listitems in shop page
+
 function Shoppage3({ data, Getshopact }) {
     const navigate = Imports.useNavigate();
     const [isClicked, setIsClicked] = Imports.useState(false);
