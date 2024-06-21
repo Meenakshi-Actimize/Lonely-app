@@ -97,7 +97,7 @@ function Cardswiper() {
 
                                             <Imports.Grid item xs={4} sx={{ marginBottom: '20px' }}>
 
-                                                <img src={item.img} alt="" width="65%" style={{ borderRadius: '30px', paddingTop: '20px' }} />
+                                                <img src={item.img} alt="" width="60%" style={{ borderRadius: '30px', paddingTop: '20px' }} />
 
                                             </Imports.Grid>
 
