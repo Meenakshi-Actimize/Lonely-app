@@ -4,7 +4,7 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 
-
+// First card in home page
 
 
 function Homecard1({ data, Gethomecard }) {
@@ -25,65 +25,6 @@ function Homecard1({ data, Gethomecard }) {
         // Call the async function
         fetchData();
     }, []);
-
-    // const images = [
-    //     {
-    //         img: 'https://lonelyplanetstatic.imgix.net/marketing/placeholders/placeholder-attractions.jpg',
-    //         title: 'Ubud Market',
-    //         subtitle: 'CENTRAL MOUNTAINS',
-    //         des: 'Newly developed as a tourist attraction in early 2018, the falls here are among the best on Bali. It’s about a 20-minute walk from the car park; a 500m…',
-    //         showIcon: true,
-    //     },
-    //     {
-    //         img: 'https://lp-cms-production.imgix.net/2019-06/40d4f378a2dacf02a4e636bb2b214abb-lpl-agung_rai_museum_of_art_1.jpg',
-    //         title: 'Agung Rai Museum of Art',
-    //         subtitle: 'UBUD',
-    //         des: 'If you only visit one museum in Ubud, make it this one. Founder Agung Rai built his fortune selling Balinese artwork to foreigners in the 1970s, and…',
-    //         showIcon: false,
-    //     },
-    //     {
-    //         img: 'https://lp-cms-production.imgix.net/2020-11/shutterstockRF_1153729063.jpg',
-    //         title: 'Sekumpul Waterfall',
-    //         subtitle: 'SINGARAJA',
-    //         des: 'Sitting 18km southeast of Singaraja, some six or seven separate waterfalls – all fed by upland streams – pour up to 80m over cliffs in a verdant bamboo…',
-    //         showIcon: false,
-    //     },
-    //     {
-    //         img: 'https://lp-cms-production.imgix.net/2020-11/GettyRF_629296818.jpg',
-    //         title: 'Pura Besakih',
-    //         subtitle: 'EAST BAL',
-    //         des: 'Perched nearly 1000m up the side of Gunung Agung, this is Balis most important Hindu temple. The site encompasses 23 separate but related temples, with…',
-    //         showIcon: false,
-    //     },
-    //     {
-    //         img: 'https://lp-cms-production.imgix.net/2020-11/GettyRF_161822191.jpg',
-    //         title: 'Pura Luhur Ulu Watu',
-    //         subtitle: 'BUKIT PENINSULA',
-    //         des: 'This important temple is perched precipitously on the southwestern tip of the peninsula, atop sheer cliffs that drop straight into the ceaseless surf…',
-    //         showIcon: false,
-    //     },
-    //     {
-    //         img: 'https://lp-cms-production.imgix.net/2019-06/5e98785eaffaca67dfc656d08613c816-lpl-neka_art_museum_1.jpg',
-    //         title: 'Neka Art Museum',
-    //         subtitle: 'UBUD',
-    //         des: 'Offering an excellent introduction to Balinese art, the top-notch collection is displayed in a series of pavilions and halls. Dont miss the multiroom…',
-    //         showIcon: false,
-    //     },
-    //     {
-    //         img: 'https://lp-cms-production.imgix.net/2019-06/3ec1ae3861914e8a493a8c6a2c98d03b-pura-taman-ayun.jpg',
-    //         title: 'Pura Taman Ayun',
-    //         subtitle: 'WEST BALI',
-    //         des: 'Dont miss one of the top temples on Bali, a serene place of enveloping calm. The huge royal water temple of Pura Taman Ayun, surrounded by a wide,…',
-    //         showIcon: false,
-    //     },
-    //     {
-    //         img: 'https://lp-cms-production.imgix.net/2019-06/531368295_full.jpg',
-    //         title: 'Puri Agung Semarapura',
-    //         subtitle: 'EAST BALI',
-    //         des: 'Built when the Dewa Agung dynasty moved here in 1710, this palace compound was laid out as a large square, believed to be in the form of a mandala, with…',
-    //         showIcon: false,
-    //     },
-    // ];
 
     const swiperRef = Imports.React.useRef(null);
 

@@ -1,5 +1,7 @@
 import Imports from '../Import/Import';
 
+// First image in home page
+
 function Home1() {
     return (
 

@@ -1,6 +1,8 @@
 import Imports from "../Import/Import";
 import { Getflash } from "../redux/action/Action";
 
+// second card component in flash page
+
 function Card2items({ data, Getflash }) {
 
     const [hoveredCard, setHoveredCard] = Imports.useState(null);
@@ -42,7 +44,6 @@ function Card2items({ data, Getflash }) {
     )
 }
 
-// export default Card2items;
 
 const mapStateToProps = (state) => {
     console.log('State data:', state.reducer1.data); // Add this console.log statement

@@ -1,5 +1,7 @@
 import Imports from "../Import/Import";
 
+// Text after continuous swiper in planning page
+
 function Plansidetext(){
     return(
         <>

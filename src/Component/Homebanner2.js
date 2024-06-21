@@ -1,11 +1,14 @@
 import Imports from "../Import/Import";
 
+// Second banner in home page
+
 function Homebanner2() {
     return (
         <>
             <Imports.Grid container sx={{ marginTop: '20px', position: 'relative', height: { lg: '200px', md: '180px' } }}>
                 <Imports.Box sx={{ position: 'relative', width: '100%' }}>
                     <img src="./images/Bannerimg.jpg" alt="Banner" style={{ width: '100%', height: '500px' }} />
+                    {/* Text overlay */}
                     <Imports.Box
                         sx={{
                             position: 'absolute',

@@ -1,5 +1,7 @@
 import Imports from "../Import/Import";
 
+// first card component in flash page
+
 function Card1item() {
     return (
         <>
@@ -11,11 +13,11 @@ function Card1item() {
 
             <Imports.Grid>
                 <Imports.Box>
-                <Imports.Typography sx={{ textAlign: 'left', marginLeft: '35px', fontSize: '45px', color: 'black' }}>
-                    <strong>Where to next?</strong>
-                    <Imports.Button  variant='filled' sx={{border:'1px solid gray',borderRadius:'16px', margin:'20px 35px', float:{xs:'center',sm:'right',md:'right',lg:'right'}}}>View all descriptions</Imports.Button>
+                    <Imports.Typography sx={{ textAlign: 'left', marginLeft: '35px', fontSize: '45px', color: 'black' }}>
+                        <strong>Where to next?</strong>
+                        <Imports.Button variant='filled' sx={{ border: '1px solid gray', borderRadius: '16px', margin: '20px 35px', float: { xs: 'center', sm: 'right', md: 'right', lg: 'right' } }}>View all descriptions</Imports.Button>
 
-                </Imports.Typography>
+                    </Imports.Typography>
                 </Imports.Box>
             </Imports.Grid>
         </>

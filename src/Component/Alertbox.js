@@ -12,7 +12,7 @@ function Alertbox() {
     return (
 
         // Firstcomp of flash page
-        
+
         <Imports.Grid variant="filled" >
             <Imports.Collapse in={open}>
                 <Imports.Grid

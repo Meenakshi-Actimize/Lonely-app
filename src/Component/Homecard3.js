@@ -1,30 +1,28 @@
 import Imports from '../Import/Import';
 import { Gethomecard2act } from '../redux/action/Action4';
 
+// Third card component in home page
 
 
-
-function Homecard3({data, Gethomecard2act}) {
+function Homecard3({ data, Gethomecard2act }) {
     const [hoveredCard, setHoveredCard] = Imports.useState(null);
     Imports.useEffect(() => {
         const fetchData = async () => {
             try {
-              // Call the async function to fetch data
-              const getcard2data = await Imports.Gethomecards2();
-              // Dispatch the fetched data using GetCardData
-              Gethomecard2act(getcard2data);
-              console.log('Hi got homecard data', getcard2data);
+                // Call the async function to fetch data
+                const getcard2data = await Imports.Gethomecards2();
+                // Dispatch the fetched data using GetCardData
+                Gethomecard2act(getcard2data);
+                console.log('Hi got homecard data', getcard2data);
             } catch (error) {
-              console.error('Error fetching data:', error);
+                console.error('Error fetching data:', error);
             }
-          };
-      
-          // Call the async function
-          fetchData();
-        }, []);
-    
-    // const images = [
-    //     { img: 'https://lp-cms-production.imgix.net/2019-06/7bd629aa8cc9966caeaa668194731e88-lpl-pura_taman_saraswati_1.jpg?auto=format&fit=crop&ar=1:1&q=75', title: 'Pura Taman Saraswati', subtitle: 'UBUD', des: 'Waters from the temple at the rear of this site feed the pond in the front, which overflows with pretty lotus blossoms…', showIcon: false, showIcon2: false },
+        };
+
+        // Call the async function
+        fetchData();
+    }, []);
+
     //     { img: 'https://lonelyplanetstatic.imgix.net/marketing/placeholders/placeholder-shopping.jpg?auto=format&fit=crop&ar=1:1&q=75&w=640', title: 'Ubud Market', subtitle: 'UBUD', des: 'The large Ubud Market is your one-stop shop for kitschy souvenirs, clothing and presents for back home. Its inside a large…', showIcon: true, showIcon2: false },
     //     { img: 'https://lp-cms-production.imgix.net/2019-06/fdbafc5f268ee0991ec4b9d415cd3582-lpl-pura_gunung_lebah_1.jpg?auto=format&fit=crop&ar=1:1&q=75&w=640', title: 'Pura Gunung Lebah', subtitle: 'UBUD', des: 'This old temple, which sits on a jutting rock at the confluence of two tributaries of Sungai Cerik (campuan means two…', showIcon: false, showIcon2: false },
     //     { img: 'https://lp-cms-production.imgix.net/2019-06/dddcb82a3f9096504274908218e5c350-petulu.jpg?auto=format&fit=crop&ar=1:1&q=75&w=640', title: 'Petulu', subtitle: 'UBUD', des: 'Every evening beginning after 5pm, up to 20,000 big herons fly in to Petulu, a village about 2.5km north of Jl Raya…', showIcon: false, showIcon2: false },
@@ -55,6 +53,7 @@ function Homecard3({data, Gethomecard2act}) {
                         Curated by  <span style={{ color: '#0057D9' }}>Anita Surewicz, Mark Eveleigh</span>
                     </Imports.Typography>
                 </Imports.Grid>
+                {/* Swiper */}
                 <Imports.Grid sx={{ marginTop: '30px' }}>
                     <Imports.Swiper
                         ref={swiperRef}
@@ -79,75 +78,75 @@ function Homecard3({data, Gethomecard2act}) {
                             },
                         }}
                     >
-                    <Imports.Container maxWidth="xl">
-                        <Imports.Grid container>
+                        <Imports.Container maxWidth="xl">
+                            <Imports.Grid container>
 
-                        {data && data.map((homecard2, index) => (
-                            <Imports.SwiperSlide key={homecard2.title}>
-                                <Imports.Box position="relative">
-                                    <img src={homecard2.img} alt={homecard2.title} style={{ width: '100%', height: '300px', borderRadius:'16px' }} />
-                                    {homecard2.showIcon && (
-                                        <Imports.Box
-                                            sx={{
-                                                position: 'absolute',
-                                                top: '30%',
-                                                left: '50%',
-                                                transform: 'translate(-50%, -50%)',
-                                                zIndex: 1,
-                                                color: 'white'
-                                            }}
-                                        >
-                                            <img src="./images/bag.png" width="80%" />
+                                {data && data.map((homecard2, index) => (
+                                    <Imports.SwiperSlide key={homecard2.title}>
+                                        <Imports.Box position="relative">
+                                            <img src={homecard2.img} alt={homecard2.title} style={{ width: '100%', height: '300px', borderRadius: '16px' }} />
+                                            {homecard2.showIcon && (
+                                                <Imports.Box
+                                                    sx={{
+                                                        position: 'absolute',
+                                                        top: '30%',
+                                                        left: '50%',
+                                                        transform: 'translate(-50%, -50%)',
+                                                        zIndex: 1,
+                                                        color: 'white'
+                                                    }}
+                                                >
+                                                    <img src="./images/bag.png" width="80%" />
+                                                </Imports.Box>
+                                            )}
+                                            <Imports.Box
+                                                sx={{
+                                                    position: 'absolute',
+                                                    top: 0,
+                                                    right: 45,
+                                                    padding: '10px',
+                                                    zIndex: 1,
+                                                    backgroundColor: 'hsla(0,0%,7%,.5)',
+                                                    color: 'white',
+                                                    border: '1px solid gray',
+                                                    borderRadius: '25px',
+                                                    lineHeight: 0.45,
+                                                    marginTop: '18px'
+                                                }}
+                                            >
+                                                <Imports.BookmarkBorderIcon sx={{ fontSize: 20 }} />
+                                            </Imports.Box>
+                                            {homecard2.showIcon2 && (
+                                                <Imports.Box
+                                                    sx={{
+                                                        position: 'absolute',
+                                                        top: '35%',
+                                                        left: '50%',
+                                                        transform: 'translate(-50%, -50%)',
+                                                        zIndex: 1,
+                                                        color: 'white'
+                                                    }}
+                                                >
+                                                    <img src="./images/spoon.png" width="80%" />
+                                                </Imports.Box>
+                                            )}
+                                            <Imports.Typography sx={{ textAlign: 'left', fontSize: '23px' }}>
+                                                <strong>{homecard2.title}</strong>
+                                            </Imports.Typography>
+
+                                            <Imports.Typography sx={{ textAlign: 'left', fontSize: '14px', fontWeight: 500 }}>
+                                                {homecard2.subtitle}
+                                            </Imports.Typography>
+                                            <Imports.Typography sx={{ textAlign: 'left' }}>
+                                                {homecard2.des}
+                                            </Imports.Typography>
                                         </Imports.Box>
-                                    )}
-                                    <Imports.Box
-                                        sx={{
-                                            position: 'absolute',
-                                            top: 0,
-                                            right: 45,
-                                            padding: '10px',
-                                            zIndex: 1,
-                                            backgroundColor: 'hsla(0,0%,7%,.5)',
-                                            color: 'white',
-                                            border: '1px solid gray',
-                                            borderRadius: '25px',
-                                            lineHeight: 0.45,
-                                            marginTop: '18px'
-                                        }}
-                                    >
-                                        <Imports.BookmarkBorderIcon sx={{ fontSize: 20 }} />
-                                    </Imports.Box>
-                                    {homecard2.showIcon2 && (
-                                        <Imports.Box
-                                            sx={{
-                                                position: 'absolute',
-                                                top: '35%',
-                                                left: '50%',
-                                                transform: 'translate(-50%, -50%)',
-                                                zIndex: 1,
-                                                color: 'white'
-                                            }}
-                                        >
-                                            <img src="./images/spoon.png" width="80%" />
-                                        </Imports.Box>
-                                    )}
-                                    <Imports.Typography sx={{ textAlign:'left', fontSize: '23px' }}>
-                                        <strong>{homecard2.title}</strong>
-                                    </Imports.Typography>
-                                    
-                                    <Imports.Typography sx={{ textAlign:'left', fontSize: '14px', fontWeight: 500 }}>
-                                        {homecard2.subtitle}
-                                    </Imports.Typography>
-                                    <Imports.Typography sx={{ textAlign:'left' }}>
-                                        {homecard2.des}
-                                    </Imports.Typography>
-                                </Imports.Box>
 
-                            </Imports.SwiperSlide>
+                                    </Imports.SwiperSlide>
 
-                        ))}
-                        </Imports.Grid>
-                    </Imports.Container>
+                                ))}
+                            </Imports.Grid>
+                        </Imports.Container>
 
                     </Imports.Swiper>
                     <Imports.Box sx={{ display: 'flex', justifyContent: 'flex-end', marginTop: '20px', marginRight: '25px' }}>
@@ -172,6 +171,6 @@ const mapStateToProps = (state) => {
 };
 
 
-const mapDispatchToProps = {Gethomecard2act}
+const mapDispatchToProps = { Gethomecard2act }
 
 export default Imports.connect(mapStateToProps, mapDispatchToProps)(Homecard3);

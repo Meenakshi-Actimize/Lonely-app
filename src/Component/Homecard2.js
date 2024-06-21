@@ -1,5 +1,6 @@
 import Imports from "../Import/Import";
 
+// Second card in home page
 
 function Homecard2() {
     return (
@@ -7,9 +8,9 @@ function Homecard2() {
             <Imports.Container maxWidth="xl">
                 <Imports.Grid container sx={{ marginTop: '60px' }}>
                     <Imports.Grid xs={10}>
-                        <Imports.Typography sx={{ textAlign: 'left', paddingTop: '90px', fontSize: '14px', marginLeft:'28px' }}><span style={{ color: '#758090' }}>A</span><span style={{ color: '#C9C2CC' }}>TT</span><span style={{ color: '#D7989A' }}>RACTIONS</span></Imports.Typography>
-                        <Imports.Typography sx={{ textAlign: "left", paddingTop: '20px', fontSize: { lg: '60px', md: '60px', sm: '40px', xs: '20px' }, textDecoration: 'bold' , paddingLeft:'20px'}}>Top picks from out travel experts</Imports.Typography>
-                        <Imports.Typography sx={{ fontSize: { lg: '35px', md: '32px', sm: '23px', xs: '17px' }, marginLeft: '25px', textDecoration: 'underline', textDecorationColor: '#0057D9', marginTop:'60px' }}>
+                        <Imports.Typography sx={{ textAlign: 'left', paddingTop: '90px', fontSize: '14px', marginLeft: '28px' }}><span style={{ color: '#758090' }}>A</span><span style={{ color: '#C9C2CC' }}>TT</span><span style={{ color: '#D7989A' }}>RACTIONS</span></Imports.Typography>
+                        <Imports.Typography sx={{ textAlign: "left", paddingTop: '20px', fontSize: { lg: '60px', md: '60px', sm: '40px', xs: '20px' }, textDecoration: 'bold', paddingLeft: '20px' }}>Top picks from out travel experts</Imports.Typography>
+                        <Imports.Typography sx={{ fontSize: { lg: '35px', md: '32px', sm: '23px', xs: '17px' }, marginLeft: '25px', textDecoration: 'underline', textDecorationColor: '#0057D9', marginTop: '60px' }}>
                             <strong>The best of Bali: top ways to find your own piece of paradise</strong>
 
                         </Imports.Typography>
@@ -29,6 +30,7 @@ function Homecard2() {
                         alt="1"
                         style={{ width: '95%', height: '310px', borderRadius: '16px' }}
                     />
+                    {/* Text overlay */}
                     <Imports.Box
                         sx={{
                             position: 'absolute',
