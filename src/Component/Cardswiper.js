@@ -5,7 +5,7 @@ Imports.SwiperCore.use([Imports.Navigation]);
 
 function Cardswiper() {
 
-    const photo = [{ img: 'https://lp-cms-production.imgix.net/2024-04/copenhagen-iStock-1327471226-rfc.jpeg?auto=format&w=140&h=140&fit=crop&q=75', title: 'PUBLIC TRANSPORT', subtitle: '15 tips for travelling to Copenhangen on a budget', des: 'Apr 30, 2024 • 6 min read', icon: Imports.BookmarkBorderRoundedIcon }, { img: 'https://lp-cms-production.imgix.net/2024-04/copenhagen-iStock-1327471226-rfc.jpeg?auto=format&w=140&h=140&fit=crop&q=75', title: 'PUBLIC TRANSPORT', subtitle: '15 tips for travelling to Copenhangen on a budget', des: 'Apr 30, 2024 • 6 min read', icon: Imports.BookmarkBorderRoundedIcon }, { img: 'https://lp-cms-production.imgix.net/2024-04/copenhagen-iStock-1327471226-rfc.jpeg?auto=format&w=140&h=140&fit=crop&q=75', title: 'PUBLIC TRANSPORT', subtitle: '15 tips for travelling to Copenhangen on a budget', des: 'Apr 30, 2024 • 6 min read', icon: Imports.BookmarkBorderRoundedIcon}, { img: 'https://lp-cms-production.imgix.net/2024-04/copenhagen-iStock-1327471226-rfc.jpeg?auto=format&w=140&h=140&fit=crop&q=75', title: 'PUBLIC TRANSPORT', subtitle: '15 tips for travelling to Copenhangen on a budget', des: 'Apr 30, 2024 • 6 min read', icon: Imports.BookmarkBorderRoundedIcon }]
+    const photo = [{ img: 'https://lp-cms-production.imgix.net/2024-04/copenhagen-iStock-1327471226-rfc.jpeg?auto=format&w=140&h=140&fit=crop&q=75', title: 'PUBLIC TRANSPORT', subtitle: '15 tips for travelling to Copenhangen on a budget', des: 'Apr 30, 2024 • 6 min read', icon: Imports.BookmarkBorderRoundedIcon }, { img: 'https://lp-cms-production.imgix.net/2024-04/copenhagen-iStock-1327471226-rfc.jpeg?auto=format&w=140&h=140&fit=crop&q=75', title: 'PUBLIC TRANSPORT', subtitle: '15 tips for travelling to Copenhangen on a budget', des: 'Apr 30, 2024 • 6 min read', icon: Imports.BookmarkBorderRoundedIcon }, { img: 'https://lp-cms-production.imgix.net/2024-04/copenhagen-iStock-1327471226-rfc.jpeg?auto=format&w=140&h=140&fit=crop&q=75', title: 'PUBLIC TRANSPORT', subtitle: '15 tips for travelling to Copenhangen on a budget', des: 'Apr 30, 2024 • 6 min read', icon: Imports.BookmarkBorderRoundedIcon }, { img: 'https://lp-cms-production.imgix.net/2024-04/copenhagen-iStock-1327471226-rfc.jpeg?auto=format&w=140&h=140&fit=crop&q=75', title: 'PUBLIC TRANSPORT', subtitle: '15 tips for travelling to Copenhangen on a budget', des: 'Apr 30, 2024 • 6 min read', icon: Imports.BookmarkBorderRoundedIcon }]
 
 
     const swiperRef = Imports.React.useRef(null);
@@ -25,8 +25,8 @@ function Cardswiper() {
 
     return (
         <>
-            <Imports.Container maxWidth="xl" sx={{textAlign:'center'}}>
-                <Imports.Grid container sx={{textAlign:'center'}}>
+            <Imports.Container maxWidth="xl" sx={{ textAlign: 'center' }}>
+                <Imports.Grid container sx={{ textAlign: 'center' }}>
                     <Imports.Grid item xs={12} md={7} >
                         <Imports.Box position="relative">
 
@@ -61,7 +61,7 @@ function Cardswiper() {
                                     textAlign: 'left',
                                     justifyContent: 'left',
                                     alignItems: 'left',
-                                    display:{lg:'block', md:'block', sm:'block', xs:'none'},
+                                    display: { lg: 'block', md: 'block', sm: 'block', xs: 'none' },
 
                                     whiteSpace: 'nowrap'
                                 }}
@@ -97,25 +97,25 @@ function Cardswiper() {
 
                                             </Imports.Grid>
 
-                                                <item.icon
-                                                    sx={{
-                                                        position: 'absolute',
-                                                        top: '15px', 
-                                                        right: '20px', 
-                                                        color: 'white',
-                                                        zIndex: 1,
-                                                        borderRadius: '24px', 
-                                                        border: '3px solid gray',
-                                                        backgroundColor: '#818487',
-                                                        width: '30px', 
-                                                        height: '30px',
-                                                        display: 'flex',
-                                                        justifyContent: 'center',
-                                                        alignItems: 'center',
-                                                        boxSizing: 'border-box',
-                                                        fontSize: '10px', 
-                                                    }}
-                                                />
+                                            <item.icon
+                                                sx={{
+                                                    position: 'absolute',
+                                                    top: '15px',
+                                                    right: '20px',
+                                                    color: 'white',
+                                                    zIndex: 1,
+                                                    borderRadius: '24px',
+                                                    border: '3px solid gray',
+                                                    backgroundColor: '#818487',
+                                                    width: '30px',
+                                                    height: '30px',
+                                                    display: 'flex',
+                                                    justifyContent: 'center',
+                                                    alignItems: 'center',
+                                                    boxSizing: 'border-box',
+                                                    fontSize: '10px',
+                                                }}
+                                            />
 
 
                                             <Imports.Grid item xs={8} sx={{ marginTop: '20px' }}>
@@ -133,7 +133,7 @@ function Cardswiper() {
 
                                     ))}
                                 </Imports.SwiperSlide>
-                                <Imports.SwiperSlide>
+                                {/* <Imports.SwiperSlide>
                                     {photo.map((item, index) => (
 
                                         <Imports.Grid container maxWidth="sm" sx={{ backgroundColor: '#F0F7FC', borderRadius: '16px', marginBottom: '17px' }}>
@@ -143,20 +143,20 @@ function Cardswiper() {
                                             <item.icon
                                                 sx={{
                                                     position: 'absolute',
-                                                    top: '15px', 
-                                                    right: '20px', 
+                                                    top: '15px',
+                                                    right: '20px',
                                                     color: 'white',
                                                     zIndex: 1,
-                                                    borderRadius: '24px', 
-                                                    border: '3px solid gray', 
+                                                    borderRadius: '24px',
+                                                    border: '3px solid gray',
                                                     backgroundColor: '#818487',
-                                                    width: '30px', 
+                                                    width: '30px',
                                                     height: '30px',
                                                     display: 'flex',
                                                     justifyContent: 'center',
                                                     alignItems: 'center',
                                                     boxSizing: 'border-box',
-                                                    fontSize: '10px', 
+                                                    fontSize: '10px',
                                                 }}
 
                                             />
@@ -185,20 +185,20 @@ function Cardswiper() {
                                             <item.icon
                                                 sx={{
                                                     position: 'absolute',
-                                                    top: '15px', 
-                                                    right: '20px', 
+                                                    top: '15px',
+                                                    right: '20px',
                                                     color: 'white',
                                                     zIndex: 1,
-                                                    borderRadius: '24px', 
-                                                    border: '3px solid gray', 
+                                                    borderRadius: '24px',
+                                                    border: '3px solid gray',
                                                     backgroundColor: '#818487',
-                                                    width: '30px', 
+                                                    width: '30px',
                                                     height: '30px',
                                                     display: 'flex',
                                                     justifyContent: 'center',
                                                     alignItems: 'center',
                                                     boxSizing: 'border-box',
-                                                    fontSize: '10px', 
+                                                    fontSize: '10px',
                                                 }}
 
                                             />
@@ -216,7 +216,7 @@ function Cardswiper() {
                                         </Imports.Grid>
 
                                     ))}
-                                </Imports.SwiperSlide>
+                                </Imports.SwiperSlide> */}
                                 <Imports.Button sx={{ position: 'relative', left: 0, borderRadius: '18px', marginLeft: '8px', border: '1px solid gray' }}><Imports.ArrowBackIosNewRoundedIcon onClick={goPrev} /></Imports.Button>
                                 <Imports.Button sx={{ position: 'relative', right: 0, borderRadius: '18px', border: '1px solid gray' }}><Imports.ArrowForwardIosRoundedIcon onClick={goNext} /></Imports.Button>
                             </Imports.Swiper>

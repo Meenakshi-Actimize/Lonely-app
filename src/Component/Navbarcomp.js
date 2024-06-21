@@ -48,7 +48,7 @@ function Navbarcomp() {
                 <Imports.Container maxWidth="xl">
                     <Imports.Toolbar disableGutters>
                         <Imports.Grid item xs={2} sx={{ display: 'flex' }}>
-                            <img src="./images/lonely-planet9056.logowik.com.jpg" alt="" width="120%" onClick={() => navigate('/flash')} />
+                            <img src="./images/lonely-planet9056.logowik.com.jpg" alt="" width="120%" onClick={() => navigate('/')} />
                         </Imports.Grid>
                         <Imports.Grid item xs={7} sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
                             <Imports.IconButton
