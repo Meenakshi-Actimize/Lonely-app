@@ -10,6 +10,8 @@ function ContinueSwiper() {
     return (
         <Imports.Grid container sx={{ marginTop: '45px' }}>
             <Imports.Swiper
+                modules={[Imports.Autoplay]}
+
                 loop={true}
                 centeredSlides={true}
                 speed={5000}
