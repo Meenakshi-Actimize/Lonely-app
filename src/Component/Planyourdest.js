@@ -46,9 +46,10 @@ function Planyourdest() {
                             textColor="black"
                             indicatorColor="secondary"
                             aria-label="secondary tabs example"
+                            sx={{marginRight:'20px'}}
                         >
 
-                            <Imports.Tab value="one" label="Your destination" sx={{ color: 'black', textTransform: 'none', fontSize: '18px', fontWeight: 'bold', marginLeft: '410px' }} />
+                            <Imports.Tab value="one" label="You" sx={{ color: 'black', textTransform: 'none', fontSize: '18px', fontWeight: 'bold', marginLeft: '410px' }} />
                         </Imports.Tabs>
 
 
@@ -66,8 +67,8 @@ function Planyourdest() {
                 <Imports.Grid container  >
                     <Imports.Grid item xs={12} sm={12} md={6} lg={6}>
 
-                        <Imports.Typography sx={{ fontWeight: 'bold' }}>By traveling with Elsewhere, we guarantee inside access to<br /> extraordinary trips:</Imports.Typography>
-                        <Imports.List >
+                        <Imports.Typography sx={{ fontWeight: 'bold', display:{lg:'none', md:'none', sm:'block', xs:'block'} }}>By traveling with Elsewhere, we guarantee inside access to<br /> extraordinary trips:</Imports.Typography>
+                        <Imports.List sx={{display:{lg:'none', md:'none', sm:'block', xs:'block'}}}>
                             <Imports.ListItem>
                                 <Imports.CheckCircleOutlineIcon sx={{ color: '#006CFF', fontSize: '30px' }} />&nbsp;&nbsp;Truly unique and hyper-local experiences
                             </Imports.ListItem>
@@ -83,8 +84,8 @@ function Planyourdest() {
                     </Imports.Grid>
                     <Imports.Grid item xs={12} sm={12} md={6} lg={6} >
 
-                        <Imports.Typography sx={{ fontWeight: 'bold' }}>87% of your tourist dollars are funneled directly into your<br /> destination, toward quality suppliers and projects that:</Imports.Typography>
-                        <Imports.List sx={{ alignItems: 'right' }}>
+                        <Imports.Typography sx={{ fontWeight: 'bold', display:{lg:'none', md:'none', sm:'block', xs:'block'} }}>87% of your tourist dollars are funneled directly into your<br /> destination, toward quality suppliers and projects that:</Imports.Typography>
+                        <Imports.List sx={{ alignItems: 'right', display:{lg:'none', md:'none', sm:'block', xs:'block'} }}>
                             <Imports.ListItem>
                                 <Imports.CheckCircleOutlineIcon sx={{ color: '#A200ED', fontSize: '28px' }} />&nbsp;&nbsp;Support the local economy
                             </Imports.ListItem>

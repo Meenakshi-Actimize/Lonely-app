@@ -6,7 +6,7 @@ function Carouselcomp() {
     return (
         <>
             <Imports.Grid container>
-                <Imports.Typography sx={{ position: 'absolute', top: { lg: 300, md: 200, sm: 180, xs: 110 }, left: { lg: 440, md: 280, sm: 190, xs: 80 }, fontSize: { lg: '80px', md: '80px', sm: '50px', xs: '25px' }, zIndex: 4, textTransform: 'none', color: 'white', fontWeight: 'bold' }}>Dicover the moments</Imports.Typography>
+                <Imports.Typography sx={{ position: 'absolute', top: { lg: 300, md: 200, sm: 180, xs: 160 }, left: { lg: 350, md: 210, sm: 190, xs: 50 }, fontSize: { lg: '80px', md: '60px', sm: '40px', xs: '20px' }, zIndex: 4, textTransform: 'none', color: 'white', fontWeight: 'bold' }}>Dicover the moments</Imports.Typography>
                     {cardata.map((item) => (
                                  <Imports.Grid
                                  item

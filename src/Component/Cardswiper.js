@@ -88,7 +88,109 @@ function Cardswiper() {
                             <Imports.Swiper ref={swiperRef} >
 
 
-                                    <Imports.SwiperSlide>
+                                <Imports.SwiperSlide>
+                                    {photo.map((item, index) => (
+
+
+                                        <Imports.Grid container maxWidth="xl" sx={{ backgroundColor: '#F0F7FC', borderRadius: '16px', marginBottom: '17px' }}>
+
+
+                                            <Imports.Grid item xs={4} sx={{ marginBottom: '20px' }}>
+
+                                                <img src={item.img} alt="" width="60%" style={{ paddingTop: '20px' }} />
+
+                                            </Imports.Grid>
+
+                                            <item.icon
+                                                sx={{
+                                                    position: 'absolute',
+                                                    top: '15px',
+                                                    right: '20px',
+                                                    color: 'white',
+                                                    zIndex: 1,
+                                                    borderRadius: '24px',
+                                                    border: '3px solid gray',
+                                                    backgroundColor: '#818487',
+                                                    width: '30px',
+                                                    height: '30px',
+                                                    display: { lg: 'block', md: 'block', sm: 'none', xs: 'none' },
+                                                    justifyContent: 'center',
+                                                    alignItems: 'center',
+                                                    boxSizing: 'border-box',
+                                                    fontSize: '10px',
+
+                                                }}
+                                            />
+
+
+                                            <Imports.Grid item xs={8} sx={{ marginTop: '20px' }}>
+                                                <Imports.Typography sx={{ textAlign: 'left', fontWeight: 'bold' }}>
+                                                    {item.title}
+                                                </Imports.Typography>
+                                                <Imports.Typography sx={{ textAlign: 'left' }}>
+                                                    {item.subtitle}
+                                                </Imports.Typography>
+                                                <Imports.Typography sx={{ textAlign: 'left' }}>
+                                                    {item.des}
+                                                </Imports.Typography>
+                                            </Imports.Grid>
+                                        </Imports.Grid>
+                                    ))}
+
+
+                                </Imports.SwiperSlide>
+                                <Imports.SwiperSlide>
+                                    {photo.map((item, index) => (
+
+
+                                        <Imports.Grid container maxWidth="xl" sx={{ backgroundColor: '#F0F7FC', borderRadius: '16px', marginBottom: '17px' }}>
+
+
+                                            <Imports.Grid item xs={4} sx={{ marginBottom: '20px' }}>
+
+                                                <img src={item.img} alt="" width="60%" style={{ paddingTop: '20px' }} />
+
+                                            </Imports.Grid>
+
+                                            <item.icon
+                                                sx={{
+                                                    position: 'absolute',
+                                                    top: '15px',
+                                                    right: '20px',
+                                                    color: 'white',
+                                                    zIndex: 1,
+                                                    borderRadius: '24px',
+                                                    border: '3px solid gray',
+                                                    backgroundColor: '#818487',
+                                                    width: '30px',
+                                                    height: '30px',
+                                                    display: { lg: 'block', md: 'block', sm: 'none', xs: 'none' },
+                                                    justifyContent: 'center',
+                                                    alignItems: 'center',
+                                                    boxSizing: 'border-box',
+                                                    fontSize: '10px',
+
+                                                }}
+                                            />
+
+
+                                            <Imports.Grid item xs={8} sx={{ marginTop: '20px' }}>
+                                                <Imports.Typography sx={{ textAlign: 'left' }}>
+                                                    {item.title}
+                                                </Imports.Typography>
+                                                <Imports.Typography sx={{ textAlign: 'left' }}>
+                                                    {item.subtitle}
+                                                </Imports.Typography>
+                                                <Imports.Typography sx={{ textAlign: 'left' }}>
+                                                    {item.des}
+                                                </Imports.Typography>
+                                            </Imports.Grid>
+                                        </Imports.Grid>
+                                    ))}
+
+
+                                </Imports.SwiperSlide>
+                                <Imports.SwiperSlide>
                                     {photo.map((item, index) => (
 
 
@@ -134,111 +236,11 @@ function Cardswiper() {
                                                 </Imports.Typography>
                                             </Imports.Grid>
                                         </Imports.Grid>
-                                        ))}
+                                    ))}
 
 
-                                    </Imports.SwiperSlide>
-                                    <Imports.SwiperSlide>
-                                    {photo.map((item, index) => (
+                                </Imports.SwiperSlide>
 
-
-                                        <Imports.Grid container maxWidth="xl" sx={{ backgroundColor: '#F0F7FC', borderRadius: '16px', marginBottom: '17px' }}>
-
-
-                                            <Imports.Grid item xs={4} sx={{ marginBottom: '20px' }}>
-
-                                                <img src={item.img} alt="" width="60%" style={{ borderRadius: '30px', paddingTop: '20px' }} />
-
-                                            </Imports.Grid>
-
-                                            <item.icon
-                                                sx={{
-                                                    position: 'absolute',
-                                                    top: '15px',
-                                                    right: '20px',
-                                                    color: 'white',
-                                                    zIndex: 1,
-                                                    borderRadius: '24px',
-                                                    border: '3px solid gray',
-                                                    backgroundColor: '#818487',
-                                                    width: '30px',
-                                                    height: '30px',
-                                                    display: 'flex',
-                                                    justifyContent: 'center',
-                                                    alignItems: 'center',
-                                                    boxSizing: 'border-box',
-                                                    fontSize: '10px',
-                                                }}
-                                            />
-
-
-                                            <Imports.Grid item xs={8} sx={{ marginTop: '20px' }}>
-                                                <Imports.Typography sx={{ textAlign: 'left' }}>
-                                                    {item.title}
-                                                </Imports.Typography>
-                                                <Imports.Typography sx={{ textAlign: 'left' }}>
-                                                    {item.subtitle}
-                                                </Imports.Typography>
-                                                <Imports.Typography sx={{ textAlign: 'left' }}>
-                                                    {item.des}
-                                                </Imports.Typography>
-                                            </Imports.Grid>
-                                        </Imports.Grid>
-                                        ))}
-
-
-                                    </Imports.SwiperSlide>
-                                    <Imports.SwiperSlide>
-                                    {photo.map((item, index) => (
-
-
-                                        <Imports.Grid container maxWidth="xl" sx={{ backgroundColor: '#F0F7FC', borderRadius: '16px', marginBottom: '17px' }}>
-
-
-                                            <Imports.Grid item xs={4} sx={{ marginBottom: '20px' }}>
-
-                                                <img src={item.img} alt="" width="60%" style={{ borderRadius: '30px', paddingTop: '20px' }} />
-
-                                            </Imports.Grid>
-
-                                            <item.icon
-                                                sx={{
-                                                    position: 'absolute',
-                                                    top: '15px',
-                                                    right: '20px',
-                                                    color: 'white',
-                                                    zIndex: 1,
-                                                    borderRadius: '24px',
-                                                    border: '3px solid gray',
-                                                    backgroundColor: '#818487',
-                                                    width: '30px',
-                                                    height: '30px',
-                                                    display: 'flex',
-                                                    justifyContent: 'center',
-                                                    alignItems: 'center',
-                                                    boxSizing: 'border-box',
-                                                    fontSize: '10px',
-                                                }}
-                                            />
-
-
-                                            <Imports.Grid item xs={8} sx={{ marginTop: '20px' }}>
-                                                <Imports.Typography sx={{ textAlign: 'left' }}>
-                                                    {item.title}
-                                                </Imports.Typography>
-                                                <Imports.Typography sx={{ textAlign: 'left' }}>
-                                                    {item.subtitle}
-                                                </Imports.Typography>
-                                                <Imports.Typography sx={{ textAlign: 'left' }}>
-                                                    {item.des}
-                                                </Imports.Typography>
-                                            </Imports.Grid>
-                                        </Imports.Grid>
-                                        ))}
-
-
-                                    </Imports.SwiperSlide>
-                               
 
 
                                 <Imports.Button sx={{ left: 0, borderRadius: '18px', marginLeft: '8px', border: '1px solid gray' }}><Imports.ArrowBackIosNewRoundedIcon onClick={goPrev} /></Imports.Button>

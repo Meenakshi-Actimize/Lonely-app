@@ -1,7 +1,7 @@
 import Imports from '../Import/Import';
 import 'swiper/css/bundle'; // Import Swiper bundle CSS
 
-
+// Card swiper in home page
 
 Imports.SwiperCore.use([Imports.Navigation]);
 
@@ -131,7 +131,7 @@ function HomecardSwiper() {
 
                                             <Imports.Grid item xs={4} sx={{ marginBottom: '20px' }}>
 
-                                                <img src={item.img} alt="" width="60%" style={{ borderRadius: '24px', paddingTop: '20px' }} />
+                                                <img src={item.img} alt="" width="60%" style={{  paddingTop: '20px' }} />
 
                                             </Imports.Grid>
 
@@ -147,7 +147,7 @@ function HomecardSwiper() {
                                                     backgroundColor: '#818487',
                                                     width: '30px',
                                                     height: '30px',
-                                                    display: 'flex',
+                                                    display: { lg: 'block', md: 'block', sm: 'none', xs: 'none' },
                                                     justifyContent: 'center',
                                                     alignItems: 'center',
                                                     boxSizing: 'border-box',
@@ -176,7 +176,7 @@ function HomecardSwiper() {
 
                                         <Imports.Grid container maxWidth="sm" sx={{ backgroundColor: '#F0F7FC', borderRadius: '16px', marginBottom: '17px' }}>
                                             <Imports.Grid item xs={4} sx={{ marginBottom: '20px', alignItems: 'center', justifyContent: 'center' }}>
-                                                <img src={item.img} alt="" width="60%" style={{ borderRadius: '16px', paddingTop: '20px' }} />
+                                                <img src={item.img} alt="" width="60%" style={{  paddingTop: '20px' }} />
                                             </Imports.Grid>
                                             <item.icon
                                                 sx={{
@@ -190,7 +190,7 @@ function HomecardSwiper() {
                                                     backgroundColor: '#818487',
                                                     width: '30px',
                                                     height: '30px',
-                                                    display: 'flex',
+                                                    display: { lg: 'block', md: 'block', sm: 'none', xs: 'none' },
                                                     justifyContent: 'center',
                                                     alignItems: 'center',
                                                     boxSizing: 'border-box',
@@ -218,7 +218,7 @@ function HomecardSwiper() {
 
                                         <Imports.Grid container maxWidth="sm" sx={{ backgroundColor: '#F0F7FC', borderRadius: '16px', marginBottom: '17px' }}>
                                             <Imports.Grid item xs={4} sx={{ marginBottom: '20px' }}>
-                                                <img src={item.img} alt="" width="60%" style={{ borderRadius: '16px', paddingTop: '20px' }} />
+                                                <img src={item.img} alt="" width="60%" style={{  paddingTop: '20px' }} />
                                             </Imports.Grid>
                                             <item.icon
                                                 sx={{
@@ -232,7 +232,7 @@ function HomecardSwiper() {
                                                     backgroundColor: '#818487',
                                                     width: '30px',
                                                     height: '30px',
-                                                    display: 'flex',
+                                                    display: { lg: 'block', md: 'block', sm: 'none', xs: 'none' },
                                                     justifyContent: 'center',
                                                     alignItems: 'center',
                                                     boxSizing: 'border-box',

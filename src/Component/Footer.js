@@ -20,7 +20,7 @@ function Footercomp() {
                         <Imports.Typography variant="h4" sx={{ textAlign: { lg: 'start', md: 'start', sm: 'center', xs: 'center' }, color: '#0057D9' }}><strong>lonely planet</strong></Imports.Typography>
                         <Imports.Typography sx={{ textAlign: { lg: 'start', md: 'start', sm: 'center', xs: 'center' }, paddingBottom: '20px' }}>For Explorers Everywhere</Imports.Typography >
                         <Imports.Typography sx={{ textAlign: { lg: 'start', md: 'start', sm: 'center', xs: 'center' }, fontSize: '14px', fontWeight: '500' }}><strong>FOLLOW US</strong></Imports.Typography >
-                        <Imports.Grid spacing={2} sx={{ textAlign: { lg: 'start', md: 'start', sm: 'center', xs: 'center' }, paddingBottom: '20px' }}>
+                        <Imports.Grid spacing={2} gap={3} sx={{ textAlign: { lg: 'start', md: 'start', sm: 'center', xs: 'center' }, paddingBottom: '20px' }}>
                             <Imports.FacebookRoundedIcon sx={{ borderRadius: '50%', bgcolor: '#0057D9', color: 'white', width: '36px', height: '36px', fontSize: '12px', marginLeft: '5px' }} />
                             <Imports.InstagramIcon sx={{ borderRadius: '50%', bgcolor: '#F00073', color: 'white', width: '36px', height: '36px', fontSize: '12px' }} />
                             <Imports.XIcon sx={{ borderRadius: '50%', bgcolor: 'black', color: 'white', width: '36px', height: '36px', fontSize: '12px' }} />
