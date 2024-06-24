@@ -33,7 +33,7 @@ function Card2items({ data, Getflash }) {
                         <>
                             <Imports.Grid item xs={12} sm={12} md={4} lg={4} sx={{ textAlign: 'center' }}>
                                 <img src={pics.img} alt="" width="90%" style={{ borderRadius: '16px', height: '380px' }} />
-                                <Imports.Typography sx={{ textAlign: 'left', fontSize: '20px', marginLeft: '28px' }}><strong>{pics.title}</strong></Imports.Typography>
+                                <Imports.Typography sx={{ textAlign: 'left', fontSize: '20px', marginLeft: {lg:'28px', md:'28px', sm:'37px', xs:'26px'} }}><strong>{pics.title}</strong></Imports.Typography>
                             </Imports.Grid>
                         </>
                     ))}
